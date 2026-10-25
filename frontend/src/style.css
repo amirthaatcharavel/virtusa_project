@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-midnight-navy: #0F172A;
+    --color-navy-dark: #0A0F1D;
+    --color-navy-border: #1E293B;
+    --color-royal-purple: #7C3AED;
+    --color-purple-hover: #6D28D9;
+    --color-soft-lavender: #EDE9FE;
+    --color-lavender-subtle: #FAF5FF;
+    
+    /* Exact New Colour Palette */
+    --color-surface-bg: #F1F6FA;      /* Light Blue Grey: page background */
+    --color-surface-secondary: #F1F6FA;
+    --color-card: #FFFFFF;            /* White surfaces for readability */
+    --color-border: #D8E3EC;          /* Border Grey: table borders, dividers, outlines */
+    --color-text-primary: #172B3A;    /* Primary Text: headings and body text */
+    --color-text-secondary: #647789;  /* Secondary Text: metadata, descriptions, timestamps */
+    --color-success: #16845B;         /* Success Green: passed tests, completed tasks, approved */
+    --color-warning: #B7791F;         /* Warning Amber: pending reviews and warnings */
+    --color-error: #B42318;           /* Error Red: failed tests, critical issues, rejected */
+  }
+
+  body {
+    background-color: var(--color-surface-bg);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Custom scrollbars for enterprise document panes */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F6FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8E3EC;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #647789;
+}
