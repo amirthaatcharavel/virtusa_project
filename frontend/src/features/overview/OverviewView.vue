@@ -1,17 +1,17 @@
 <template>
   <div class="space-y-6">
     <!-- Page Header & Workflow Banner -->
-    <div class="bg-white border border-border rounded-lg p-5 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div class="bg-white border border-[#E1E5E8] rounded-[3px] p-5 shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2 mb-1">
-          <AppBadge variant="purple">Governance Lifecycle</AppBadge>
-          <span class="text-slate-300">|</span>
-          <span class="text-xs text-text-secondary font-mono">Active Role: {{ authStore.roleLabel }}</span>
+          <AppBadge variant="teal">Governance Lifecycle</AppBadge>
+          <span class="text-[#E1E5E8]">|</span>
+          <span class="text-xs text-[#526173] font-mono">Active Role: {{ authStore.roleLabel }}</span>
         </div>
-        <h1 class="text-lg font-bold text-text-primary tracking-tight">
+        <h1 class="text-lg font-bold text-[#182533] tracking-tight">
           Regulatory Circular to Live Rule Engine Pipeline
         </h1>
-        <p class="text-xs text-text-secondary mt-0.5 max-w-3xl leading-relaxed">
+        <p class="text-xs text-[#526173] mt-0.5 max-w-3xl leading-relaxed">
           Transform regulatory circulars into source-traceable, testable, human-approved decision-rule changes with deterministic evaluation, impact simulation, and controlled sandbox deployment.
         </p>
       </div>
@@ -39,22 +39,22 @@
           v-for="(stage, idx) in pipelineStages"
           :key="stage.name"
           :to="stage.route"
-          class="p-3 rounded-lg border transition-all duration-150 flex flex-col justify-between hover:shadow-xs group"
-          :class="stage.highlight ? 'border-purple-300 bg-purple-50/60' : 'border-border bg-white hover:border-purple-200'"
+          class="p-3 rounded-[3px] border transition-all duration-150 flex flex-col justify-between hover:shadow-2xs group"
+          :class="stage.highlight ? 'border-[#167D83] bg-[#167D83]/10' : 'border-[#E1E5E8] bg-white hover:border-[#167D83]/40'"
         >
           <div>
-            <div class="flex items-center justify-between text-xs text-text-secondary mb-2">
-              <span class="font-mono text-[10px] text-purple-700 font-semibold">0{{ idx + 1 }}</span>
+            <div class="flex items-center justify-between text-xs text-[#526173] mb-2 font-mono">
+              <span class="text-[10px] text-[#167D83] font-semibold">0{{ idx + 1 }}</span>
               <span class="w-2 h-2 rounded-full" :class="stage.dotColor"></span>
             </div>
-            <div class="font-semibold text-xs text-text-primary group-hover:text-purple-700 transition-colors">
+            <div class="font-semibold text-xs text-[#182533] group-hover:text-[#167D83] transition-colors">
               {{ stage.name }}
             </div>
-            <div class="text-[11px] text-text-secondary mt-1 leading-snug">
+            <div class="text-[11px] text-[#526173] mt-1 leading-snug">
               {{ stage.desc }}
             </div>
           </div>
-          <div class="mt-3 pt-2 border-t border-border/60 flex items-center justify-between text-[11px] text-purple-700 font-medium">
+          <div class="mt-3 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#167D83] font-medium font-mono">
             <span>{{ stage.metric }}</span>
             <AppIcon name="chevron-right" :size="12" />
           </div>
@@ -66,31 +66,31 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <!-- Queue 1: Ingested Circulars & Obligations -->
       <AppCard title="Circulars & Ingestion" subtitle="Parsed documents with page fidelity" customClass="lg:col-span-1">
-        <div v-if="loading" class="text-xs text-text-secondary py-4 text-center">Loading circulars...</div>
-        <div v-else-if="circulars.length === 0" class="text-xs text-text-secondary py-6 text-center">No circulars ingested yet.</div>
+        <div v-if="loading" class="text-xs text-[#526173] py-4 text-center font-mono">Loading circulars...</div>
+        <div v-else-if="circulars.length === 0" class="text-xs text-[#526173] py-6 text-center font-mono">No circulars ingested yet.</div>
         <div v-else class="space-y-3">
           <div
             v-for="c in circulars"
             :key="c.id"
-            class="p-3 rounded-lg border border-border bg-surface-muted hover:border-purple-300 transition-colors"
+            class="p-3 rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0] hover:border-[#167D83]/40 transition-colors"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-semibold text-purple-900">{{ c.source_authority }}</span>
-              <AppBadge variant="purple" dot>{{ c.status }}</AppBadge>
+              <span class="font-semibold text-[#182533]">{{ c.source_authority }}</span>
+              <AppBadge variant="teal" dot>{{ c.status }}</AppBadge>
             </div>
-            <div class="text-xs font-medium text-text-primary line-clamp-1 mb-1">
+            <div class="text-xs font-medium text-[#182533] line-clamp-1 mb-1">
               {{ c.title }}
             </div>
-            <div class="flex items-center justify-between text-[11px] text-text-secondary pt-2 border-t border-border">
-              <span>{{ c.page_count }} Pages · {{ c.obligations_count }} Obligations</span>
-              <router-link :to="`/circulars/${c.id}`" class="text-purple-700 font-medium hover:underline flex items-center gap-0.5">
+            <div class="flex items-center justify-between text-[11px] text-[#526173] pt-2 border-t border-[#E1E5E8]">
+              <span class="font-mono">{{ c.page_count }} Pages · {{ c.obligations_count }} Obligations</span>
+              <router-link :to="`/circulars/${c.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Inspect <AppIcon name="chevron-right" :size="12" />
               </router-link>
             </div>
           </div>
         </div>
         <template #footer>
-          <router-link to="/circulars" class="text-purple-700 font-medium hover:underline">
+          <router-link to="/circulars" class="text-[#167D83] font-medium hover:underline font-mono">
             View full circular library →
           </router-link>
         </template>
@@ -98,32 +98,32 @@
 
       <!-- Queue 2: Obligations Awaiting Review & Mapping -->
       <AppCard title="Obligations Review Queue" subtitle="Actionable compliance determination" customClass="lg:col-span-1">
-        <div v-if="loading" class="text-xs text-text-secondary py-4 text-center">Loading obligations...</div>
+        <div v-if="loading" class="text-xs text-[#526173] py-4 text-center font-mono">Loading obligations...</div>
         <div v-else class="space-y-3">
           <div
             v-for="obl in obligations"
             :key="obl.id"
-            class="p-3 rounded-lg border border-border bg-surface-muted hover:border-purple-300 transition-colors"
+            class="p-3 rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0] hover:border-[#167D83]/40 transition-colors"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-mono text-[11px] font-semibold text-text-primary">{{ obl.obligation_code }}</span>
+              <span class="font-mono text-[11px] font-semibold text-[#167D83]">{{ obl.obligation_code }}</span>
               <AppBadge :variant="obl.applicability === 'APPLICABLE' ? 'success' : obl.applicability === 'UNRESOLVED' ? 'warning' : 'neutral'">
                 {{ obl.applicability }}
               </AppBadge>
             </div>
-            <div class="text-xs font-medium text-text-primary line-clamp-2 mb-1.5">
+            <div class="text-xs font-medium text-[#182533] line-clamp-2 mb-1.5">
               {{ obl.title }}
             </div>
-            <div class="text-[11px] text-text-secondary flex items-center justify-between pt-2 border-t border-border">
+            <div class="text-[11px] text-[#526173] flex items-center justify-between pt-2 border-t border-[#E1E5E8] font-mono">
               <span>Source: Page {{ obl.source_page }}</span>
-              <router-link :to="`/obligations/${obl.id}`" class="text-purple-700 font-medium hover:underline flex items-center gap-0.5">
+              <router-link :to="`/obligations/${obl.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Review <AppIcon name="chevron-right" :size="12" />
               </router-link>
             </div>
           </div>
         </div>
         <template #footer>
-          <router-link to="/obligations" class="text-purple-700 font-medium hover:underline">
+          <router-link to="/obligations" class="text-[#167D83] font-medium hover:underline font-mono">
             View all obligations →
           </router-link>
         </template>
@@ -131,52 +131,52 @@
 
       <!-- Queue 3: Candidate Rules & Governance Gating -->
       <AppCard title="Governance & Releases" subtitle="Tested rule versions and approvals" customClass="lg:col-span-1">
-        <div v-if="loading" class="text-xs text-text-secondary py-4 text-center">Loading governance status...</div>
+        <div v-if="loading" class="text-xs text-[#526173] py-4 text-center font-mono">Loading governance status...</div>
         <div v-else class="space-y-3">
           <div
             v-for="r in rules"
             :key="r.id"
-            class="p-3 rounded-lg border border-border bg-surface-muted hover:border-purple-300 transition-colors"
+            class="p-3 rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0] hover:border-[#167D83]/40 transition-colors"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-mono text-[11px] font-semibold text-purple-900">{{ r.rule_code }}</span>
-              <AppBadge :variant="r.status === 'APPROVED' || r.status === 'DEPLOYED' ? 'success' : 'purple'" dot>
+              <span class="font-mono text-[11px] font-semibold text-[#167D83]">{{ r.rule_code }}</span>
+              <AppBadge :variant="r.status === 'APPROVED' || r.status === 'DEPLOYED' ? 'success' : 'teal'" dot>
                 {{ r.status }}
               </AppBadge>
             </div>
-            <div class="text-xs font-medium text-text-primary line-clamp-1 mb-1">
+            <div class="text-xs font-medium text-[#182533] line-clamp-1 mb-1">
               {{ r.name }}
             </div>
-            <div class="text-[11px] text-text-secondary pt-2 border-t border-border flex items-center justify-between">
+            <div class="text-[11px] text-[#526173] pt-2 border-t border-[#E1E5E8] flex items-center justify-between font-mono">
               <span>Category: {{ r.category }}</span>
-              <router-link :to="`/rules/${r.id}`" class="text-purple-700 font-medium hover:underline flex items-center gap-0.5">
+              <router-link :to="`/rules/${r.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Studio <AppIcon name="chevron-right" :size="12" />
               </router-link>
             </div>
           </div>
 
           <!-- Quick Test & Impact Simulation Link -->
-          <div class="p-3 rounded-lg bg-purple-50/50 border border-purple-200 text-xs text-purple-900">
-            <div class="font-semibold flex items-center gap-1 mb-1">
-              <AppIcon name="simulator" :size="14" class="text-purple-700" />
+          <div class="p-3 rounded-[3px] bg-[#167D83]/10 border border-[#167D83]/30 text-xs text-[#14263D]">
+            <div class="font-semibold flex items-center gap-1 mb-1 font-mono">
+              <AppIcon name="simulator" :size="14" class="text-[#167D83]" />
               Verified Regression Evidence
             </div>
-            <p class="text-[11px] text-slate-700 leading-relaxed mb-2">
+            <p class="text-[11px] text-[#526173] leading-relaxed mb-2">
               Candidate version 1.1.0-draft has 5/5 passing deterministic tests and a complete impact analysis on 100 borrower profiles.
             </p>
-            <div class="flex items-center gap-2">
-              <router-link to="/simulation" class="text-purple-700 font-semibold hover:underline text-[11px]">
+            <div class="flex items-center gap-2 font-mono">
+              <router-link to="/simulation" class="text-[#167D83] font-semibold hover:underline text-[11px]">
                 Open Impact Report →
               </router-link>
-              <span class="text-slate-400">·</span>
-              <router-link to="/approvals" class="text-purple-700 font-semibold hover:underline text-[11px]">
+              <span class="text-[#526173]">·</span>
+              <router-link to="/approvals" class="text-[#167D83] font-semibold hover:underline text-[11px]">
                 Approval Queue →
               </router-link>
             </div>
           </div>
         </div>
         <template #footer>
-          <router-link to="/deployments" class="text-purple-700 font-medium hover:underline">
+          <router-link to="/deployments" class="text-[#167D83] font-medium hover:underline font-mono">
             View sandbox monitor →
           </router-link>
         </template>
@@ -202,12 +202,12 @@ const obligations = ref<Obligation[]>([]);
 const rules = ref<Rule[]>([]);
 
 const pipelineStages = [
-  { name: '1. Ingest Circular', desc: 'Preserve text & page coordinates', route: '/circulars', metric: '1 Document', dotColor: 'bg-purple-500', highlight: false },
-  { name: '2. Extract & Review', desc: 'Identify actor, condition, threshold', route: '/obligations', metric: '3 Obligations', dotColor: 'bg-emerald-500', highlight: false },
-  { name: '3. Policy Mapping', desc: 'Map to internal policy catalogue', route: '/policy-mapping', metric: '2 Mapped', dotColor: 'bg-blue-500', highlight: false },
-  { name: '4. Rule Studio', desc: 'Restricted JSON DSL authoring', route: '/rules', metric: 'v1.1.0-draft', dotColor: 'bg-purple-600', highlight: false },
-  { name: '5. Impact Simulator', desc: 'Deterministic baseline vs candidate', route: '/simulation', metric: '100 Evaluated', dotColor: 'bg-amber-500', highlight: true },
-  { name: '6. Sandbox Deploy', desc: 'Independent approval & release', route: '/deployments', metric: 'Sandbox Active', dotColor: 'bg-purple-700', highlight: false },
+  { name: '1. Ingest Circular', desc: 'Preserve text & page coordinates', route: '/circulars', metric: '1 Document', dotColor: 'bg-[#14263D]', highlight: false },
+  { name: '2. Extract & Review', desc: 'Identify actor, condition, threshold', route: '/obligations', metric: '3 Obligations', dotColor: 'bg-[#247653]', highlight: false },
+  { name: '3. Policy Mapping', desc: 'Map to internal policy catalogue', route: '/policy-mapping', metric: '2 Mapped', dotColor: 'bg-[#167D83]', highlight: false },
+  { name: '4. Rule Studio', desc: 'Restricted JSON DSL authoring', route: '/rules', metric: 'v1.1.0-draft', dotColor: 'bg-[#14263D]', highlight: false },
+  { name: '5. Impact Simulator', desc: 'Deterministic baseline vs candidate', route: '/simulation', metric: '100 Evaluated', dotColor: 'bg-[#AD741B]', highlight: true },
+  { name: '6. Sandbox Deploy', desc: 'Independent approval & release', route: '/deployments', metric: 'Sandbox Active', dotColor: 'bg-[#167D83]', highlight: false },
 ];
 
 onMounted(async () => {

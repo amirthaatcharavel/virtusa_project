@@ -3,8 +3,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-text-primary tracking-tight">Policy & Rule Mapping</h1>
-        <p class="text-xs text-text-secondary mt-0.5">
+        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Policy & Rule Mapping</h1>
+        <p class="text-xs text-[#526173] mt-0.5">
           Map regulatory obligations to internal policy documents and existing operational decision rules.
         </p>
       </div>
@@ -21,17 +21,17 @@
 
     <!-- Active Obligation Context Banner -->
     <AppCard noPadding>
-      <div class="p-4 bg-purple-50/50 border-b border-purple-200/80 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      <div class="p-4 bg-[#167D83]/10 border-b border-[#167D83]/30 flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded bg-purple-600 text-white flex items-center justify-center font-bold text-xs font-mono">
+          <div class="w-8 h-8 rounded-[3px] bg-[#14263D] text-white flex items-center justify-center font-bold text-xs font-mono">
             OBL
           </div>
           <div>
-            <div class="text-xs font-semibold text-purple-900 flex items-center gap-2">
-              <span>{{ activeObligation?.obligation_code || 'OBL-CR-001' }}</span>
-              <AppBadge variant="purple">Page {{ activeObligation?.source_page }}</AppBadge>
+            <div class="text-xs font-semibold text-[#182533] flex items-center gap-2">
+              <span class="font-mono text-[#167D83]">{{ activeObligation?.obligation_code || 'OBL-CR-001' }}</span>
+              <AppBadge variant="teal">Page {{ activeObligation?.source_page }}</AppBadge>
             </div>
-            <div class="text-xs font-medium text-text-primary mt-0.5">
+            <div class="text-xs font-medium text-[#182533] mt-0.5">
               {{ activeObligation?.title }}
             </div>
           </div>
@@ -41,7 +41,7 @@
           <select
             v-model="selectedObligationId"
             @change="loadObligationData"
-            class="text-xs bg-white border border-border rounded px-2.5 py-1.5 font-medium text-text-primary focus:ring-1 focus:ring-purple-600"
+            class="text-xs bg-white border border-[#E1E5E8] rounded-[3px] px-2.5 py-1.5 font-medium text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] font-mono"
           >
             <option v-for="o in allObligations" :key="o.id" :value="o.id">
               {{ o.obligation_code }}: {{ o.title }}
@@ -62,27 +62,27 @@
               :key="pol.id"
               @click="selectPolicy(pol)"
               :class="[
-                'p-4 rounded-lg border cursor-pointer transition-all',
+                'p-4 rounded-[3px] border cursor-pointer transition-all',
                 selectedPolicy?.id === pol.id
-                  ? 'border-purple-600 bg-purple-50/50 ring-1 ring-purple-600 shadow-xs'
-                  : 'border-border bg-white hover:border-purple-300'
+                  ? 'border-[#167D83] bg-[#167D83]/10 ring-1 ring-[#167D83] shadow-2xs'
+                  : 'border-[#E1E5E8] bg-white hover:border-[#167D83]/40'
               ]"
             >
               <div class="flex items-center justify-between text-xs mb-1">
-                <span class="font-mono font-bold text-purple-900">{{ pol.policy_code }}</span>
-                <span class="text-[11px] text-text-secondary font-mono">v{{ pol.version }} · {{ pol.active_rules_count }} Active Rules</span>
+                <span class="font-mono font-bold text-[#167D83]">{{ pol.policy_code }}</span>
+                <span class="text-[11px] text-[#526173] font-mono">v{{ pol.version }} · {{ pol.active_rules_count }} Active Rules</span>
               </div>
-              <div class="text-xs font-semibold text-text-primary mb-1">
+              <div class="text-xs font-semibold text-[#182533] mb-1">
                 {{ pol.title }}
               </div>
-              <p class="text-[11px] text-text-secondary line-clamp-2 leading-relaxed mb-2">
+              <p class="text-[11px] text-[#526173] line-clamp-2 leading-relaxed mb-2">
                 {{ pol.description }}
               </p>
-              <div class="flex items-center justify-between text-[11px] pt-2 border-t border-border/80">
-                <span class="text-purple-800 font-medium">Category: {{ pol.category }}</span>
+              <div class="flex items-center justify-between text-[11px] pt-2 border-t border-[#E1E5E8]">
+                <span class="text-[#167D83] font-medium font-mono">Category: {{ pol.category }}</span>
                 <span
-                  class="font-semibold text-xs"
-                  :class="pol.policy_code === 'POL-CR-01' ? 'text-emerald-700' : 'text-slate-500'"
+                  class="font-semibold text-xs font-mono"
+                  :class="pol.policy_code === 'POL-CR-01' ? 'text-[#247653]' : 'text-[#526173]'"
                 >
                   {{ pol.policy_code === 'POL-CR-01' ? '96% Match' : pol.policy_code === 'POL-UW-04' ? '92% Match' : 'Partial Match' }}
                 </span>
@@ -97,21 +97,21 @@
         <AppCard title="Mapping Confirmation" subtitle="Establish explicit policy linkage">
           <div class="space-y-4 text-xs">
             <div>
-              <span class="text-[10px] uppercase font-bold text-text-secondary block mb-1">Target Policy</span>
-              <div v-if="selectedPolicy" class="p-3 bg-surface-muted border border-border rounded">
-                <div class="font-mono font-bold text-purple-800 text-xs">{{ selectedPolicy.policy_code }}</div>
-                <div class="font-semibold text-text-primary mt-0.5">{{ selectedPolicy.title }}</div>
+              <span class="text-[10px] uppercase font-bold text-[#526173] block mb-1 font-mono">Target Policy</span>
+              <div v-if="selectedPolicy" class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
+                <div class="font-mono font-bold text-[#167D83] text-xs">{{ selectedPolicy.policy_code }}</div>
+                <div class="font-semibold text-[#182533] mt-0.5">{{ selectedPolicy.title }}</div>
               </div>
-              <div v-else class="p-3 bg-surface-muted border border-dashed border-border rounded text-text-secondary italic">
+              <div v-else class="p-3 bg-[#F6F5F0] border border-dashed border-[#E1E5E8] rounded-[3px] text-[#526173] italic">
                 No policy selected. Click a policy on the left or choose explicit unmapped status below.
               </div>
             </div>
 
             <div>
-              <label class="block font-semibold text-text-primary mb-1">Mapping Relationship *</label>
+              <label class="block font-semibold text-[#182533] mb-1">Mapping Relationship *</label>
               <select
                 v-model="mappingForm.match_type"
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600 font-medium"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-medium font-mono"
               >
                 <option value="EXACT">Exact Alignment (Direct Regulatory Mandate)</option>
                 <option value="PARTIAL">Partial Alignment (Requires Policy Amendment)</option>
@@ -121,18 +121,18 @@
             </div>
 
             <div>
-              <label class="block font-semibold text-text-primary mb-1">Mapping Justification & Traceability Rationale *</label>
+              <label class="block font-semibold text-[#182533] mb-1">Mapping Justification & Traceability Rationale *</label>
               <textarea
                 v-model="mappingForm.rationale"
                 rows="4"
                 required
                 placeholder="Explain the regulatory alignment between this obligation and internal policy schedule..."
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
               ></textarea>
             </div>
 
-            <div v-if="saveSuccess" class="p-2.5 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded flex items-center gap-1.5 text-xs">
-              <AppIcon name="check" :size="14" class="text-emerald-600" />
+            <div v-if="saveSuccess" class="p-2.5 bg-[#EDF6F1] border border-[#BCE0CE] text-[#247653] rounded-[3px] flex items-center gap-1.5 text-xs font-mono">
+              <AppIcon name="check" :size="14" class="text-[#247653]" />
               <span>Policy mapping successfully certified and recorded.</span>
             </div>
 
@@ -151,7 +151,7 @@
                 type="button"
                 variant="outline"
                 size="sm"
-                customClass="w-full text-slate-600"
+                customClass="w-full text-[#526173]"
                 @click="markUnmapped"
               >
                 Mark Explicitly as Unmapped

@@ -1,15 +1,15 @@
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div class="bg-white border border-border rounded-lg p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="bg-white border border-[#E1E5E8] rounded-[3px] p-5 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2 mb-1">
-          <AppBadge variant="purple" dot>Engineering Implementation Backlog</AppBadge>
-          <span class="text-slate-300">|</span>
-          <span class="text-xs text-text-secondary">Assigned Operator: <strong class="text-purple-900">Arun Patel</strong></span>
+          <AppBadge variant="teal" dot>Engineering Implementation Backlog</AppBadge>
+          <span class="text-[#E1E5E8]">|</span>
+          <span class="text-xs text-[#526173]">Assigned Operator: <strong class="text-[#182533]">Arun Patel</strong></span>
         </div>
-        <h1 class="text-lg font-bold text-text-primary tracking-tight">Rule Implementation Backlog</h1>
-        <p class="text-xs text-text-secondary mt-0.5">
+        <h1 class="text-lg font-bold text-[#182533] tracking-tight">Rule Implementation Backlog</h1>
+        <p class="text-xs text-[#526173] mt-0.5">
           Certified obligations from Compliance Analysts allocated for structured JSON Rule AST definition.
         </p>
       </div>
@@ -27,7 +27,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-surface-subtle text-text-secondary border-b border-border uppercase tracking-wider text-[10px]">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
               <th class="px-5 py-3 font-semibold">Obligation & Policy</th>
               <th class="px-4 py-3 font-semibold">Regulatory Conditions & Threshold</th>
               <th class="px-4 py-3 font-semibold">Analyst Certification</th>
@@ -35,26 +35,26 @@
               <th class="px-5 py-3 font-semibold text-right">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-border">
+          <tbody class="divide-y divide-[#E1E5E8]">
             <tr v-if="loading" class="text-center">
-              <td colspan="5" class="py-8 text-text-secondary">Loading implementation queue...</td>
+              <td colspan="5" class="py-8 text-[#526173] font-mono">Loading implementation queue...</td>
             </tr>
-            <tr v-for="o in applicableObligations" :key="o.id" class="hover:bg-slate-50 transition-colors">
+            <tr v-for="o in applicableObligations" :key="o.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
               <td class="px-5 py-3.5">
-                <div class="font-mono font-bold text-purple-900 text-xs">{{ o.obligation_code }}</div>
-                <div class="font-medium text-text-primary text-xs mt-0.5">{{ o.title }}</div>
-                <div class="text-[11px] text-slate-500 font-mono mt-0.5">{{ o.policy_code || 'POL-CR-01' }}</div>
+                <div class="font-mono font-bold text-[#167D83] text-xs">{{ o.obligation_code }}</div>
+                <div class="font-medium text-[#182533] text-xs mt-0.5">{{ o.title }}</div>
+                <div class="text-[11px] text-[#526173] font-mono mt-0.5">{{ o.policy_code || 'POL-CR-01' }}</div>
               </td>
-              <td class="px-4 py-3.5 text-text-secondary text-[11px] font-mono max-w-sm">
+              <td class="px-4 py-3.5 text-[#526173] text-[11px] font-mono max-w-sm">
                 <div>Threshold: {{ o.threshold || 'Loan > ₹50k' }}</div>
-                <div class="text-slate-500 line-clamp-2 mt-0.5">{{ o.conditions }}</div>
+                <div class="text-[#526173] line-clamp-2 mt-0.5">{{ o.conditions }}</div>
               </td>
               <td class="px-4 py-3.5">
                 <AppBadge variant="success">APPLICABLE</AppBadge>
-                <div class="text-[10px] text-text-secondary mt-0.5">Maya Sen (Analyst)</div>
+                <div class="text-[10px] text-[#526173] mt-0.5 font-mono">Maya Sen (Analyst)</div>
               </td>
               <td class="px-4 py-3.5">
-                <AppBadge variant="purple" dot>TESTED (v1.1)</AppBadge>
+                <AppBadge variant="teal" dot>TESTED (v1.1)</AppBadge>
               </td>
               <td class="px-5 py-3.5 text-right">
                 <router-link to="/rules">

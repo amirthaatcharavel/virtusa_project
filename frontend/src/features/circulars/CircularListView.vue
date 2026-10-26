@@ -3,8 +3,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-text-primary tracking-tight">Regulatory Circular Library</h1>
-        <p class="text-xs text-text-secondary mt-1">
+        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Regulatory Circular Library</h1>
+        <p class="text-xs text-[#526173] mt-1">
           Ingest, verify, and track regulatory publications with page-level provenance.
         </p>
       </div>
@@ -16,14 +16,14 @@
 
     <!-- Search & Filter Bar -->
     <AppCard noPadding>
-      <div class="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-surface-muted border-b border-border">
+      <div class="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#F6F5F0] border-b border-[#E1E5E8]">
         <div class="relative w-full sm:w-80">
-          <AppIcon name="search" :size="14" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <AppIcon name="search" :size="14" class="absolute left-3 top-1/2 -translate-y-1/2 text-[#526173]" />
           <input
             v-model="searchQuery"
             type="text"
             placeholder="Search circulars by title or number..."
-            class="w-full text-xs pl-8 pr-3 py-2 bg-white border border-border rounded-md text-text-primary focus:outline-none focus:ring-1 focus:ring-purple-600"
+            class="w-full text-xs pl-8 pr-3 py-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             @input="filterCirculars"
           />
         </div>
@@ -31,7 +31,7 @@
         <div class="flex items-center gap-2 w-full sm:w-auto">
           <select
             v-model="selectedAuthority"
-            class="text-xs bg-white border border-border rounded-md px-3 py-2 text-text-primary focus:outline-none focus:ring-1 focus:ring-purple-600"
+            class="text-xs bg-white border border-[#E1E5E8] rounded-[3px] px-3 py-2 text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             @change="filterCirculars"
           >
             <option value="">All Regulatory Authorities</option>
@@ -44,9 +44,9 @@
 
       <!-- Circulars Table -->
       <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs text-text-primary border-collapse">
+        <table class="w-full text-left text-xs text-[#182533] border-collapse">
           <thead>
-            <tr class="bg-surface-subtle text-text-secondary border-b border-border uppercase tracking-wider text-[10px]">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
               <th class="px-5 py-3 font-semibold">Document Title / Ref</th>
               <th class="px-4 py-3 font-semibold">Authority</th>
               <th class="px-4 py-3 font-semibold">Publication Date</th>
@@ -56,47 +56,47 @@
               <th class="px-5 py-3 font-semibold text-right">Actions</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-border">
+          <tbody class="divide-y divide-[#E1E5E8]">
             <tr v-if="loading" class="text-center">
-              <td colspan="7" class="py-8 text-text-secondary">Loading regulatory documents...</td>
+              <td colspan="7" class="py-8 text-[#526173] font-mono">Loading regulatory documents...</td>
             </tr>
             <tr v-else-if="filteredList.length === 0" class="text-center">
-              <td colspan="7" class="py-8 text-text-secondary">No circulars matching your criteria.</td>
+              <td colspan="7" class="py-8 text-[#526173] font-mono">No circulars matching your criteria.</td>
             </tr>
             <tr
               v-for="c in filteredList"
               :key="c.id"
-              class="hover:bg-purple-50/20 transition-colors"
+              class="hover:bg-[#F6F5F0]/60 transition-colors"
             >
               <td class="px-5 py-3.5">
-                <div class="font-medium text-text-primary text-xs">{{ c.title }}</div>
-                <div class="text-[11px] text-text-secondary font-mono mt-0.5 flex items-center gap-2">
+                <div class="font-medium text-[#182533] text-xs">{{ c.title }}</div>
+                <div class="text-[11px] text-[#526173] font-mono mt-0.5 flex items-center gap-2">
                   <span>{{ c.circular_number || c.filename }}</span>
-                  <span v-if="c.file_hash" class="text-slate-400 font-mono text-[9px]" title="SHA-256 Hash">
+                  <span v-if="c.file_hash" class="text-[#526173] font-mono text-[9px]" title="SHA-256 Hash">
                     SHA: {{ c.file_hash.substring(0, 10) }}...
                   </span>
                 </div>
               </td>
-              <td class="px-4 py-3.5 font-medium text-text-secondary">
+              <td class="px-4 py-3.5 font-medium text-[#526173]">
                 {{ c.source_authority }}
               </td>
-              <td class="px-4 py-3.5 text-text-secondary font-mono">
+              <td class="px-4 py-3.5 text-[#526173] font-mono">
                 {{ c.publication_date || 'N/A' }}
               </td>
-              <td class="px-4 py-3.5 text-purple-900 font-mono font-medium">
+              <td class="px-4 py-3.5 text-[#182533] font-mono font-medium">
                 {{ c.effective_date || 'N/A' }}
               </td>
-              <td class="px-4 py-3.5 text-text-secondary">
-                <span class="font-semibold text-text-primary">{{ c.page_count }}</span> pages · 
-                <span class="font-semibold text-purple-700">{{ c.obligations_count }}</span> candidate obligations
+              <td class="px-4 py-3.5 text-[#526173]">
+                <span class="font-semibold text-[#182533] font-mono">{{ c.page_count }}</span> pages · 
+                <span class="font-semibold text-[#167D83] font-mono">{{ c.obligations_count }}</span> candidate obligations
               </td>
               <td class="px-4 py-3.5">
-                <AppBadge variant="purple" dot>{{ c.status }}</AppBadge>
+                <AppBadge variant="teal" dot>{{ c.status }}</AppBadge>
               </td>
               <td class="px-5 py-3.5 text-right">
                 <router-link
                   :to="`/circulars/${c.id}`"
-                  class="inline-flex items-center gap-1 text-xs font-semibold text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 border border-purple-200 px-2.5 py-1 rounded"
+                  class="inline-flex items-center gap-1 text-xs font-semibold text-[#167D83] hover:text-[#14263D] bg-[#167D83]/10 hover:bg-[#167D83]/20 border border-[#167D83]/30 px-2.5 py-1 rounded-[3px] font-mono"
                 >
                   Inspect Source
                   <AppIcon name="chevron-right" :size="12" />
@@ -111,38 +111,38 @@
     <!-- Upload Modal -->
     <div
       v-if="showUploadModal"
-      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4"
+      class="fixed inset-0 z-50 bg-[#0B1728]/70 backdrop-blur-xs flex items-center justify-center p-4"
     >
-      <div class="bg-white rounded-xl shadow-xl max-w-lg w-full overflow-hidden border border-border">
-        <div class="px-6 py-4 border-b border-border flex items-center justify-between bg-surface-muted">
+      <div class="bg-white rounded-[4px] shadow-xl max-w-lg w-full overflow-hidden border border-[#E1E5E8]">
+        <div class="px-6 py-4 border-b border-[#E1E5E8] flex items-center justify-between bg-[#F6F5F0]">
           <div>
-            <h3 class="text-sm font-bold text-text-primary">Ingest Regulatory Circular</h3>
-            <p class="text-xs text-text-secondary">Extract page-level obligations with source citation fidelity</p>
+            <h3 class="text-sm font-bold text-[#182533]">Ingest Regulatory Circular</h3>
+            <p class="text-xs text-[#526173]">Extract page-level obligations with source citation fidelity</p>
           </div>
-          <button @click="showUploadModal = false" class="text-slate-400 hover:text-slate-600">
+          <button @click="showUploadModal = false" class="text-[#526173] hover:text-[#182533]">
             <AppIcon name="close" :size="16" />
           </button>
         </div>
 
         <form @submit.prevent="handleUpload" class="p-6 space-y-4">
           <div>
-            <label class="block text-xs font-semibold text-text-primary mb-1">Circular Document Title *</label>
+            <label class="block text-xs font-semibold text-[#182533] mb-1">Circular Document Title *</label>
             <input
               v-model="uploadForm.title"
               type="text"
               required
               placeholder="e.g. RBI Master Direction on Unsecured Retail Credit Risk Weights"
-              class="w-full text-xs px-3 py-2 border border-border rounded-md focus:ring-1 focus:ring-purple-600"
+              class="w-full text-xs px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
             />
           </div>
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-xs font-semibold text-text-primary mb-1">Authority *</label>
+              <label class="block text-xs font-semibold text-[#182533] mb-1">Authority *</label>
               <select
                 v-model="uploadForm.source_authority"
                 required
-                class="w-full text-xs px-3 py-2 border border-border rounded-md focus:ring-1 focus:ring-purple-600"
+                class="w-full text-xs px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
               >
                 <option value="Reserve Bank of India">Reserve Bank of India (RBI)</option>
                 <option value="European Banking Authority">European Banking Authority (EBA)</option>
@@ -150,52 +150,52 @@
               </select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-text-primary mb-1">Circular Ref / No.</label>
+              <label class="block text-xs font-semibold text-[#182533] mb-1">Circular Ref / No.</label>
               <input
                 v-model="uploadForm.circular_number"
                 type="text"
                 placeholder="e.g. RBI/2026-27/84"
-                class="w-full text-xs px-3 py-2 border border-border rounded-md focus:ring-1 focus:ring-purple-600"
+                class="w-full text-xs px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
               />
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-xs font-semibold text-text-primary mb-1">Publication Date</label>
+              <label class="block text-xs font-semibold text-[#182533] mb-1">Publication Date</label>
               <input
                 v-model="uploadForm.publication_date"
                 type="date"
-                class="w-full text-xs px-3 py-2 border border-border rounded-md focus:ring-1 focus:ring-purple-600"
+                class="w-full text-xs px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
               />
             </div>
             <div>
-              <label class="block text-xs font-semibold text-text-primary mb-1">Effective Mandate Date</label>
+              <label class="block text-xs font-semibold text-[#182533] mb-1">Effective Mandate Date</label>
               <input
                 v-model="uploadForm.effective_date"
                 type="date"
-                class="w-full text-xs px-3 py-2 border border-border rounded-md focus:ring-1 focus:ring-purple-600"
+                class="w-full text-xs px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
               />
             </div>
           </div>
 
           <div>
-            <label class="block text-xs font-semibold text-text-primary mb-1">Regulatory Document (PDF or TXT) *</label>
+            <label class="block text-xs font-semibold text-[#182533] mb-1">Regulatory Document (PDF or TXT) *</label>
             <input
               type="file"
               accept=".pdf,.txt"
               required
               @change="onFileChange"
-              class="w-full text-xs text-text-secondary file:mr-3 file:py-1.5 file:px-3 file:rounded file:border file:border-purple-300 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-800 hover:file:bg-purple-100"
+              class="w-full text-xs text-[#526173] file:mr-3 file:py-1.5 file:px-3 file:rounded-[3px] file:border file:border-[#E1E5E8] file:text-xs file:font-semibold file:bg-[#F6F5F0] file:text-[#182533] hover:file:bg-[#E1E5E8] font-mono"
             />
-            <p class="text-[11px] text-text-secondary mt-1">Maximum 25MB. PDF text will be extracted page by page.</p>
+            <p class="text-[11px] text-[#526173] mt-1 font-mono">Maximum 25MB. PDF text will be extracted page by page.</p>
           </div>
 
-          <div v-if="uploadError" class="p-3 bg-rose-50 border border-rose-200 rounded text-xs text-rose-700">
+          <div v-if="uploadError" class="p-3 bg-[#FDF1F2] border border-[#F5C2C6] rounded-[3px] text-xs text-[#B33A42] font-mono">
             {{ uploadError }}
           </div>
 
-          <div class="pt-3 border-t border-border flex items-center justify-end gap-2">
+          <div class="pt-3 border-t border-[#E1E5E8] flex items-center justify-end gap-2">
             <AppButton type="button" variant="outline" size="sm" @click="showUploadModal = false">
               Cancel
             </AppButton>

@@ -1,7 +1,7 @@
 <template>
   <span
     :class="[
-      'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium tracking-wide',
+      'inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[3px] text-[11px] font-medium tracking-tight font-mono leading-none select-none',
       variantClasses
     ]"
   >
@@ -23,36 +23,36 @@ const props = withDefaults(defineProps<{
 
 const variantClasses = computed(() => {
   switch (props.variant) {
-    case 'purple':
-    case 'teal': // Aliased to Royal Purple / Soft Lavender
-      return 'bg-purple-100 text-purple-900 border border-purple-200';
+    case 'teal':
+    case 'purple': // Remapped to Muted Teal
+      return 'bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/30';
     case 'navy':
-      return 'bg-[#F1F6FA] text-[#172B3A] border border-[#D8E3EC]';
+      return 'bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/25';
     case 'success':
-      return 'bg-[#E8F5EE] text-[#16845B] border border-[#B2DEC7]';
+      return 'bg-[#EDF6F1] text-[#247653] border border-[#BCE0CE]';
     case 'warning':
-      return 'bg-[#FDF6E9] text-[#B7791F] border border-[#E8D2A6]';
+      return 'bg-[#FDF7EB] text-[#AD741B] border border-[#EED7A8]';
     case 'error':
-      return 'bg-[#FEF3F2] text-[#B42318] border border-[#FECDCA]';
+      return 'bg-[#FDF1F2] text-[#B33A42] border border-[#F5C2C6]';
     case 'info':
-      return 'bg-blue-50 text-blue-700 border border-blue-200';
+      return 'bg-[#F0F8F8] text-[#167D83] border border-[#167D83]/25';
     case 'subtle':
-      return 'bg-[#F1F6FA] text-[#647789] border border-[#D8E3EC]';
+    case 'neutral':
     default:
-      return 'bg-[#F1F6FA] text-[#647789] border border-[#D8E3EC]';
+      return 'bg-[#F6F5F0] text-[#526173] border border-[#E1E5E8]';
   }
 });
 
 const dotClass = computed(() => {
   switch (props.variant) {
-    case 'purple':
-    case 'teal': return 'bg-purple-600';
-    case 'navy': return 'bg-[#172B3A]';
-    case 'success': return 'bg-[#16845B]';
-    case 'warning': return 'bg-[#B7791F]';
-    case 'error': return 'bg-[#B42318]';
-    case 'info': return 'bg-blue-600';
-    default: return 'bg-[#647789]';
+    case 'teal':
+    case 'purple': return 'bg-[#167D83]';
+    case 'navy': return 'bg-[#14263D]';
+    case 'success': return 'bg-[#247653]';
+    case 'warning': return 'bg-[#AD741B]';
+    case 'error': return 'bg-[#B33A42]';
+    case 'info': return 'bg-[#167D83]';
+    default: return 'bg-[#526173]';
   }
 });
 </script>

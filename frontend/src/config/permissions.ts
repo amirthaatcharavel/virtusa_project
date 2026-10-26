@@ -15,10 +15,10 @@ export interface NavSection {
 }
 
 export const ROLE_DEFAULT_ROUTES: Record<UserRole, string> = {
-  COMPLIANCE_ANALYST: '/analyst/dashboard',
-  RULE_ENGINEER: '/engineer/dashboard',
-  COMPLIANCE_APPROVER: '/approver/dashboard',
-  PLATFORM_ADMIN: '/admin/dashboard',
+  COMPLIANCE_ANALYST: '/dashboard/compliance-analyst',
+  RULE_ENGINEER: '/dashboard/rule-engineer',
+  COMPLIANCE_APPROVER: '/dashboard/compliance-approver',
+  PLATFORM_ADMIN: '/dashboard/platform-admin',
 };
 
 export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
@@ -26,16 +26,15 @@ export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
     {
       title: 'Analyst Workspace',
       items: [
-        { name: 'Analyst Dashboard', path: '/analyst/dashboard', icon: 'overview', description: 'Obligation and circular workflow metrics' },
-        { name: 'Circular Library', path: '/circulars', icon: 'circular', description: 'Regulatory publications repository' },
-        { name: 'Upload Circular', path: '/circulars/upload', icon: 'plus', description: 'Ingest new regulatory publication' },
+        { name: 'Compliance Analyst Dashboard', path: '/dashboard/compliance-analyst', icon: 'overview', description: 'Overview and 5 regulatory modules' },
+        { name: 'Circular Library & Upload', path: '/circulars', icon: 'circular', description: 'Search, filter, upload & preview circulars' },
+        { name: 'Obligation Review', path: '/obligations', icon: 'obligation', description: 'Extract, verify & triage obligations' },
       ]
     },
     {
       title: 'Obligation Intelligence',
       items: [
-        { name: 'Obligation Review', path: '/obligations', icon: 'obligation', description: 'Verify conditions and applicability' },
-        { name: 'Policy & Control Mapping', path: '/mapping', icon: 'mapping', description: 'Map obligations to internal policies' },
+        { name: 'Policy & Rule Mapping', path: '/mapping', icon: 'mapping', description: 'Map obligations to internal policies' },
         { name: 'My Assigned Work', path: '/analyst/assigned', icon: 'check', description: 'Assigned circulars and obligations' },
         { name: 'Submission History', path: '/analyst/submissions', icon: 'audit', description: 'Past certified obligation reviews' },
       ]
@@ -46,10 +45,9 @@ export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
     {
       title: 'Engineering Workspace',
       items: [
-        { name: 'Engineering Dashboard', path: '/engineer/dashboard', icon: 'overview', description: 'Implementation backlog & test status' },
+        { name: 'Rule Engineering Dashboard', path: '/dashboard/rule-engineer', icon: 'overview', description: 'Engineering overview & assigned work' },
         { name: 'Implementation Queue', path: '/engineer/queue', icon: 'obligation', description: 'Reviewed obligations ready for rules' },
-        { name: 'Rule Studio (DSL)', path: '/rules', icon: 'rules', description: 'Restricted JSON Rule DSL editor' },
-        { name: 'Rule Versions', path: '/rules/versions', icon: 'audit', description: 'Version differences & AST history' },
+        { name: 'Rule Studio (DSL)', path: '/rules', icon: 'rules', description: 'Restricted JSON Rule DSL editor & diff' },
       ]
     },
     {
@@ -67,7 +65,7 @@ export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
     {
       title: 'Governance & Sign-Off',
       items: [
-        { name: 'Approval Dashboard', path: '/approver/dashboard', icon: 'overview', description: 'Pending decisions & portfolio risk overview' },
+        { name: 'Compliance Approver Dashboard', path: '/dashboard/compliance-approver', icon: 'overview', description: 'Sign-off center & decision queue' },
         { name: 'Pending Approval Queue', path: '/approvals', icon: 'approvals', description: 'Candidate rule versions awaiting decision' },
         { name: 'Regulatory Evidence Viewer', path: '/approver/evidence', icon: 'file-text', description: 'Full circular-to-test provenance' },
         { name: 'Decision History', path: '/approver/history', icon: 'check', description: 'Audit log of certified decisions' },
@@ -80,11 +78,10 @@ export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
     {
       title: 'Platform Administration',
       items: [
-        { name: 'System Overview', path: '/admin/dashboard', icon: 'overview', description: 'Operational telemetry & services' },
-        { name: 'User Management', path: '/admin/users', icon: 'user', description: 'Accounts, activation & role assignment' },
-        { name: 'Role & Permissions', path: '/admin/roles', icon: 'approvals', description: 'Granular access control matrix' },
+        { name: 'Platform Admin Dashboard', path: '/dashboard/platform-admin', icon: 'overview', description: 'System telemetry & operations hub' },
+        { name: 'User & Permission Management', path: '/admin/users', icon: 'users', description: 'Accounts, activation & role assignment' },
+        { name: 'Integration & Health', path: '/admin/health', icon: 'activity', description: 'Services, database & pipeline telemetry' },
         { name: 'Processing Jobs', path: '/admin/jobs', icon: 'circular', description: 'Document parsing job monitor & failures' },
-        { name: 'System Health', path: '/admin/health', icon: 'admin', description: 'FastAPI, database, and AI status' },
         { name: 'Security Audit Logs', path: '/audit', icon: 'audit', description: 'Platform-wide tamper-evident events' },
       ]
     }
@@ -92,8 +89,19 @@ export const ROLE_NAVIGATION: Record<UserRole, NavSection[]> = {
 };
 
 export const ROUTE_PERMISSIONS: Record<string, UserRole[]> = {
-  // Analyst Routes
-  '/analyst/dashboard': ['COMPLIANCE_ANALYST', 'PLATFORM_ADMIN'],
+  // 1. Role-specific Dashboards (Strict Front-End Guards)
+  '/dashboard/compliance-analyst': ['COMPLIANCE_ANALYST'],
+  '/dashboard/rule-engineer': ['RULE_ENGINEER'],
+  '/dashboard/compliance-approver': ['COMPLIANCE_APPROVER'],
+  '/dashboard/platform-admin': ['PLATFORM_ADMIN'],
+
+  // Legacy Aliases
+  '/analyst/dashboard': ['COMPLIANCE_ANALYST'],
+  '/engineer/dashboard': ['RULE_ENGINEER'],
+  '/approver/dashboard': ['COMPLIANCE_APPROVER'],
+  '/admin/dashboard': ['PLATFORM_ADMIN'],
+
+  // Analyst Functional Routes
   '/circulars': ['COMPLIANCE_ANALYST', 'COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'],
   '/circulars/upload': ['COMPLIANCE_ANALYST', 'PLATFORM_ADMIN'],
   '/circulars/:circularId': ['COMPLIANCE_ANALYST', 'COMPLIANCE_APPROVER', 'RULE_ENGINEER', 'PLATFORM_ADMIN'],
@@ -103,8 +111,7 @@ export const ROUTE_PERMISSIONS: Record<string, UserRole[]> = {
   '/analyst/assigned': ['COMPLIANCE_ANALYST', 'PLATFORM_ADMIN'],
   '/analyst/submissions': ['COMPLIANCE_ANALYST', 'PLATFORM_ADMIN'],
 
-  // Engineer Routes
-  '/engineer/dashboard': ['RULE_ENGINEER', 'PLATFORM_ADMIN'],
+  // Rule Engineer Functional Routes
   '/engineer/queue': ['RULE_ENGINEER', 'PLATFORM_ADMIN'],
   '/rules': ['RULE_ENGINEER', 'PLATFORM_ADMIN'],
   '/rules/:ruleId': ['RULE_ENGINEER', 'COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'],
@@ -114,17 +121,17 @@ export const ROUTE_PERMISSIONS: Record<string, UserRole[]> = {
   '/deployments': ['RULE_ENGINEER', 'PLATFORM_ADMIN'],
   '/engineer/submissions': ['RULE_ENGINEER', 'PLATFORM_ADMIN'],
 
-  // Approver Routes
-  '/approver/dashboard': ['COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'],
+  // Approver Functional Routes
   '/approvals': ['COMPLIANCE_APPROVER'],
   '/approver/evidence': ['COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'],
   '/approver/history': ['COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'],
 
-  // Admin Routes
-  '/admin/dashboard': ['PLATFORM_ADMIN'],
+  // Admin Functional Routes
   '/admin/users': ['PLATFORM_ADMIN'],
   '/admin/roles': ['PLATFORM_ADMIN'],
   '/admin/jobs': ['PLATFORM_ADMIN'],
   '/admin/health': ['PLATFORM_ADMIN'],
+
+  // Shared
   '/audit': ['COMPLIANCE_APPROVER', 'PLATFORM_ADMIN', 'COMPLIANCE_ANALYST', 'RULE_ENGINEER'],
 };
