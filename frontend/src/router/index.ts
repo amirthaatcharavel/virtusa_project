@@ -61,13 +61,53 @@ const routes = [
     }
   },
 
-  // 1. Analyst Dedicated Routes
+  // ==========================================
+  // FOUR PRIMARY ROLE-BASED DASHBOARD ROUTES
+  // ==========================================
+  {
+    path: '/dashboard/compliance-analyst',
+    name: 'DashboardComplianceAnalyst',
+    component: AnalystDashboardView,
+    meta: { roles: ['COMPLIANCE_ANALYST'] as UserRole[] }
+  },
+  {
+    path: '/dashboard/rule-engineer',
+    name: 'DashboardRuleEngineer',
+    component: EngineerDashboardView,
+    meta: { roles: ['RULE_ENGINEER'] as UserRole[] }
+  },
+  {
+    path: '/dashboard/compliance-approver',
+    name: 'DashboardComplianceApprover',
+    component: ApproverDashboardView,
+    meta: { roles: ['COMPLIANCE_APPROVER'] as UserRole[] }
+  },
+  {
+    path: '/dashboard/platform-admin',
+    name: 'DashboardPlatformAdmin',
+    component: AdminDashboardView,
+    meta: { roles: ['PLATFORM_ADMIN'] as UserRole[] }
+  },
+
+  // Backward-compatible Aliases
   {
     path: '/analyst/dashboard',
-    name: 'AnalystDashboard',
-    component: AnalystDashboardView,
-    meta: { roles: ['COMPLIANCE_ANALYST', 'PLATFORM_ADMIN'] as UserRole[] }
+    redirect: '/dashboard/compliance-analyst'
   },
+  {
+    path: '/engineer/dashboard',
+    redirect: '/dashboard/rule-engineer'
+  },
+  {
+    path: '/approver/dashboard',
+    redirect: '/dashboard/compliance-approver'
+  },
+  {
+    path: '/admin/dashboard',
+    redirect: '/dashboard/platform-admin'
+  },
+
+  // 1. Analyst Dedicated Routes
   {
     path: '/analyst/assigned',
     name: 'AnalystAssigned',
@@ -119,12 +159,6 @@ const routes = [
 
   // 2. Rule Engineer Dedicated Routes
   {
-    path: '/engineer/dashboard',
-    name: 'EngineerDashboard',
-    component: EngineerDashboardView,
-    meta: { roles: ['RULE_ENGINEER', 'PLATFORM_ADMIN'] as UserRole[] }
-  },
-  {
     path: '/engineer/queue',
     name: 'EngineerQueue',
     component: EngineerQueueView,
@@ -175,12 +209,6 @@ const routes = [
 
   // 3. Compliance Approver Dedicated Routes
   {
-    path: '/approver/dashboard',
-    name: 'ApproverDashboard',
-    component: ApproverDashboardView,
-    meta: { roles: ['COMPLIANCE_APPROVER', 'PLATFORM_ADMIN'] as UserRole[] }
-  },
-  {
     path: '/approvals',
     name: 'ApprovalCenter',
     component: ApprovalCenterView,
@@ -200,12 +228,6 @@ const routes = [
   },
 
   // 4. Platform Administrator Dedicated Routes
-  {
-    path: '/admin/dashboard',
-    name: 'AdminDashboard',
-    component: AdminDashboardView,
-    meta: { roles: ['PLATFORM_ADMIN'] as UserRole[] }
-  },
   {
     path: '/admin/users',
     name: 'AdminUsers',
@@ -267,6 +289,12 @@ export const router = createRouter({
 // Enterprise Frontend Navigation Guard enforcing Role-Based Authorization
 router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore();
+
+  // If user role is missing or invalid, default to COMPLIANCE_ANALYST
+  if (!authStore.currentUser || !authStore.currentUser.role) {
+    authStore.switchRole('COMPLIANCE_ANALYST');
+  }
+
   const requiredRoles = to.meta.roles as UserRole[] | undefined;
 
   // If route defines required roles, check user's role

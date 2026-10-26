@@ -1,17 +1,17 @@
 <template>
   <div
     :class="[
-      'bg-white rounded-lg border border-border shadow-xs overflow-hidden',
+      'bg-white rounded-[4px] border border-[#E1E5E8] shadow-2xs overflow-hidden',
       paddingClasses,
       customClass
     ]"
   >
-    <div v-if="$slots.header || title" class="px-5 py-4 border-b border-border flex items-center justify-between">
+    <div v-if="$slots.header || title" class="px-5 py-3.5 border-b border-[#E1E5E8] bg-white flex items-center justify-between">
       <div class="flex items-center gap-2.5">
         <slot name="header-icon" />
         <div>
-          <h3 v-if="title" class="text-sm font-semibold text-text-primary">{{ title }}</h3>
-          <p v-if="subtitle" class="text-xs text-text-secondary mt-0.5">{{ subtitle }}</p>
+          <h3 v-if="title" class="text-xs font-bold text-[#182533] uppercase tracking-wide">{{ title }}</h3>
+          <p v-if="subtitle" class="text-[11px] text-[#526173] mt-0.5">{{ subtitle }}</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -23,7 +23,7 @@
       <slot />
     </div>
 
-    <div v-if="$slots.footer" class="px-5 py-3.5 bg-surface-muted border-t border-border flex items-center justify-between text-xs text-text-secondary">
+    <div v-if="$slots.footer" class="px-5 py-3 bg-[#F6F5F0] border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#526173]">
       <slot name="footer" />
     </div>
   </div>

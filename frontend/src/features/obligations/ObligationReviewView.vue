@@ -4,16 +4,16 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2 mb-1">
-          <router-link to="/obligations" class="text-xs text-purple-700 hover:underline">
+          <router-link to="/obligations" class="text-xs text-[#167D83] hover:underline font-mono">
             ← All Obligations
           </router-link>
-          <span class="text-slate-300">|</span>
-          <span class="text-xs font-mono text-text-secondary">{{ obligation?.obligation_code || 'OBLIGATION' }}</span>
+          <span class="text-[#E1E5E8]">|</span>
+          <span class="text-xs font-mono text-[#526173]">{{ obligation?.obligation_code || 'OBLIGATION' }}</span>
         </div>
-        <h1 class="text-lg font-bold text-text-primary tracking-tight">
+        <h1 class="text-lg font-bold text-[#182533] tracking-tight">
           {{ obligation?.title || 'Obligation Review & Applicability Determination' }}
         </h1>
-        <p class="text-xs text-text-secondary mt-0.5">
+        <p class="text-xs text-[#526173] mt-0.5">
           Compliance Analyst review: Determine applicability, verify conditions, and record formal rationale.
         </p>
       </div>
@@ -43,7 +43,7 @@
             :uncertaintyFlags="obligation.flags"
           />
 
-          <div class="mt-4 pt-3 border-t border-border text-xs text-text-secondary space-y-2">
+          <div class="mt-4 pt-3 border-t border-[#E1E5E8] text-xs text-[#526173] space-y-2">
             <div class="flex items-center justify-between">
               <span>Review Status:</span>
               <AppBadge :variant="obligation?.review_status === 'ACCEPTED' ? 'success' : 'neutral'">
@@ -52,28 +52,28 @@
             </div>
             <div class="flex items-center justify-between">
               <span>Last Reviewed By:</span>
-              <span class="font-medium text-text-primary">{{ obligation?.reviewed_by_id ? 'Maya Sen (Compliance Analyst)' : 'Pending Review' }}</span>
+              <span class="font-medium text-[#182533]">{{ obligation?.reviewed_by_id ? 'Maya Sen (Compliance Analyst)' : 'Pending Review' }}</span>
             </div>
             <div v-if="obligation?.reviewed_at" class="flex items-center justify-between">
               <span>Review Timestamp:</span>
-              <span class="font-mono text-[11px]">{{ new Date(obligation.reviewed_at).toLocaleString() }}</span>
+              <span class="font-mono text-[11px] text-[#526173]">{{ new Date(obligation.reviewed_at).toLocaleString() }}</span>
             </div>
           </div>
         </AppCard>
 
         <!-- Current Internal Mapping Status -->
         <AppCard title="Internal Policy Alignment" subtitle="Connected internal policy or rule mapping">
-          <div v-if="obligation?.policy_code" class="p-3 bg-purple-50/50 border border-purple-200/80 rounded text-xs">
+          <div v-if="obligation?.policy_code" class="p-3 bg-[#167D83]/10 border border-[#167D83]/30 rounded-[3px] text-xs">
             <div class="flex items-center justify-between mb-1">
-              <span class="font-mono font-bold text-purple-900">{{ obligation.policy_code }}</span>
-              <AppBadge variant="purple">MAPPED</AppBadge>
+              <span class="font-mono font-bold text-[#167D83]">{{ obligation.policy_code }}</span>
+              <AppBadge variant="teal">MAPPED</AppBadge>
             </div>
-            <div class="text-xs font-semibold text-text-primary">{{ obligation.policy_title }}</div>
+            <div class="text-xs font-semibold text-[#182533]">{{ obligation.policy_title }}</div>
           </div>
-          <div v-else class="p-4 bg-surface-muted border border-dashed border-border rounded text-center text-xs text-text-secondary">
+          <div v-else class="p-4 bg-[#F6F5F0] border border-dashed border-[#E1E5E8] rounded-[3px] text-center text-xs text-[#526173]">
             No internal policy mapped yet.
             <div class="mt-2">
-              <router-link :to="`/mapping?obligationId=${obligation?.id}`" class="text-purple-700 font-semibold hover:underline">
+              <router-link :to="`/mapping?obligationId=${obligation?.id}`" class="text-[#167D83] font-semibold hover:underline font-mono">
                 Find matching internal policies →
               </router-link>
             </div>
@@ -87,29 +87,29 @@
           <form @submit.prevent="saveReview" class="space-y-4 text-xs">
             <!-- Title -->
             <div>
-              <label class="block font-semibold text-text-primary mb-1">Obligation Title</label>
+              <label class="block font-semibold text-[#182533] mb-1">Obligation Title</label>
               <input
                 v-model="form.title"
                 type="text"
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600 font-medium"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-medium"
               />
             </div>
 
             <div class="grid grid-cols-2 gap-3">
               <div>
-                <label class="block font-semibold text-text-primary mb-1">Regulated Actor</label>
+                <label class="block font-semibold text-[#182533] mb-1">Regulated Actor</label>
                 <input
                   v-model="form.actor"
                   type="text"
-                  class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+                  class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
                 />
               </div>
               <div>
-                <label class="block font-semibold text-text-primary mb-1">Compliance Deadline</label>
+                <label class="block font-semibold text-[#182533] mb-1">Compliance Deadline</label>
                 <input
                   v-model="form.deadline"
                   type="date"
-                  class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+                  class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
                 />
               </div>
             </div>
@@ -117,21 +117,21 @@
             <!-- Conditions & Threshold -->
             <div class="grid grid-cols-2 gap-3">
               <div>
-                <label class="block font-semibold text-text-primary mb-1">Regulatory Threshold</label>
+                <label class="block font-semibold text-[#182533] mb-1">Regulatory Threshold</label>
                 <input
                   v-model="form.threshold"
                   type="text"
                   placeholder="e.g. Loan Amount > INR 50,000"
-                  class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600 font-mono"
+                  class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
                 />
               </div>
               <div>
-                <label class="block font-semibold text-text-primary mb-1">Applicability Determination *</label>
+                <label class="block font-semibold text-[#182533] mb-1">Applicability Determination *</label>
                 <select
                   v-model="form.applicability"
                   required
-                  class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600 font-semibold"
-                  :class="form.applicability === 'APPLICABLE' ? 'text-emerald-700 bg-emerald-50/40' : form.applicability === 'UNRESOLVED' ? 'text-amber-800 bg-amber-50/40' : 'text-slate-700'"
+                  class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-semibold font-mono"
+                  :class="form.applicability === 'APPLICABLE' ? 'text-[#247653] bg-[#EDF6F1]' : form.applicability === 'UNRESOLVED' ? 'text-[#AD741B] bg-[#FDF7EB]' : 'text-[#526173]'"
                 >
                   <option value="APPLICABLE">Applicable (Proceed to Mapping & Rule Studio)</option>
                   <option value="NOT_APPLICABLE">Not Applicable (Exempt from our portfolio)</option>
@@ -142,46 +142,46 @@
 
             <!-- Action -->
             <div>
-              <label class="block font-semibold text-text-primary mb-1">Mandated Action / Implementation Specification</label>
+              <label class="block font-semibold text-[#182533] mb-1">Mandated Action / Implementation Specification</label>
               <textarea
                 v-model="form.action"
                 rows="2"
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
               ></textarea>
             </div>
 
             <!-- Conditions -->
             <div>
-              <label class="block font-semibold text-text-primary mb-1">Conditions Expression</label>
+              <label class="block font-semibold text-[#182533] mb-1">Conditions Expression</label>
               <textarea
                 v-model="form.conditions"
                 rows="2"
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600 font-mono"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none font-mono"
               ></textarea>
             </div>
 
             <!-- Compliance Reviewer Rationale -->
-            <div class="pt-2 border-t border-border">
-              <label class="block font-semibold text-text-primary mb-1">
+            <div class="pt-2 border-t border-[#E1E5E8]">
+              <label class="block font-semibold text-[#182533] mb-1">
                 Compliance Reviewer Rationale *
-                <span class="text-text-secondary font-normal">(Recorded in immutable audit trail)</span>
+                <span class="text-[#526173] font-normal font-mono">(Recorded in immutable audit trail)</span>
               </label>
               <textarea
                 v-model="form.reviewer_notes"
                 rows="3"
                 required
                 placeholder="Explain the regulatory justification for this applicability determination and any internal policy dependencies..."
-                class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+                class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
               ></textarea>
             </div>
 
-            <div v-if="saveSuccess" class="p-2.5 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded flex items-center gap-1.5 text-xs">
-              <AppIcon name="check" :size="14" class="text-emerald-600" />
+            <div v-if="saveSuccess" class="p-2.5 bg-[#EDF6F1] border border-[#BCE0CE] text-[#247653] rounded-[3px] flex items-center gap-1.5 text-xs font-mono">
+              <AppIcon name="check" :size="14" class="text-[#247653]" />
               <span>Review successfully recorded and persisted to audit log.</span>
             </div>
 
-            <div class="flex items-center justify-between pt-3 border-t border-border">
-              <span class="text-[11px] text-text-secondary">Changes recorded with actor ID: {{ authStore.currentUser.full_name }}</span>
+            <div class="flex items-center justify-between pt-3 border-t border-[#E1E5E8]">
+              <span class="text-[11px] text-[#526173] font-mono">Changes recorded with actor ID: {{ authStore.currentUser.full_name }}</span>
               <AppButton type="submit" variant="primary" size="md" :loading="saving">
                 Save Review Determination
               </AppButton>

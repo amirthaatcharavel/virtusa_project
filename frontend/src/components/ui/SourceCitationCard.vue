@@ -1,39 +1,39 @@
 <template>
-  <div class="rounded-lg border border-purple-200/80 bg-purple-50/40 p-4 relative overflow-hidden">
+  <div class="rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0]/60 p-3.5 relative overflow-hidden">
     <!-- Authority Header -->
-    <div class="flex items-center justify-between text-xs text-[#647789] mb-2 font-medium">
+    <div class="flex items-center justify-between text-xs text-[#526173] mb-2 font-medium">
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center gap-1 font-semibold text-[#172B3A]">
-          <AppIcon name="file-text" :size="14" class="text-purple-600" />
+        <span class="inline-flex items-center gap-1.5 font-semibold text-[#182533]">
+          <AppIcon name="file-text" :size="13" class="text-[#167D83]" />
           {{ circularTitle || 'Regulatory Source Document' }}
         </span>
-        <span v-if="pageNumber" class="bg-white border border-[#D8E3EC] text-purple-900 px-2 py-0.5 rounded text-[11px] font-mono">
-          Page {{ pageNumber }}
+        <span v-if="pageNumber" class="bg-white border border-[#E1E5E8] text-[#14263D] px-1.5 py-0.5 rounded-[3px] text-[10px] font-mono font-medium">
+          PAGE {{ pageNumber }}
         </span>
-        <span v-if="spanRef" class="text-[#647789] text-[11px] font-mono">
+        <span v-if="spanRef" class="text-[#526173] text-[10px] font-mono">
           {{ spanRef }}
         </span>
       </div>
       <router-link
         v-if="circularId"
         :to="`/circulars/${circularId}`"
-        class="text-purple-700 hover:text-purple-900 underline text-[11px] font-medium flex items-center gap-1"
+        class="text-[#167D83] hover:text-[#14263D] text-[11px] font-medium flex items-center gap-1 transition-colors"
       >
-        Inspect Source Document
-        <AppIcon name="chevron-right" :size="12" />
+        Inspect Source
+        <AppIcon name="chevron-right" :size="11" />
       </router-link>
     </div>
 
     <!-- Verifiable Source Extract -->
-    <blockquote class="text-xs text-[#172B3A] leading-relaxed pl-3 border-l-2 border-purple-600 bg-white py-2 pr-3 rounded-r italic font-serif">
+    <blockquote class="text-xs text-[#182533] leading-relaxed pl-3 border-l-2 border-[#167D83] bg-white py-2 pr-3 rounded-[3px] italic font-sans">
       "{{ extractedText }}"
     </blockquote>
 
-    <div v-if="uncertaintyFlags && uncertaintyFlags.length > 0" class="mt-2.5 pt-2 border-t border-[#D8E3EC] flex items-start gap-1.5 text-xs text-[#B7791F]">
-      <AppIcon name="alert" :size="13" class="text-[#B7791F] mt-0.5 flex-shrink-0" />
+    <div v-if="uncertaintyFlags && uncertaintyFlags.length > 0" class="mt-2.5 pt-2 border-t border-[#E1E5E8] flex items-start gap-1.5 text-xs text-[#AD741B]">
+      <AppIcon name="alert" :size="13" class="text-[#AD741B] mt-0.5 flex-shrink-0" />
       <div>
-        <span class="font-semibold text-[#B7791F]">Review Note / Ambiguity Flag: </span>
-        <span class="text-[#172B3A]">{{ uncertaintyFlags.join('; ') }}</span>
+        <span class="font-semibold text-[#AD741B]">Review Note / Ambiguity Flag: </span>
+        <span class="text-[#182533]">{{ uncertaintyFlags.join('; ') }}</span>
       </div>
     </div>
   </div>

@@ -7,82 +7,132 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Core Palette
+        'deep-navy': '#14263D',
+        'midnight': '#0B1728',
+        'muted-teal': '#167D83',
+        'warm-white': '#F6F5F0',
+        'pure-white': '#FFFFFF',
+        'cool-gray': '#E1E5E8',
+        'slate-text': '#526173',
+        'primary-text': '#182533',
+
+        // Navy Scale
         navy: {
-          950: '#0A0F1D', // Deep Midnight Navy
-          900: '#0F172A', // Midnight Navy Sidebar & Primary Structure
-          800: '#1E293B', // Dark Navy Border & Structural Headers
-          700: '#334155',
-          600: '#475569',
-          500: '#64748B',
-          200: '#E2E8F0',
-          100: '#F1F5F9',
-          50: '#F8FAFC',
+          950: '#070E18',
+          900: '#0B1728', // Midnight Blue Sidebar
+          850: '#0E1D31',
+          800: '#14263D', // Deep Navy Structural
+          700: '#1C3554',
+          600: '#2A4A72',
+          500: '#3D6394',
+          200: '#E1E5E8',
+          100: '#ECEFF2',
+          50: '#F6F5F0',
         },
+
+        // Muted Teal Scale (New Accent)
+        teal: {
+          950: '#083033',
+          900: '#0B4246',
+          800: '#0F585C',
+          700: '#126B70',
+          600: '#167D83', // Muted Teal Primary Accent
+          500: '#1D9BA2',
+          400: '#32B5BC',
+          300: '#62CDD3',
+          200: '#A4E3E7',
+          100: '#D5F2F4',
+          50: '#F0F8F8', // Soft Tint
+        },
+
+        // Override purple to alias to teal/navy to remove any purple leaks
         purple: {
-          950: '#2E1065',
-          900: '#3B0764',
-          800: '#581C87',
-          700: '#6B21A8',
-          600: '#7C3AED', // Royal Purple Primary Action & Active Route
-          500: '#8B5CF6',
-          400: '#A78BFA',
-          300: '#C4B5FD',
-          200: '#DDD6FE', // Soft Lavender Border
-          100: '#EDE9FE', // Soft Lavender Highlight
-          50: '#FAF5FF',  // Soft Lavender Background for AI-assisted / extracts
+          950: '#070E18',
+          900: '#0B1728',
+          800: '#14263D',
+          700: '#126B70',
+          600: '#167D83', // Maps to Muted Teal
+          500: '#1D9BA2',
+          400: '#32B5BC',
+          300: '#62CDD3',
+          200: '#E1E5E8',
+          100: '#F0F8F8',
+          50: '#F6F5F0',
         },
         lavender: {
-          200: '#DDD6FE',
-          100: '#EDE9FE',
-          50: '#FAF5FF',
+          200: '#E1E5E8',
+          100: '#F0F8F8',
+          50: '#F6F5F0',
         },
+
+        // Surface Design Tokens
         surface: {
           DEFAULT: '#FFFFFF',
-          muted: '#F1F6FA', // Light Blue Grey: secondary surfaces & headers
+          muted: '#F6F5F0', // Warm off-white page background
           card: '#FFFFFF',
-          subtle: '#F1F6FA',
-          bg: '#F1F6FA',     // Light Blue Grey page background
+          subtle: '#F6F5F0',
+          bg: '#F6F5F0',
         },
+
+        // Typography Color Tokens
         text: {
-          primary: '#172B3A',   // Primary Text: Headings and body text
-          secondary: '#647789', // Secondary Text: Metadata, descriptions, timestamps
-          muted: '#647789',
+          primary: '#182533',   // Primary Text
+          secondary: '#526173', // Slate Text
+          muted: '#526173',
+          slate: '#526173',
         },
+
+        // Border Design Tokens
         border: {
-          DEFAULT: '#D8E3EC', // Border Grey: Table borders, dividers, input outlines
-          subtle: '#D8E3EC',
-          focus: '#7C3AED',   // Royal Purple brand focus ring
+          DEFAULT: '#E1E5E8', // Cool gray subtle border
+          subtle: '#E1E5E8',
+          focus: '#167D83',   // Muted teal focus ring
         },
+
+        // Semantic Status Tokens
         status: {
-          success: '#16845B',       // Success Green: Passed tests, completed tasks, approved status
-          successBg: '#E8F5EE',
-          successBorder: '#B2DEC7',
-          warning: '#B7791F',       // Warning Amber: Pending reviews and warnings
-          warningBg: '#FDF6E9',
-          warningBorder: '#E8D2A6',
-          error: '#B42318',         // Error Red: Failed tests, critical issues, rejected changes
-          errorBg: '#FEF3F2',
-          errorBorder: '#FECDCA',
-          info: '#2563EB',
-          infoBg: '#EFF6FF',
+          success: '#247653',       // Success Green
+          successBg: '#EDF6F1',
+          successBorder: '#BCE0CE',
+          warning: '#AD741B',       // Warning Amber
+          warningBg: '#FDF7EB',
+          warningBorder: '#EED7A8',
+          error: '#B33A42',         // Error Red
+          errorBg: '#FDF1F2',
+          errorBorder: '#F5C2C6',
+          info: '#167D83',
+          infoBg: '#F0F8F8',
         },
-        // Direct semantic colour tokens
+
+        // Direct Semantic Colour Tokens
         'blue-grey': {
-          DEFAULT: '#F1F6FA',
-          50: '#F8FAFC',
-          100: '#F1F6FA',
-          200: '#D8E3EC',
+          DEFAULT: '#F6F5F0',
+          50: '#FDFCF9',
+          100: '#F6F5F0',
+          200: '#E1E5E8',
         },
-        'border-grey': '#D8E3EC',
-        'text-primary': '#172B3A',
-        'text-secondary': '#647789',
-        'success-green': '#16845B',
-        'warning-amber': '#B7791F',
-        'error-red': '#B42318',
+        'border-grey': '#E1E5E8',
+        'text-primary': '#182533',
+        'text-secondary': '#526173',
+        'success-green': '#247653',
+        'warning-amber': '#AD741B',
+        'error-red': '#B33A42',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+        sans: ['IBM Plex Sans', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+      },
+      borderRadius: {
+        DEFAULT: '3px',
+        sm: '2px',
+        md: '4px',
+        lg: '6px',
+        xl: '8px',
+      },
+      boxShadow: {
+        '2xs': '0 1px 2px 0 rgba(11, 23, 40, 0.03)',
+        'xs': '0 1px 3px 0 rgba(11, 23, 40, 0.05)',
       }
     },
   },

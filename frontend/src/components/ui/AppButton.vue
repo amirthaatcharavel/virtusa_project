@@ -3,7 +3,7 @@
     :type="type"
     :disabled="disabled || loading"
     :class="[
-      'inline-flex items-center justify-center font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-600 disabled:opacity-50 disabled:cursor-not-allowed select-none',
+      'inline-flex items-center justify-center font-medium transition-all duration-150 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-[#167D83] disabled:opacity-40 disabled:cursor-not-allowed select-none tracking-tight',
       sizeClasses,
       variantClasses,
       customClass
@@ -12,7 +12,7 @@
   >
     <svg
       v-if="loading"
-      class="animate-spin -ml-1 mr-2 h-4 w-4 text-current"
+      class="animate-spin -ml-0.5 mr-2 h-3.5 w-3.5 text-current"
       fill="none"
       viewBox="0 0 24 24"
     >
@@ -28,7 +28,7 @@ import { computed } from 'vue';
 
 const props = withDefaults(defineProps<{
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'ghost' | 'teal';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   loading?: boolean;
@@ -48,26 +48,28 @@ defineEmits<{
 
 const sizeClasses = computed(() => {
   switch (props.size) {
-    case 'sm': return 'text-xs px-2.5 py-1.5 rounded-md gap-1.5';
-    case 'lg': return 'text-base px-5 py-2.5 rounded-lg gap-2.5';
-    default: return 'text-sm px-3.5 py-2 rounded-md gap-2';
+    case 'sm': return 'text-[11px] px-2.5 py-1.5 rounded-[3px] gap-1.5 leading-none';
+    case 'lg': return 'text-sm px-4 py-2.5 rounded-[4px] gap-2';
+    default: return 'text-xs px-3 py-2 rounded-[3px] gap-1.5 leading-none';
   }
 });
 
 const variantClasses = computed(() => {
   switch (props.variant) {
     case 'primary':
-      return 'bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white shadow-xs border border-transparent';
+      return 'bg-[#14263D] hover:bg-[#0B1728] active:bg-[#070E18] text-white border border-[#14263D] shadow-2xs font-semibold';
+    case 'teal':
+      return 'bg-[#167D83] hover:bg-[#126B70] active:bg-[#0F585C] text-white border border-[#167D83] shadow-2xs font-semibold';
     case 'secondary':
-      return 'bg-purple-50 hover:bg-purple-100 text-purple-900 border border-purple-200';
+      return 'bg-[#167D83]/10 hover:bg-[#167D83]/15 text-[#167D83] border border-[#167D83]/25 font-semibold';
     case 'outline':
-      return 'bg-white hover:bg-[#F1F6FA] text-[#172B3A] border border-[#D8E3EC] shadow-2xs';
+      return 'bg-white hover:bg-[#F6F5F0] text-[#182533] border border-[#E1E5E8] shadow-2xs font-medium';
     case 'danger':
-      return 'bg-[#B42318] hover:bg-[#911B12] active:bg-[#7A160F] text-white shadow-xs border border-transparent';
+      return 'bg-[#B33A42] hover:bg-[#972F36] active:bg-[#7D262C] text-white border border-transparent shadow-2xs font-semibold';
     case 'ghost':
-      return 'bg-transparent hover:bg-[#F1F6FA] text-[#647789] hover:text-[#172B3A]';
+      return 'bg-transparent hover:bg-[#F6F5F0] text-[#526173] hover:text-[#182533] font-medium';
     default:
-      return 'bg-purple-600 text-white';
+      return 'bg-[#14263D] text-white border border-[#14263D]';
   }
 });
 </script>

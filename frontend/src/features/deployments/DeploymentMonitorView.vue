@@ -4,12 +4,12 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="flex items-center gap-2 mb-1">
-          <AppBadge variant="purple" dot>Isolated Sandbox</AppBadge>
-          <span class="text-slate-300">|</span>
-          <span class="text-xs text-text-secondary">Release Environment: <strong class="text-purple-900">demo-sandbox-v1</strong></span>
+          <AppBadge variant="teal" dot>Isolated Sandbox</AppBadge>
+          <span class="text-[#E1E5E8]">|</span>
+          <span class="text-xs text-[#526173]">Release Environment: <strong class="text-[#182533] font-mono">demo-sandbox-v1</strong></span>
         </div>
-        <h1 class="text-xl font-bold text-text-primary tracking-tight">Sandbox Deployment Monitor & Rollback</h1>
-        <p class="text-xs text-text-secondary mt-0.5">
+        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Sandbox Deployment Monitor & Rollback</h1>
+        <p class="text-xs text-[#526173] mt-0.5">
           Gated promotion of human-approved decision rule changes to isolated simulation environment with one-click audit-backed rollback.
         </p>
       </div>
@@ -38,37 +38,37 @@
     <!-- Active Sandbox State Card -->
     <AppCard title="Current Live Sandbox Runtime State" subtitle="Active rule evaluator configuration in demo-sandbox-v1">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-        <div class="p-4 bg-purple-50/60 border border-purple-200 rounded-lg">
-          <span class="text-[10px] uppercase font-bold text-purple-900 block">Active Sandbox Version</span>
-          <div class="text-lg font-mono font-bold text-purple-950 mt-1">
+        <div class="p-4 bg-[#167D83]/10 border border-[#167D83]/30 rounded-[3px]">
+          <span class="text-[10px] uppercase font-bold text-[#14263D] block font-mono">Active Sandbox Version</span>
+          <div class="text-lg font-mono font-bold text-[#14263D] mt-1">
             {{ activeDeployment ? 'v1.1.0-draft' : 'v1.0.0 (Baseline)' }}
           </div>
-          <span class="text-[11px] text-purple-800 font-medium">Deterministic Rule AST Active</span>
+          <span class="text-[11px] text-[#167D83] font-medium font-mono">Deterministic Rule AST Active</span>
         </div>
 
-        <div class="p-4 bg-surface-muted border border-border rounded-lg">
-          <span class="text-[10px] uppercase font-bold text-text-secondary block">Governance Certification</span>
-          <div class="text-sm font-semibold text-emerald-700 mt-1.5 flex items-center gap-1.5">
-            <AppIcon name="check" :size="14" class="text-emerald-600" />
+        <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
+          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Governance Certification</span>
+          <div class="text-sm font-semibold text-[#247653] mt-1.5 flex items-center gap-1.5">
+            <AppIcon name="check" :size="14" class="text-[#247653]" />
             Approved by Vikram Mehta
           </div>
-          <span class="text-[11px] text-text-secondary">Dual-control certified</span>
+          <span class="text-[11px] text-[#526173]">Dual-control certified</span>
         </div>
 
-        <div class="p-4 bg-surface-muted border border-border rounded-lg">
-          <span class="text-[10px] uppercase font-bold text-text-secondary block">Deployment Security Gating</span>
-          <div class="text-sm font-semibold text-purple-900 mt-1.5">
+        <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
+          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Deployment Security Gating</span>
+          <div class="text-sm font-semibold text-[#182533] mt-1.5">
             Backend Enforced
           </div>
-          <span class="text-[11px] text-text-secondary">Unapproved release blocked</span>
+          <span class="text-[11px] text-[#526173]">Unapproved release blocked</span>
         </div>
 
-        <div class="p-4 bg-surface-muted border border-border rounded-lg">
-          <span class="text-[10px] uppercase font-bold text-text-secondary block">Environment Isolation</span>
-          <div class="text-sm font-semibold text-text-primary mt-1.5">
+        <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
+          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Environment Isolation</span>
+          <div class="text-sm font-semibold text-[#182533] mt-1.5">
             Sandbox Isolated
           </div>
-          <span class="text-[11px] text-amber-700 font-medium">Not production banking engine</span>
+          <span class="text-[11px] text-[#AD741B] font-medium font-mono">Not production banking engine</span>
         </div>
       </div>
     </AppCard>
@@ -78,7 +78,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-surface-subtle text-text-secondary border-b border-border uppercase tracking-wider text-[10px]">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
               <th class="px-5 py-3 font-semibold">Deployment ID / Env</th>
               <th class="px-4 py-3 font-semibold">Rule Version</th>
               <th class="px-4 py-3 font-semibold">Operator / Submitter</th>
@@ -87,29 +87,29 @@
               <th class="px-5 py-3 font-semibold">Release Notes / Rollback Rationale</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-border">
+          <tbody class="divide-y divide-[#E1E5E8]">
             <tr v-if="loading" class="text-center">
-              <td colspan="6" class="py-8 text-text-secondary">Loading deployments...</td>
+              <td colspan="6" class="py-8 text-[#526173] font-mono">Loading deployments...</td>
             </tr>
             <tr v-else-if="deployments.length === 0" class="text-center">
-              <td colspan="6" class="py-8 text-text-secondary">No sandbox deployment events recorded yet.</td>
+              <td colspan="6" class="py-8 text-[#526173] font-mono">No sandbox deployment events recorded yet.</td>
             </tr>
             <tr
               v-for="dep in deployments"
               :key="dep.id"
-              :class="['hover:bg-slate-50 transition-colors', dep.status === 'ROLLED_BACK' ? 'bg-rose-50/20' : '']"
+              :class="['hover:bg-[#F6F5F0]/60 transition-colors', dep.status === 'ROLLED_BACK' ? 'bg-[#FDF1F2]/40' : '']"
             >
               <td class="px-5 py-3.5">
-                <div class="font-mono font-bold text-text-primary">{{ dep.id.substring(0, 8) }}...</div>
-                <div class="text-[11px] text-purple-700 font-medium">{{ dep.environment }}</div>
+                <div class="font-mono font-bold text-[#182533]">{{ dep.id.substring(0, 8) }}...</div>
+                <div class="text-[11px] text-[#167D83] font-medium font-mono">{{ dep.environment }}</div>
               </td>
-              <td class="px-4 py-3.5 font-mono font-semibold text-text-primary">
+              <td class="px-4 py-3.5 font-mono font-semibold text-[#182533]">
                 {{ dep.rule_version_id === 'ver-cand-01' ? 'v1.1.0-draft' : 'v1.0.0' }}
               </td>
-              <td class="px-4 py-3.5 text-text-secondary font-medium">
+              <td class="px-4 py-3.5 text-[#526173] font-medium">
                 Arun Patel (Rule Engineer)
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-text-secondary">
+              <td class="px-4 py-3.5 font-mono text-[11px] text-[#526173]">
                 {{ new Date(dep.deployed_at).toLocaleString() }}
               </td>
               <td class="px-4 py-3.5">
@@ -117,9 +117,9 @@
                   {{ dep.status }}
                 </AppBadge>
               </td>
-              <td class="px-5 py-3.5 text-text-secondary text-[11px] max-w-sm">
+              <td class="px-5 py-3.5 text-[#526173] text-[11px] max-w-sm">
                 {{ dep.notes || 'Automated promotion to sandbox' }}
-                <div v-if="dep.rollback_of_id" class="text-rose-700 font-mono mt-0.5">
+                <div v-if="dep.rollback_of_id" class="text-[#B33A42] font-mono mt-0.5">
                   Rollback of prior deployment {{ dep.rollback_of_id.substring(0, 8) }}
                 </div>
               </td>
@@ -132,39 +132,39 @@
     <!-- Deploy Confirmation Modal -->
     <div
       v-if="showDeployModal"
-      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4"
+      class="fixed inset-0 z-50 bg-[#0B1728]/70 backdrop-blur-xs flex items-center justify-center p-4"
     >
-      <div class="bg-white rounded-xl shadow-xl max-w-md w-full overflow-hidden border border-border">
-        <div class="px-6 py-4 border-b border-border bg-surface-muted flex items-center justify-between">
-          <h3 class="text-sm font-bold text-text-primary">Deploy to Isolated Sandbox</h3>
-          <button @click="showDeployModal = false" class="text-slate-400 hover:text-slate-600">
+      <div class="bg-white rounded-[4px] shadow-xl max-w-md w-full overflow-hidden border border-[#E1E5E8]">
+        <div class="px-6 py-4 border-b border-[#E1E5E8] bg-[#F6F5F0] flex items-center justify-between">
+          <h3 class="text-sm font-bold text-[#182533]">Deploy to Isolated Sandbox</h3>
+          <button @click="showDeployModal = false" class="text-[#526173] hover:text-[#182533]">
             <AppIcon name="close" :size="16" />
           </button>
         </div>
         <div class="p-6 space-y-4 text-xs">
-          <p class="text-text-secondary leading-relaxed">
-            You are promoting approved candidate version <strong class="text-purple-900 font-mono">v1.1.0-draft</strong> to sandbox environment <strong class="text-slate-700">demo-sandbox-v1</strong>.
+          <p class="text-[#526173] leading-relaxed">
+            You are promoting approved candidate version <strong class="text-[#14263D] font-mono">v1.1.0-draft</strong> to sandbox environment <strong class="text-[#182533] font-mono">demo-sandbox-v1</strong>.
           </p>
 
-          <div class="p-3 bg-purple-50/60 border border-purple-200 rounded text-purple-950">
+          <div class="p-3 bg-[#167D83]/10 border border-[#167D83]/30 rounded-[3px] text-[#14263D]">
             <div class="font-semibold mb-0.5">Backend Release Gate:</div>
             <div>Verified approval record from Vikram Mehta (Compliance Approver) is attached.</div>
           </div>
 
           <div>
-            <label class="block font-semibold text-text-primary mb-1">Release Notes</label>
+            <label class="block font-semibold text-[#182533] mb-1">Release Notes</label>
             <input
               v-model="deployNotes"
               type="text"
-              class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-purple-600"
+              class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83] focus:outline-none"
             />
           </div>
 
-          <div v-if="deployError" class="p-2.5 bg-rose-50 border border-rose-200 text-rose-700 rounded">
+          <div v-if="deployError" class="p-2.5 bg-[#FDF1F2] border border-[#F5C2C6] text-[#B33A42] rounded-[3px] font-mono">
             {{ deployError }}
           </div>
 
-          <div class="flex items-center justify-end gap-2 pt-2 border-t border-border">
+          <div class="flex items-center justify-end gap-2 pt-2 border-t border-[#E1E5E8]">
             <AppButton variant="outline" size="sm" @click="showDeployModal = false">Cancel</AppButton>
             <AppButton variant="primary" size="sm" @click="confirmDeploy" :loading="deploying">
               Confirm Sandbox Release
@@ -177,38 +177,38 @@
     <!-- Rollback Confirmation Modal -->
     <div
       v-if="showRollbackModal"
-      class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4"
+      class="fixed inset-0 z-50 bg-[#0B1728]/70 backdrop-blur-xs flex items-center justify-center p-4"
     >
-      <div class="bg-white rounded-xl shadow-xl max-w-md w-full overflow-hidden border border-border">
-        <div class="px-6 py-4 border-b border-rose-200 bg-rose-50 flex items-center justify-between text-rose-900">
+      <div class="bg-white rounded-[4px] shadow-xl max-w-md w-full overflow-hidden border border-[#E1E5E8]">
+        <div class="px-6 py-4 border-b border-[#F5C2C6] bg-[#FDF1F2] flex items-center justify-between text-[#B33A42]">
           <h3 class="text-sm font-bold flex items-center gap-1.5">
             <AppIcon name="rollback" :size="16" />
             Emergency Sandbox Rollback
           </h3>
-          <button @click="showRollbackModal = false" class="text-slate-400 hover:text-slate-600">
+          <button @click="showRollbackModal = false" class="text-[#526173] hover:text-[#182533]">
             <AppIcon name="close" :size="16" />
           </button>
         </div>
         <div class="p-6 space-y-4 text-xs">
-          <p class="text-text-secondary leading-relaxed">
-            This will immediately revert the active sandbox rule engine to the previous known-good baseline version <strong class="text-slate-800 font-mono">v1.0.0</strong>.
+          <p class="text-[#526173] leading-relaxed">
+            This will immediately revert the active sandbox rule engine to the previous known-good baseline version <strong class="text-[#182533] font-mono">v1.0.0</strong>.
           </p>
 
           <div>
-            <label class="block font-semibold text-text-primary mb-1">Rollback Justification / Reason *</label>
+            <label class="block font-semibold text-[#182533] mb-1">Rollback Justification / Reason *</label>
             <textarea
               v-model="rollbackReason"
               rows="3"
               required
-              class="w-full px-3 py-2 border border-border rounded focus:ring-1 focus:ring-rose-600"
+              class="w-full px-3 py-2 border border-[#E1E5E8] rounded-[3px] focus:ring-1 focus:ring-[#B33A42] focus:border-[#B33A42] focus:outline-none"
             ></textarea>
           </div>
 
-          <div v-if="rollbackError" class="p-2.5 bg-rose-50 border border-rose-200 text-rose-700 rounded">
+          <div v-if="rollbackError" class="p-2.5 bg-[#FDF1F2] border border-[#F5C2C6] text-[#B33A42] rounded-[3px] font-mono">
             {{ rollbackError }}
           </div>
 
-          <div class="flex items-center justify-end gap-2 pt-2 border-t border-border">
+          <div class="flex items-center justify-end gap-2 pt-2 border-t border-[#E1E5E8]">
             <AppButton variant="outline" size="sm" @click="showRollbackModal = false">Cancel</AppButton>
             <AppButton variant="danger" size="sm" @click="confirmRollback" :loading="rollingBack">
               Execute Rollback
