@@ -3,14 +3,19 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .config import settings
 
-# Handle SQLite concurrency and connect_args
+# Handle SQLite concurrency vs Supabase PostgreSQL
 connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
+db_url = settings.DATABASE_URL
+if db_url.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
+elif db_url.startswith("postgres://"):
+    # Supabase uses postgres://, SQLAlchemy 2.0 expects postgresql://
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
 
 engine = create_engine(
-    settings.DATABASE_URL,
+    db_url,
     connect_args=connect_args,
+    pool_pre_ping=True,
     echo=False
 )
 
