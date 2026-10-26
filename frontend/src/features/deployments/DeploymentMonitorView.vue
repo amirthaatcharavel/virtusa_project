@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Release Environment: <strong class="text-[#182533] font-mono">demo-sandbox-v1</strong></span>
         </div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Sandbox Deployment Monitor & Rollback</h1>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Sandbox Deployment Monitor & Rollback</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Gated promotion of human-approved decision rule changes to isolated simulation environment with one-click audit-backed rollback.
         </p>
@@ -39,36 +39,36 @@
     <AppCard title="Current Live Sandbox Runtime State" subtitle="Active rule evaluator configuration in demo-sandbox-v1">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
         <div class="p-4 bg-[#167D83]/10 border border-[#167D83]/30 rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#14263D] block font-mono">Active Sandbox Version</span>
+          <span class="text-xs uppercase font-bold text-[#14263D] block font-mono">Active Sandbox Version</span>
           <div class="text-lg font-mono font-bold text-[#14263D] mt-1">
             {{ activeDeployment ? 'v1.1.0-draft' : 'v1.0.0 (Baseline)' }}
           </div>
-          <span class="text-[11px] text-[#167D83] font-medium font-mono">Deterministic Rule AST Active</span>
+          <span class="text-xs text-[#167D83] font-medium font-mono">Deterministic Rule AST Active</span>
         </div>
 
         <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Governance Certification</span>
+          <span class="text-xs uppercase font-bold text-[#526173] block font-mono">Governance Certification</span>
           <div class="text-sm font-semibold text-[#247653] mt-1.5 flex items-center gap-1.5">
             <AppIcon name="check" :size="14" class="text-[#247653]" />
             Approved by Vikram Mehta
           </div>
-          <span class="text-[11px] text-[#526173]">Dual-control certified</span>
+          <span class="text-xs text-[#526173]">Dual-control certified</span>
         </div>
 
         <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Deployment Security Gating</span>
+          <span class="text-xs uppercase font-bold text-[#526173] block font-mono">Deployment Security Gating</span>
           <div class="text-sm font-semibold text-[#182533] mt-1.5">
             Backend Enforced
           </div>
-          <span class="text-[11px] text-[#526173]">Unapproved release blocked</span>
+          <span class="text-xs text-[#526173]">Unapproved release blocked</span>
         </div>
 
         <div class="p-4 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#526173] block font-mono">Environment Isolation</span>
+          <span class="text-xs uppercase font-bold text-[#526173] block font-mono">Environment Isolation</span>
           <div class="text-sm font-semibold text-[#182533] mt-1.5">
             Sandbox Isolated
           </div>
-          <span class="text-[11px] text-[#AD741B] font-medium font-mono">Not production banking engine</span>
+          <span class="text-xs text-[#AD741B] font-medium font-mono">Not production banking engine</span>
         </div>
       </div>
     </AppCard>
@@ -78,7 +78,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">Deployment ID / Env</th>
               <th class="px-4 py-3 font-semibold">Rule Version</th>
               <th class="px-4 py-3 font-semibold">Operator / Submitter</th>
@@ -101,7 +101,7 @@
             >
               <td class="px-5 py-3.5">
                 <div class="font-mono font-bold text-[#182533]">{{ dep.id.substring(0, 8) }}...</div>
-                <div class="text-[11px] text-[#167D83] font-medium font-mono">{{ dep.environment }}</div>
+                <div class="text-xs text-[#167D83] font-medium font-mono">{{ dep.environment }}</div>
               </td>
               <td class="px-4 py-3.5 font-mono font-semibold text-[#182533]">
                 {{ dep.rule_version_id === 'ver-cand-01' ? 'v1.1.0-draft' : 'v1.0.0' }}
@@ -109,7 +109,7 @@
               <td class="px-4 py-3.5 text-[#526173] font-medium">
                 Arun Patel (Rule Engineer)
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-[#526173]">
+              <td class="px-4 py-3.5 font-mono text-xs text-[#526173]">
                 {{ new Date(dep.deployed_at).toLocaleString() }}
               </td>
               <td class="px-4 py-3.5">
@@ -117,7 +117,7 @@
                   {{ dep.status }}
                 </AppBadge>
               </td>
-              <td class="px-5 py-3.5 text-[#526173] text-[11px] max-w-sm">
+              <td class="px-5 py-3.5 text-[#526173] text-xs max-w-sm">
                 {{ dep.notes || 'Automated promotion to sandbox' }}
                 <div v-if="dep.rollback_of_id" class="text-[#B33A42] font-mono mt-0.5">
                   Rollback of prior deployment {{ dep.rollback_of_id.substring(0, 8) }}

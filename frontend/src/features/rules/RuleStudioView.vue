@@ -10,7 +10,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Connected Policy: <strong class="text-[#182533]">POL-CR-01</strong></span>
         </div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">
           {{ activeRule?.name || 'Rule Engineering Studio' }}
         </h1>
         <p class="text-xs text-[#526173] mt-0.5">
@@ -55,10 +55,10 @@
                   {{ v.version_number.includes('draft') ? 'Candidate' : 'Baseline' }}
                 </AppBadge>
               </div>
-              <p class="text-[11px] text-[#526173] line-clamp-2 leading-relaxed">
+              <p class="text-xs text-[#526173] line-clamp-2 leading-relaxed">
                 {{ v.change_summary }}
               </p>
-              <div class="mt-2 text-[10px] text-[#526173] font-mono">
+              <div class="mt-2 text-xs text-[#526173] font-mono">
                 Created: {{ new Date(v.created_at).toLocaleDateString() }}
               </div>
             </div>
@@ -67,7 +67,7 @@
 
         <!-- Allowed Operator Reference -->
         <AppCard title="Restricted DSL Operators" subtitle="Deterministically enforced operators" compact>
-          <div class="space-y-2 text-[11px] text-[#526173]">
+          <div class="space-y-2 text-xs text-[#526173]">
             <div>
               <strong class="text-[#182533] block">Logical:</strong>
               <span class="font-mono text-[#167D83]">AND, OR, NOT</span>
@@ -76,7 +76,7 @@
               <strong class="text-[#182533] block">Comparators:</strong>
               <span class="font-mono text-[#167D83]">EQUALS, NOT_EQUALS, GREATER_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN, LESS_THAN_OR_EQUAL, IN, NOT_IN</span>
             </div>
-            <div class="pt-1.5 border-t border-[#E1E5E8] text-[10px] text-[#526173] font-mono">
+            <div class="pt-1.5 border-t border-[#E1E5E8] text-xs text-[#526173] font-mono">
               * Arbitrary execution (eval/exec) strictly prohibited by deterministic AST engine.
             </div>
           </div>
@@ -97,10 +97,10 @@
             <div class="font-semibold">
               {{ validationOutput.is_valid ? 'Deterministic Rule DSL Conformance Certified' : 'Rule DSL Conformance Validation Errors' }}
             </div>
-            <ul v-if="!validationOutput.is_valid" class="mt-1 list-disc list-inside space-y-0.5 font-mono text-[11px]">
+            <ul v-if="!validationOutput.is_valid" class="mt-1 list-disc list-inside space-y-0.5 font-mono text-xs">
               <li v-for="err in validationOutput.errors" :key="err">{{ err }}</li>
             </ul>
-            <div v-else class="text-[11px] text-[#247653] mt-0.5 font-mono">
+            <div v-else class="text-xs text-[#247653] mt-0.5 font-mono">
               All input types, condition groups, and operator clauses match the deterministic AST schema specification.
             </div>
           </div>
@@ -154,7 +154,7 @@
                 />
               </div>
             </div>
-            <p class="text-[11px] text-[#AD741B] bg-[#FDF7EB] border border-[#EED7A8] p-2 rounded-[3px] font-mono">
+            <p class="text-xs text-[#AD741B] bg-[#FDF7EB] border border-[#EED7A8] p-2 rounded-[3px] font-mono">
               <strong>Governance Safeguard:</strong> Saving a material rule update automatically resets rule status to DRAFT and invalidates any previous approval for prior versions.
             </p>
           </div>

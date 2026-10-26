@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Assigned Operator: <strong class="text-[#182533]">Arun Patel</strong></span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">Rule Implementation Backlog</h1>
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">Rule Implementation Backlog</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Certified obligations from Compliance Analysts allocated for structured JSON Rule AST definition.
         </p>
@@ -27,7 +27,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">Obligation & Policy</th>
               <th class="px-4 py-3 font-semibold">Regulatory Conditions & Threshold</th>
               <th class="px-4 py-3 font-semibold">Analyst Certification</th>
@@ -43,15 +43,15 @@
               <td class="px-5 py-3.5">
                 <div class="font-mono font-bold text-[#167D83] text-xs">{{ o.obligation_code }}</div>
                 <div class="font-medium text-[#182533] text-xs mt-0.5">{{ o.title }}</div>
-                <div class="text-[11px] text-[#526173] font-mono mt-0.5">{{ o.policy_code || 'POL-CR-01' }}</div>
+                <div class="text-xs text-[#526173] font-mono mt-0.5">{{ o.policy_code || 'POL-CR-01' }}</div>
               </td>
-              <td class="px-4 py-3.5 text-[#526173] text-[11px] font-mono max-w-sm">
+              <td class="px-4 py-3.5 text-[#526173] text-xs font-mono max-w-sm">
                 <div>Threshold: {{ o.threshold || 'Loan > ₹50k' }}</div>
                 <div class="text-[#526173] line-clamp-2 mt-0.5">{{ o.conditions }}</div>
               </td>
               <td class="px-4 py-3.5">
                 <AppBadge variant="success">APPLICABLE</AppBadge>
-                <div class="text-[10px] text-[#526173] mt-0.5 font-mono">Maya Sen (Analyst)</div>
+                <div class="text-xs text-[#526173] mt-0.5 font-mono">Maya Sen (Analyst)</div>
               </td>
               <td class="px-4 py-3.5">
                 <AppBadge variant="teal" dot>TESTED (v1.1)</AppBadge>

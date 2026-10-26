@@ -123,6 +123,18 @@ export default {
         sans: ['IBM Plex Sans', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         mono: ['IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
+      fontSize: {
+        '2xs': ['0.75rem', { lineHeight: '1.05rem' }],     // 12px
+        'xs': ['0.8125rem', { lineHeight: '1.25rem' }],    // 13px
+        'sm': ['0.9375rem', { lineHeight: '1.4rem' }],     // 15px
+        'base': ['1rem', { lineHeight: '1.55rem' }],       // 16px
+        'md': ['1.0625rem', { lineHeight: '1.6rem' }],     // 17px
+        'lg': ['1.1875rem', { lineHeight: '1.75rem' }],    // 19px
+        'xl': ['1.375rem', { lineHeight: '1.875rem' }],    // 22px
+        '2xl': ['1.625rem', { lineHeight: '2.125rem' }],   // 26px
+        '3xl': ['2rem', { lineHeight: '2.375rem' }],       // 32px
+        '4xl': ['2.5rem', { lineHeight: '2.75rem' }],      // 40px
+      },
       borderRadius: {
         DEFAULT: '3px',
         sm: '2px',

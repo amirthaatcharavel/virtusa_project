@@ -14,7 +14,7 @@
           </div>
           <div>
             <div class="font-bold text-xs tracking-wider text-[#182533] uppercase leading-tight font-sans">Regulatory Change</div>
-            <div class="text-[10px] text-[#167D83] font-medium tracking-wide font-mono">Intelligence Platform</div>
+            <div class="text-xs text-[#167D83] font-medium tracking-wide font-mono">Intelligence Platform</div>
           </div>
         </router-link>
 
@@ -76,24 +76,24 @@
         <!-- Trust & Compliance Indicators -->
         <div class="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
           <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-            <div class="text-[10px] font-bold text-[#526173] uppercase tracking-wide font-mono">Source Provenance</div>
+            <div class="text-xs font-bold text-[#526173] uppercase tracking-wide font-mono">Source Provenance</div>
             <div class="font-bold text-[#182533] text-sm mt-0.5">100% Verifiable</div>
-            <div class="text-[11px] text-[#247653] font-medium mt-0.5 font-mono">Exact Span Citations</div>
+            <div class="text-xs text-[#247653] font-medium mt-0.5 font-mono">Exact Span Citations</div>
           </div>
           <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-            <div class="text-[10px] font-bold text-[#526173] uppercase tracking-wide font-mono">Rule Execution</div>
+            <div class="text-xs font-bold text-[#526173] uppercase tracking-wide font-mono">Rule Execution</div>
             <div class="font-bold text-[#182533] text-sm mt-0.5">Pure Functional AST</div>
-            <div class="text-[11px] text-[#167D83] font-medium mt-0.5 font-mono">Zero eval / exec</div>
+            <div class="text-xs text-[#167D83] font-medium mt-0.5 font-mono">Zero eval / exec</div>
           </div>
           <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-            <div class="text-[10px] font-bold text-[#526173] uppercase tracking-wide font-mono">Governance Standard</div>
+            <div class="text-xs font-bold text-[#526173] uppercase tracking-wide font-mono">Governance Standard</div>
             <div class="font-bold text-[#182533] text-sm mt-0.5">4-Eyes Dual-Control</div>
-            <div class="text-[11px] text-[#247653] font-medium mt-0.5 font-mono">Mandatory Gating</div>
+            <div class="text-xs text-[#247653] font-medium mt-0.5 font-mono">Mandatory Gating</div>
           </div>
           <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
-            <div class="text-[10px] font-bold text-[#526173] uppercase tracking-wide font-mono">Audit Ledger</div>
+            <div class="text-xs font-bold text-[#526173] uppercase tracking-wide font-mono">Audit Ledger</div>
             <div class="font-bold text-[#182533] text-sm mt-0.5">Cryptographic Trail</div>
-            <div class="text-[11px] text-[#526173] font-medium mt-0.5 font-mono">Tamper-evident log</div>
+            <div class="text-xs text-[#526173] font-medium mt-0.5 font-mono">Tamper-evident log</div>
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@
         <div class="bg-white rounded-[3px] border border-[#E1E5E8] p-5 shadow-2xs flex flex-col justify-between hover:border-[#167D83] transition-colors">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-bold bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/30 uppercase font-mono">
+              <span class="px-2 py-0.5 rounded-[3px] text-xs font-bold bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/30 uppercase font-mono">
                 Analysis & Triage
               </span>
               <AppIcon name="file-text" :size="16" class="text-[#167D83]" />
@@ -153,7 +153,7 @@
         <div class="bg-white rounded-[3px] border border-[#E1E5E8] p-5 shadow-2xs flex flex-col justify-between hover:border-[#167D83] transition-colors">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-bold bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/25 uppercase font-mono">
+              <span class="px-2 py-0.5 rounded-[3px] text-xs font-bold bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/25 uppercase font-mono">
                 DSL & Simulation
               </span>
               <AppIcon name="terminal" :size="16" class="text-[#14263D]" />
@@ -191,7 +191,7 @@
         <div class="bg-white rounded-[3px] border border-[#E1E5E8] p-5 shadow-2xs flex flex-col justify-between hover:border-[#167D83] transition-colors">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-bold bg-[#EDF6F1] text-[#247653] border border-[#BCE0CE] uppercase font-mono">
+              <span class="px-2 py-0.5 rounded-[3px] text-xs font-bold bg-[#EDF6F1] text-[#247653] border border-[#BCE0CE] uppercase font-mono">
                 Dual Control
               </span>
               <AppIcon name="shield" :size="16" class="text-[#247653]" />
@@ -229,7 +229,7 @@
         <div class="bg-white rounded-[3px] border border-[#E1E5E8] p-5 shadow-2xs flex flex-col justify-between hover:border-[#167D83] transition-colors">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-bold bg-[#FDF7EB] text-[#AD741B] border border-[#EED7A8] uppercase font-mono">
+              <span class="px-2 py-0.5 rounded-[3px] text-xs font-bold bg-[#FDF7EB] text-[#AD741B] border border-[#EED7A8] uppercase font-mono">
                 Governance & RBAC
               </span>
               <AppIcon name="settings" :size="16" class="text-[#AD741B]" />
@@ -311,11 +311,11 @@
           </div>
           <div>
             <div class="font-bold text-white">Regulatory Change Intelligence Platform</div>
-            <div class="text-[10px] text-[#526173]">Institutional Governance & Rule Simulation Suite</div>
+            <div class="text-xs text-[#526173]">Institutional Governance & Rule Simulation Suite</div>
           </div>
         </div>
 
-        <div class="flex items-center gap-6 text-[11px] text-[#526173] font-mono">
+        <div class="flex items-center gap-6 text-xs text-[#526173] font-mono">
           <span>RBI Master Directions Compliant</span>
           <span>•</span>
           <span>Zero-Arbitrary-Execution AST</span>

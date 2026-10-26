@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Assigned Operator: <strong class="text-[#182533]">Maya Sen</strong></span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">Assigned Regulatory Work Items</h1>
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">Assigned Regulatory Work Items</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Extracted obligations allocated for legal interpretation, applicability certification, and policy mapping.
         </p>
@@ -27,7 +27,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">Obligation Code / Title</th>
               <th class="px-4 py-3 font-semibold">Source Provenance</th>
               <th class="px-4 py-3 font-semibold">Mandated Action</th>
@@ -44,10 +44,10 @@
                 <div class="font-mono font-bold text-[#167D83] text-xs">{{ o.obligation_code }}</div>
                 <div class="font-medium text-[#182533] text-xs mt-0.5">{{ o.title }}</div>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-[#526173]">
+              <td class="px-4 py-3.5 font-mono text-xs text-[#526173]">
                 Page {{ o.source_page }} · {{ o.source_span || 'Section 3(a)' }}
               </td>
-              <td class="px-4 py-3.5 text-[#526173] text-[11px] max-w-xs line-clamp-2">
+              <td class="px-4 py-3.5 text-[#526173] text-xs max-w-xs line-clamp-2">
                 {{ o.action || 'Standard compliance evaluation' }}
               </td>
               <td class="px-4 py-3.5">

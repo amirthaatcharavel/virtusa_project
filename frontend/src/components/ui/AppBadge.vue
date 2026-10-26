@@ -1,11 +1,11 @@
 <template>
   <span
     :class="[
-      'inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[3px] text-[11px] font-medium tracking-tight font-mono leading-none select-none',
+      'inline-flex items-center gap-2 px-2.5 py-1 rounded-[3px] text-xs font-semibold tracking-normal font-mono leading-none select-none',
       variantClasses
     ]"
   >
-    <span v-if="dot" class="w-1.5 h-1.5 rounded-full" :class="dotClass" />
+    <span v-if="dot" class="w-2 h-2 rounded-full flex-shrink-0" :class="dotClass" />
     <slot />
   </span>
 </template>

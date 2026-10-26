@@ -5,6 +5,7 @@ import type {
   Approval, Deployment, AuditEvent, User
 } from '../types';
 import { useMockDataStore } from '../stores/mockDataStore';
+import { getSupabaseClient, isSupabaseConfigured } from './supabase';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api/v1';
 
@@ -13,7 +14,7 @@ export const apiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 1500, // Fast failover to mock data store
+  timeout: 1500, // Fast failover to mock data store or Supabase
 });
 
 // Inject authenticated user ID into every request for backend RBAC enforcement
@@ -26,6 +27,18 @@ apiClient.interceptors.request.use((config) => {
 export const apiService = {
   // Users
   getUsers: async (): Promise<User[]> => {
+    const supabase = getSupabaseClient();
+    if (supabase && isSupabaseConfigured()) {
+      try {
+        const { data, error } = await supabase.from('users').select('*');
+        if (!error && data && data.length > 0) {
+          return data as User[];
+        }
+      } catch (err) {
+        console.warn('Supabase users query error, falling back', err);
+      }
+    }
+
     try {
       const res = await apiClient.get<User[]>('/auth/users');
       return res.data;
@@ -36,12 +49,24 @@ export const apiService = {
   },
 
   getMe: async (): Promise<User> => {
+    const supabase = getSupabaseClient();
+    const currentId = localStorage.getItem('current_user_id') || 'usr-analyst-01';
+    if (supabase && isSupabaseConfigured()) {
+      try {
+        const { data, error } = await supabase.from('users').select('*').eq('id', currentId).single();
+        if (!error && data) {
+          return data as User;
+        }
+      } catch {
+        // Continue to API / fallback
+      }
+    }
+
     try {
       const res = await apiClient.get<User>('/auth/me');
       return res.data;
     } catch {
       const mockStore = useMockDataStore();
-      const currentId = localStorage.getItem('current_user_id') || 'usr-analyst-01';
       return mockStore.users.find(u => u.id === currentId) || mockStore.users[0];
     }
   },
@@ -344,8 +369,59 @@ export const apiService = {
 
   // Audit & Evidence
   getAuditEvents: async (_eventType?: string, _entityType?: string, _limit?: number): Promise<AuditEvent[]> => {
+    const supabase = getSupabaseClient();
+    if (supabase && isSupabaseConfigured()) {
+      try {
+        let q = supabase.from('audit_events').select('*').order('timestamp', { ascending: false });
+        if (_eventType) q = q.eq('event_type', _eventType);
+        if (_entityType) q = q.eq('entity_type', _entityType);
+        if (_limit) q = q.limit(_limit);
+        const { data, error } = await q;
+        if (!error && data && data.length > 0) {
+          return data as AuditEvent[];
+        }
+      } catch (err) {
+        console.warn('Supabase audit_events query error, falling back', err);
+      }
+    }
+
     const mockStore = useMockDataStore();
-    return mockStore.auditEvents;
+    let events = [...mockStore.auditEvents];
+    if (_eventType) events = events.filter(e => e.event_type === _eventType);
+    if (_entityType) events = events.filter(e => e.entity_type === _entityType);
+    if (_limit) events = events.slice(0, _limit);
+    return events;
+  },
+
+  recordAuditEvent: async (event: Partial<AuditEvent>): Promise<void> => {
+    const supabase = getSupabaseClient();
+    if (supabase && isSupabaseConfigured()) {
+      try {
+        await supabase.from('audit_events').insert({
+          id: event.id || `aud-${Date.now()}`,
+          timestamp: new Date().toISOString(),
+          actor_id: event.actor_id || 'usr-analyst-01',
+          actor_name: event.actor_name || 'System Operator',
+          actor_role: event.actor_role || 'COMPLIANCE_ANALYST',
+          event_type: event.event_type || 'SYSTEM_ACTION',
+          entity_type: event.entity_type || 'SYSTEM',
+          entity_id: event.entity_id || 'sys-01',
+          action: event.action || 'Recorded system transition',
+          details: event.details || {},
+        });
+      } catch (err) {
+        console.warn('Supabase recordAuditEvent error', err);
+      }
+    }
+  },
+
+  subscribeToAuditEvents: (callback: (payload: any) => void) => {
+    const supabase = getSupabaseClient();
+    if (!supabase || !isSupabaseConfigured()) return null;
+    return supabase
+      .channel('public:audit_events')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'audit_events' }, callback)
+      .subscribe();
   },
 
   getEvidenceDossier: async (_ruleVersionId: string): Promise<any> => {

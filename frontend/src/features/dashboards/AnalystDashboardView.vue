@@ -26,7 +26,7 @@
       <!-- Section Header -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Circular Library & Ingestion</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Circular Library & Ingestion</h2>
           <p class="text-xs text-[#526173]">Filter regulatory circulars, inspect page-level provenance, and upload new publications.</p>
         </div>
         <AppButton variant="primary" size="sm" @click="showUploadModal = true">
@@ -66,7 +66,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Document Title / Ref</th>
                 <th class="px-4 py-2.5 font-semibold">Authority</th>
                 <th class="px-4 py-2.5 font-semibold">Publication Date</th>
@@ -87,7 +87,7 @@
                     <AppIcon name="file-text" :size="13" class="text-[#167D83] flex-shrink-0" />
                     <span>{{ c.title }}</span>
                   </div>
-                  <div class="text-[11px] text-[#526173] font-mono mt-0.5">{{ c.circular_number || c.filename }}</div>
+                  <div class="text-xs text-[#526173] font-mono mt-0.5">{{ c.circular_number || c.filename }}</div>
                 </td>
                 <td class="px-4 py-3 font-medium text-[#182533]">{{ c.source_authority }}</td>
                 <td class="px-4 py-3 font-mono text-[#526173]">{{ c.publication_date || 'N/A' }}</td>
@@ -126,7 +126,7 @@
     <div v-else-if="activeTab === 'module-b'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Document & Obligation Review</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Document & Obligation Review</h2>
           <p class="text-xs text-[#526173]">Verify conditions, actors, and thresholds extracted from regulatory mandates.</p>
         </div>
         <div class="flex items-center gap-1.5">
@@ -165,11 +165,11 @@
             </div>
 
             <h4 class="text-xs font-semibold text-[#182533] mt-2">{{ ob.title }}</h4>
-            <p class="text-[11px] text-[#526173] mt-1 line-clamp-2 italic font-sans leading-relaxed">
+            <p class="text-xs text-[#526173] mt-1 line-clamp-2 italic font-sans leading-relaxed">
               "{{ ob.extracted_text }}"
             </p>
 
-            <div class="mt-3 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#526173]">
+            <div class="mt-3 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-xs text-[#526173]">
               <span>Page Ref: <strong class="text-[#182533] font-mono">Page {{ ob.source_page }}</strong></span>
               <span v-if="ob.policy_code" class="font-mono text-[#167D83] font-medium">{{ ob.policy_code }}</span>
               <span v-else class="text-[#AD741B] font-medium">Unmapped Policy</span>
@@ -182,37 +182,37 @@
           <AppCard v-if="selectedObligation" title="Obligation Review Panel" subtitle="Certify regulatory conditions and reviewer draft status" noPadding>
             <div class="p-4 space-y-4 text-xs">
               <div>
-                <div class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Obligation Code & Title</div>
+                <div class="text-xs uppercase font-semibold text-[#526173] font-mono">Obligation Code & Title</div>
                 <div class="font-mono font-bold text-[#14263D] text-sm mt-0.5">{{ selectedObligation.obligation_code }}</div>
                 <div class="font-semibold text-[#182533] mt-1">{{ selectedObligation.title }}</div>
               </div>
 
               <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] space-y-2">
-                <div class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Extracted Source Clause</div>
-                <p class="text-[11px] text-[#182533] italic font-sans leading-relaxed">
+                <div class="text-xs uppercase font-semibold text-[#526173] font-mono">Extracted Source Clause</div>
+                <p class="text-xs text-[#182533] italic font-sans leading-relaxed">
                   "{{ selectedObligation.extracted_text }}"
                 </p>
-                <div class="text-[10px] text-[#526173] flex items-center justify-between pt-1 border-t border-[#E1E5E8] font-mono">
+                <div class="text-xs text-[#526173] flex items-center justify-between pt-1 border-t border-[#E1E5E8] font-mono">
                   <span>Source Span: {{ selectedObligation.source_span || 'Section 3' }}</span>
                   <span>Page {{ selectedObligation.source_page }}</span>
                 </div>
               </div>
 
               <!-- Conditions & Thresholds -->
-              <div class="grid grid-cols-2 gap-2 text-[11px]">
+              <div class="grid grid-cols-2 gap-2 text-xs">
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase text-[#526173] font-semibold font-mono">Actor / Entity</span>
+                  <span class="text-xs uppercase text-[#526173] font-semibold font-mono">Actor / Entity</span>
                   <div class="font-medium text-[#182533] mt-0.5">{{ selectedObligation.actor || 'Regulated Entity' }}</div>
                 </div>
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase text-[#526173] font-semibold font-mono">Action / Threshold</span>
+                  <span class="text-xs uppercase text-[#526173] font-semibold font-mono">Action / Threshold</span>
                   <div class="font-medium text-[#182533] mt-0.5">{{ selectedObligation.threshold || 'Enhanced RWA' }}</div>
                 </div>
               </div>
 
               <!-- Reviewer Draft Notes -->
               <div>
-                <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Reviewer Notes & Clarifications</label>
+                <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Reviewer Notes & Clarifications</label>
                 <textarea
                   v-model="reviewerDraftNotes"
                   rows="3"
@@ -243,7 +243,7 @@
                   </AppButton>
                 </div>
 
-                <div v-if="reviewActionFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-[11px] text-[#247653] text-center font-medium">
+                <div v-if="reviewActionFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-xs text-[#247653] text-center font-medium">
                   {{ reviewActionFeedback }}
                 </div>
               </div>
@@ -263,7 +263,7 @@
     <div v-else-if="activeTab === 'module-c'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Source Evidence Viewer</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Source Evidence Viewer</h2>
           <p class="text-xs text-[#526173]">Page-level provenance, cryptographic hash verification, and highlighted citation excerpts.</p>
         </div>
         <div class="flex items-center gap-2">
@@ -299,7 +299,7 @@
                 <span class="text-[#526173]">·</span>
                 <span class="text-[#167D83] font-semibold">{{ mockStore.currentEvidence.obligation_code }}</span>
               </div>
-              <span class="px-2 py-0.5 bg-white border border-[#E1E5E8] rounded-[3px] text-[11px] font-mono text-[#14263D]">
+              <span class="px-2 py-0.5 bg-white border border-[#E1E5E8] rounded-[3px] text-xs font-mono text-[#14263D]">
                 Page {{ mockStore.currentEvidence.page_number }}
               </span>
             </div>
@@ -312,14 +312,14 @@
                     <AppIcon name="file-text" :size="13" class="text-[#167D83]" />
                     {{ mockStore.currentEvidence.section_title }}
                   </span>
-                  <span class="font-mono text-[10px] text-[#526173]">SHA256: {{ mockStore.currentEvidence.hash.substring(0, 12) }}...</span>
+                  <span class="font-mono text-xs text-[#526173]">SHA256: {{ mockStore.currentEvidence.hash.substring(0, 12) }}...</span>
                 </div>
 
                 <blockquote class="text-xs text-[#182533] leading-relaxed pl-3 border-l-2 border-[#167D83] italic font-sans py-1">
                   "{{ mockStore.currentEvidence.highlighted_text }}"
                 </blockquote>
 
-                <div class="text-[11px] text-[#526173] pt-2 border-t border-[#167D83]/15">
+                <div class="text-xs text-[#526173] pt-2 border-t border-[#167D83]/15">
                   <span class="font-semibold text-[#182533]">Surrounding Context: </span>
                   {{ mockStore.currentEvidence.context_paragraph }}
                 </div>
@@ -328,22 +328,22 @@
               <!-- Evidence Verification Matrix -->
               <div class="grid grid-cols-3 gap-3 text-xs">
                 <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <div class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Extraction Confidence</div>
+                  <div class="text-xs text-[#526173] uppercase font-semibold font-mono">Extraction Confidence</div>
                   <div class="text-sm font-bold text-[#247653] mt-0.5 font-mono">
                     {{ (mockStore.currentEvidence.confidence * 100).toFixed(0) }}% Verified
                   </div>
                 </div>
 
                 <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <div class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Risk Classification</div>
+                  <div class="text-xs text-[#526173] uppercase font-semibold font-mono">Risk Classification</div>
                   <div class="text-sm font-bold mt-0.5 font-mono" :class="mockStore.currentEvidence.risk_level === 'HIGH' ? 'text-[#B33A42]' : 'text-[#14263D]'">
                     {{ mockStore.currentEvidence.risk_level }} RISK
                   </div>
                 </div>
 
                 <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <div class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Timestamp</div>
-                  <div class="text-[11px] font-mono text-[#182533] mt-0.5 truncate">
+                  <div class="text-xs text-[#526173] uppercase font-semibold font-mono">Timestamp</div>
+                  <div class="text-xs font-mono text-[#182533] mt-0.5 truncate">
                     {{ new Date(mockStore.currentEvidence.extracted_at).toLocaleDateString() }}
                   </div>
                 </div>
@@ -365,10 +365,10 @@
               >
                 <div class="flex items-center justify-between">
                   <span class="font-mono font-bold text-[#14263D]">{{ ev.obligation_code }}</span>
-                  <span class="font-mono text-[10px] text-[#526173]">Page {{ ev.page_number }}</span>
+                  <span class="font-mono text-xs text-[#526173]">Page {{ ev.page_number }}</span>
                 </div>
                 <div class="font-medium text-[#182533] mt-1 truncate">{{ ev.section_title }}</div>
-                <div class="text-[11px] text-[#526173] mt-0.5 line-clamp-1 italic font-sans">
+                <div class="text-xs text-[#526173] mt-0.5 line-clamp-1 italic font-sans">
                   "{{ ev.highlighted_text }}"
                 </div>
               </div>
@@ -384,7 +384,7 @@
     <div v-else-if="activeTab === 'module-d'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Applicability Assessment</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Applicability Assessment</h2>
           <p class="text-xs text-[#526173]">Formally determine if an extracted obligation applies to the institution's lending or compliance operations.</p>
         </div>
         <AppButton variant="primary" size="sm" @click="saveApplicabilityAssessment">
@@ -412,7 +412,7 @@
                   </AppBadge>
                 </div>
                 <div class="font-semibold text-[#182533] mt-1">{{ ob.title }}</div>
-                <div class="text-[11px] text-[#526173] mt-1">
+                <div class="text-xs text-[#526173] mt-1">
                   Actor: <strong class="text-[#182533]">{{ ob.actor || 'Commercial Banks' }}</strong> · Deadline: {{ ob.deadline || 'Immediate' }}
                 </div>
               </div>
@@ -425,14 +425,14 @@
           <AppCard v-if="selectedAssessmentObligation" title="Applicability Evaluation" subtitle="Formal institutional determination" noPadding>
             <div class="p-4 space-y-4 text-xs">
               <div>
-                <span class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Requirement Code</span>
+                <span class="text-xs text-[#526173] uppercase font-semibold font-mono">Requirement Code</span>
                 <div class="font-mono font-bold text-[#14263D] text-sm mt-0.5">{{ selectedAssessmentObligation.obligation_code }}</div>
                 <div class="font-medium text-[#182533] mt-1">{{ selectedAssessmentObligation.title }}</div>
               </div>
 
               <!-- Applicability Status Selection -->
               <div>
-                <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1.5 font-mono">Applicability Determination</label>
+                <label class="block text-xs font-semibold text-[#182533] uppercase mb-1.5 font-mono">Applicability Determination</label>
                 <div class="grid grid-cols-3 gap-2">
                   <button
                     type="button"
@@ -463,7 +463,7 @@
 
               <!-- Reasoning and Comments -->
               <div>
-                <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1.5 font-mono">Institutional Reasoning & Comments</label>
+                <label class="block text-xs font-semibold text-[#182533] uppercase mb-1.5 font-mono">Institutional Reasoning & Comments</label>
                 <textarea
                   v-model="assessmentReasoning"
                   rows="4"
@@ -482,7 +482,7 @@
                 </AppButton>
               </div>
 
-              <div v-if="assessmentFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-[11px] text-[#247653] text-center font-medium">
+              <div v-if="assessmentFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-xs text-[#247653] text-center font-medium">
                 {{ assessmentFeedback }}
               </div>
             </div>
@@ -497,7 +497,7 @@
     <div v-else-if="activeTab === 'module-e'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Policy & Rule Mapping</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Policy & Rule Mapping</h2>
           <p class="text-xs text-[#526173]">Map certified obligations to internal corporate policies and highlight regulatory discrepancies.</p>
         </div>
         <AppButton variant="primary" size="sm" @click="showMappingModal = true">
@@ -511,7 +511,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Obligation Code</th>
                 <th class="px-4 py-2.5 font-semibold">Target Corporate Policy</th>
                 <th class="px-4 py-2.5 font-semibold">Match Score</th>
@@ -527,7 +527,7 @@
                 </td>
                 <td class="px-4 py-3">
                   <div class="font-semibold text-[#182533]">{{ getPolicyTitle(map.policy_id) }}</div>
-                  <div class="text-[11px] font-mono text-[#526173]">{{ map.policy_id }}</div>
+                  <div class="text-xs font-mono text-[#526173]">{{ map.policy_id }}</div>
                 </td>
                 <td class="px-4 py-3 font-mono text-[#247653] font-bold">
                   {{ (map.match_score * 100).toFixed(0) }}%
@@ -537,7 +537,7 @@
                     {{ map.match_type === 'EXACT' ? 'ALIGNED' : 'GAP IDENTIFIED' }}
                   </AppBadge>
                 </td>
-                <td class="px-4 py-3 text-[11px] text-[#526173] max-w-xs">
+                <td class="px-4 py-3 text-xs text-[#526173] max-w-xs">
                   {{ map.rationale }}
                 </td>
                 <td class="px-4 py-3 text-right">
@@ -558,7 +558,7 @@
           <AppIcon name="alert" :size="13" class="text-[#AD741B]" />
           <span>Active Regulatory Discrepancy: POL-CR-001 vs RBI Circular 2026/84</span>
         </div>
-        <p class="text-[#182533] text-[11px] leading-relaxed">
+        <p class="text-[#182533] text-xs leading-relaxed">
           Internal Policy <code class="font-mono bg-white px-1 py-0.5 border border-[#E1E5E8] rounded-[3px]">POL-CR-001</code> specifies a 100% risk weight ceiling for personal loans. The new circular mandates 125%, creating an immediate regulatory gap passed to Rule Engineering for AST reconfiguration.
         </p>
       </div>
@@ -590,14 +590,14 @@
                     <AppIcon name="file-text" :size="13" class="text-[#167D83]" />
                     Section 3(a) · Regulatory Mandate
                   </span>
-                  <span class="bg-white border border-[#E1E5E8] text-[#14263D] px-1.5 py-0.5 rounded-[3px] text-[10px] font-mono">
+                  <span class="bg-white border border-[#E1E5E8] text-[#14263D] px-1.5 py-0.5 rounded-[3px] text-xs font-mono">
                     Page 4
                   </span>
                 </div>
                 <blockquote class="text-xs text-[#182533] leading-relaxed pl-3 border-l-2 border-[#167D83] bg-white py-2 pr-3 rounded-[3px] italic font-sans">
                   "Risk weight on unsecured consumer credit by scheduled commercial banks is hereby enhanced from 100% to 125%. Credit extended to microfinance loans and self-help groups shall continue to attract the existing 100% risk weight."
                 </blockquote>
-                <div class="mt-2.5 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#526173]">
+                <div class="mt-2.5 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-xs text-[#526173]">
                   <span>Effective Date: <strong class="text-[#182533]">November 1, 2026</strong></span>
                   <span class="font-mono text-[#167D83]">Hash: e9c1..8fa3</span>
                 </div>
@@ -605,11 +605,11 @@
 
               <div class="grid grid-cols-2 gap-3 text-xs">
                 <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <div class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Regulated Entity Class</div>
+                  <div class="text-xs text-[#526173] uppercase font-semibold font-mono">Regulated Entity Class</div>
                   <div class="font-medium text-[#182533] mt-0.5">Commercial Banks & NBFCs</div>
                 </div>
                 <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <div class="text-[10px] text-[#526173] uppercase font-semibold font-mono">Impacted Credit Category</div>
+                  <div class="text-xs text-[#526173] uppercase font-semibold font-mono">Impacted Credit Category</div>
                   <div class="font-medium text-[#182533] mt-0.5">Unsecured Consumer Lending</div>
                 </div>
               </div>
@@ -634,7 +634,7 @@
                   </AppBadge>
                 </div>
                 <div class="text-xs font-semibold text-[#182533] mt-1">{{ ob.title }}</div>
-                <div class="text-[10px] text-[#526173] mt-1 flex items-center justify-between font-mono">
+                <div class="text-xs text-[#526173] mt-1 flex items-center justify-between font-mono">
                   <span>Page {{ ob.source_page }}</span>
                   <span class="text-[#167D83] font-medium">Review details →</span>
                 </div>
@@ -663,7 +663,7 @@
         <form @submit.prevent="handleUploadSubmit" class="space-y-3.5 text-xs">
           <!-- File Picker -->
           <div>
-            <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">
+            <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">
               Document File (.pdf or .docx only, max 25MB) <span class="text-[#B33A42]">*</span>
             </label>
             <input
@@ -672,13 +672,13 @@
               @change="onFileSelected"
               class="w-full text-xs p-2 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] file:mr-3 file:py-1 file:px-2.5 file:rounded-[3px] file:border-0 file:text-xs file:font-semibold file:bg-[#14263D] file:text-white hover:file:bg-[#167D83] file:transition-colors"
             />
-            <p v-if="uploadFile" class="text-[10px] text-[#247653] mt-1 font-mono">
+            <p v-if="uploadFile" class="text-xs text-[#247653] mt-1 font-mono">
               Selected: {{ uploadFile.name }} ({{ (uploadFile.size / (1024 * 1024)).toFixed(2) }} MB)
             </p>
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Document Title <span class="text-[#B33A42]">*</span></label>
+            <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Document Title <span class="text-[#B33A42]">*</span></label>
             <input
               v-model="uploadTitle"
               type="text"
@@ -690,7 +690,7 @@
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Authority</label>
+              <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Authority</label>
               <select v-model="uploadAuthority" class="w-full p-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]">
                 <option value="Reserve Bank of India">Reserve Bank of India</option>
                 <option value="European Banking Authority">European Banking Authority</option>
@@ -699,7 +699,7 @@
               </select>
             </div>
             <div>
-              <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Circular Number</label>
+              <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Circular Number</label>
               <input
                 v-model="uploadNumber"
                 type="text"
@@ -711,7 +711,7 @@
 
           <!-- Progress Simulation -->
           <div v-if="uploadProgress > 0" class="space-y-1 pt-1">
-            <div class="flex items-center justify-between text-[10px] font-mono text-[#526173]">
+            <div class="flex items-center justify-between text-xs font-mono text-[#526173]">
               <span>Ingesting & Parsing Document...</span>
               <span>{{ uploadProgress }}%</span>
             </div>
@@ -720,7 +720,7 @@
             </div>
           </div>
 
-          <p v-if="uploadError" class="text-[11px] text-[#B33A42] font-medium">{{ uploadError }}</p>
+          <p v-if="uploadError" class="text-xs text-[#B33A42] font-medium">{{ uploadError }}</p>
 
           <div class="pt-2 flex items-center justify-end gap-2 border-t border-[#E1E5E8]">
             <AppButton variant="outline" size="sm" type="button" @click="showUploadModal = false">
@@ -741,7 +741,7 @@
       <div class="bg-white rounded-[4px] border border-[#E1E5E8] shadow-xl max-w-xl w-full p-5 space-y-4 text-left">
         <div class="flex items-start justify-between">
           <div>
-            <span class="text-[10px] font-mono text-[#167D83] font-bold uppercase">{{ previewDoc.source_authority }}</span>
+            <span class="text-xs font-mono text-[#167D83] font-bold uppercase">{{ previewDoc.source_authority }}</span>
             <h3 class="text-sm font-bold text-[#14263D]">{{ previewDoc.title }}</h3>
             <p class="text-xs text-[#526173] font-mono mt-0.5">{{ previewDoc.circular_number || previewDoc.filename }}</p>
           </div>
@@ -751,7 +751,7 @@
         </div>
 
         <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-xs space-y-2">
-          <div class="text-[10px] font-semibold text-[#526173] uppercase font-mono">Extracted Publication Text Summary</div>
+          <div class="text-xs font-semibold text-[#526173] uppercase font-mono">Extracted Publication Text Summary</div>
           <p class="text-[#182533] leading-relaxed italic font-sans">
             {{ previewDoc.extracted_text || 'Document parsed successfully with page-level cryptographic provenance.' }}
           </p>
@@ -759,11 +759,11 @@
 
         <div class="grid grid-cols-2 gap-3 text-xs">
           <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-            <span class="text-[10px] text-[#526173] uppercase font-mono">File Hash</span>
+            <span class="text-xs text-[#526173] uppercase font-mono">File Hash</span>
             <div class="font-mono text-[#182533] mt-0.5 truncate">{{ previewDoc.file_hash || 'SHA256 verified' }}</div>
           </div>
           <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-            <span class="text-[10px] text-[#526173] uppercase font-mono">Effective Date</span>
+            <span class="text-xs text-[#526173] uppercase font-mono">Effective Date</span>
             <div class="font-mono text-[#182533] mt-0.5">{{ previewDoc.effective_date || 'November 1, 2026' }}</div>
           </div>
         </div>

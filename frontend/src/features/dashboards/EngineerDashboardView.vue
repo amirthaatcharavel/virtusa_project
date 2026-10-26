@@ -25,7 +25,7 @@
     <div v-if="activeTab === 'module-a'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Engineering Workload & Backlog</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Engineering Workload & Backlog</h2>
           <p class="text-xs text-[#526173]">Track development assignments for rule implementation, AST clauses, and condition guards.</p>
         </div>
         <div class="flex items-center gap-1.5">
@@ -44,15 +44,15 @@
       <!-- Task Summary Metric Sub-cards -->
       <div class="grid grid-cols-3 gap-3">
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#526173] font-mono">Assigned Work</span>
+          <span class="text-xs uppercase font-bold text-[#526173] font-mono">Assigned Work</span>
           <div class="text-lg font-bold text-[#14263D] font-mono mt-0.5">{{ mockStore.taskStats.assigned }} Tasks</div>
         </div>
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#AD741B] font-mono">In Development</span>
+          <span class="text-xs uppercase font-bold text-[#AD741B] font-mono">In Development</span>
           <div class="text-lg font-bold text-[#AD741B] font-mono mt-0.5">{{ mockStore.taskStats.inProgress }} Active</div>
         </div>
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#247653] font-mono">Completed & Tested</span>
+          <span class="text-xs uppercase font-bold text-[#247653] font-mono">Completed & Tested</span>
           <div class="text-lg font-bold text-[#247653] font-mono mt-0.5">{{ mockStore.taskStats.completed }} Ready</div>
         </div>
       </div>
@@ -62,7 +62,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Priority</th>
                 <th class="px-4 py-2.5 font-semibold">Task Title & Target Rule</th>
                 <th class="px-4 py-2.5 font-semibold">Owner</th>
@@ -80,7 +80,7 @@
                 </td>
                 <td class="px-4 py-3">
                   <div class="font-semibold text-[#182533]">{{ t.title }}</div>
-                  <div class="text-[11px] font-mono text-[#167D83] mt-0.5 font-medium">{{ t.rule_code }}</div>
+                  <div class="text-xs font-mono text-[#167D83] mt-0.5 font-medium">{{ t.rule_code }}</div>
                 </td>
                 <td class="px-4 py-3 font-medium text-[#182533]">{{ t.owner }}</td>
                 <td class="px-4 py-3 font-mono text-[#526173]">{{ t.due_date }}</td>
@@ -114,7 +114,7 @@
     <div v-else-if="activeTab === 'module-b'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Rule Studio & AST Version History</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Rule Studio & AST Version History</h2>
           <p class="text-xs text-[#526173]">Author pure functional JSON Abstract Syntax Trees, validate against evaluator schemas, and inspect diffs.</p>
         </div>
         <div class="flex items-center gap-2">
@@ -139,7 +139,7 @@
                 <span class="text-[#526173]">·</span>
                 <span class="font-mono text-xs text-[#167D83] bg-[#167D83]/10 border border-[#167D83]/20 px-2 py-0.5 rounded-[3px] font-semibold">v1.1.0-draft</span>
               </div>
-              <span class="text-[11px] text-[#247653] font-semibold flex items-center gap-1 font-mono">
+              <span class="text-xs text-[#247653] font-semibold flex items-center gap-1 font-mono">
                 <AppIcon name="check" :size="12" />
                 AST Validated
               </span>
@@ -147,7 +147,7 @@
 
             <div class="p-4 space-y-3">
               <!-- Readable Condition Logic Breakdown -->
-              <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-[11px] text-[#182533] leading-relaxed">
+              <div class="p-3.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-xs text-[#182533] leading-relaxed">
                 <span class="text-[#167D83] font-bold">IF</span> loan_type == <span class="text-[#247653] font-semibold">"UNSECURED_PERSONAL_LOAN"</span><br/>
                 <span class="text-[#167D83] font-bold">AND</span> borrower_type != <span class="text-[#247653] font-semibold">"MICROFINANCE_SHG"</span><br/>
                 <span class="text-[#167D83] font-bold">THEN</span> decision: <span class="text-[#B33A42] font-bold">"ENHANCED_RISK_WEIGHT"</span>, risk_weight: <span class="text-[#182533] font-bold">{{ editableRiskWeight }}%</span><br/>
@@ -159,7 +159,7 @@
                 <div class="font-semibold text-xs text-[#182533] font-mono uppercase">Editable Rule Parameters</div>
                 <div class="grid grid-cols-2 gap-3 text-xs">
                   <div>
-                    <label class="block text-[11px] font-semibold text-[#526173] mb-1 font-mono">Target Enhanced RWA (%)</label>
+                    <label class="block text-xs font-semibold text-[#526173] mb-1 font-mono">Target Enhanced RWA (%)</label>
                     <input
                       v-model.number="editableRiskWeight"
                       type="number"
@@ -170,7 +170,7 @@
                     />
                   </div>
                   <div>
-                    <label class="block text-[11px] font-semibold text-[#526173] mb-1 font-mono">Carve-Out Exemption Type</label>
+                    <label class="block text-xs font-semibold text-[#526173] mb-1 font-mono">Carve-Out Exemption Type</label>
                     <input
                       v-model="editableCarveOut"
                       type="text"
@@ -180,7 +180,7 @@
                 </div>
 
                 <div>
-                  <label class="block text-[11px] font-semibold text-[#526173] mb-1 font-mono">Change Summary / Audit Memo</label>
+                  <label class="block text-xs font-semibold text-[#526173] mb-1 font-mono">Change Summary / Audit Memo</label>
                   <input
                     v-model="editableSummary"
                     type="text"
@@ -198,7 +198,7 @@
                 </div>
               </div>
 
-              <div v-if="ruleSaveFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-[11px] text-[#247653] text-center font-medium">
+              <div v-if="ruleSaveFeedback" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-xs text-[#247653] text-center font-medium">
                 {{ ruleSaveFeedback }}
               </div>
             </div>
@@ -221,7 +221,7 @@
                   </AppBadge>
                 </div>
                 <div class="text-[#182533] font-medium mt-1">{{ v.change_summary }}</div>
-                <div class="text-[10px] font-mono text-[#526173] mt-1.5 flex items-center justify-between">
+                <div class="text-xs font-mono text-[#526173] mt-1.5 flex items-center justify-between">
                   <span>Created: {{ new Date(v.created_at).toLocaleDateString() }}</span>
                   <span class="text-[#167D83] hover:text-[#14263D] cursor-pointer font-medium" @click="showVersionDiffModal = true">View diff →</span>
                 </div>
@@ -240,8 +240,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2">
-            <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Test Lab & Regression Matrix</h2>
-            <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-mono bg-[#AD741B]/10 text-[#AD741B] border border-[#AD741B]/30 font-medium">
+            <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Test Lab & Regression Matrix</h2>
+            <span class="px-2 py-0.5 rounded-[3px] text-xs font-mono bg-[#AD741B]/10 text-[#AD741B] border border-[#AD741B]/30 font-medium">
               Demo Simulation Result
             </span>
           </div>
@@ -267,27 +267,27 @@
       <!-- Test Results Summary Ribbon -->
       <div class="grid grid-cols-3 gap-3 text-xs">
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <div class="text-[10px] uppercase font-bold text-[#247653] font-mono">Passed Assertions</div>
+          <div class="text-xs uppercase font-bold text-[#247653] font-mono">Passed Assertions</div>
           <div class="text-lg font-bold text-[#247653] font-mono mt-1">
             {{ mockStore.latestTestRun.passed_tests }} / {{ mockStore.latestTestRun.total_tests }} PASS
           </div>
-          <div class="text-[10px] text-[#526173] mt-0.5">100% Pass Rate</div>
+          <div class="text-xs text-[#526173] mt-0.5">100% Pass Rate</div>
         </div>
 
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <div class="text-[10px] uppercase font-bold text-[#526173] font-mono">Failed Tests</div>
+          <div class="text-xs uppercase font-bold text-[#526173] font-mono">Failed Tests</div>
           <div class="text-lg font-bold text-[#14263D] font-mono mt-1">
             {{ mockStore.latestTestRun.failed_tests }} FAIL
           </div>
-          <div class="text-[10px] text-[#526173] mt-0.5">Zero Logic Regressions</div>
+          <div class="text-xs text-[#526173] mt-0.5">Zero Logic Regressions</div>
         </div>
 
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <div class="text-[10px] uppercase font-bold text-[#167D83] font-mono">Target Rule Version</div>
+          <div class="text-xs uppercase font-bold text-[#167D83] font-mono">Target Rule Version</div>
           <div class="text-sm font-bold text-[#14263D] font-mono mt-1 truncate">
             {{ mockStore.latestTestRun.rule_version_id }}
           </div>
-          <div class="text-[10px] text-[#526173] font-mono mt-0.5">Tested: {{ new Date(mockStore.latestTestRun.executed_at).toLocaleTimeString() }}</div>
+          <div class="text-xs text-[#526173] font-mono mt-0.5">Tested: {{ new Date(mockStore.latestTestRun.executed_at).toLocaleTimeString() }}</div>
         </div>
       </div>
 
@@ -308,13 +308,13 @@
               <AppBadge variant="success">PASS</AppBadge>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2.5 p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-[11px] font-mono">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2.5 p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-xs font-mono">
               <div>
-                <span class="text-[#526173] block mb-0.5 uppercase text-[9px] font-semibold">Input Payload:</span>
+                <span class="text-[#526173] block mb-0.5 uppercase text-xs font-semibold">Input Payload:</span>
                 <code class="text-[#182533]">{{ JSON.stringify(tc.input_payload) }}</code>
               </div>
               <div>
-                <span class="text-[#526173] block mb-0.5 uppercase text-[9px] font-semibold">Expected Outcome:</span>
+                <span class="text-[#526173] block mb-0.5 uppercase text-xs font-semibold">Expected Outcome:</span>
                 <span class="text-[#247653] font-bold">{{ JSON.stringify(tc.expected_outcome) }}</span>
               </div>
             </div>
@@ -330,8 +330,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2">
-            <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Synthetic Impact Simulator</h2>
-            <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-mono bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/30 font-medium">
+            <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Synthetic Impact Simulator</h2>
+            <span class="px-2 py-0.5 rounded-[3px] text-xs font-mono bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/30 font-medium">
               Simulated Data
             </span>
           </div>
@@ -346,24 +346,24 @@
       <!-- Impact Metrics Summary -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#526173] font-mono">Total Evaluated</span>
+          <span class="text-xs uppercase font-bold text-[#526173] font-mono">Total Evaluated</span>
           <div class="text-lg font-bold text-[#14263D] font-mono mt-0.5">10,000 Accounts</div>
-          <div class="text-[10px] text-[#526173]">Synthetic Retail Portfolio</div>
+          <div class="text-xs text-[#526173]">Synthetic Retail Portfolio</div>
         </div>
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#167D83] font-mono">Re-weighted Loans</span>
+          <span class="text-xs uppercase font-bold text-[#167D83] font-mono">Re-weighted Loans</span>
           <div class="text-lg font-bold text-[#167D83] font-mono mt-0.5">4,380 Loans (43.8%)</div>
-          <div class="text-[10px] text-[#167D83] font-medium">+25% Risk Weight Applied</div>
+          <div class="text-xs text-[#167D83] font-medium">+25% Risk Weight Applied</div>
         </div>
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#247653] font-mono">Exempt Carve-Outs</span>
+          <span class="text-xs uppercase font-bold text-[#247653] font-mono">Exempt Carve-Outs</span>
           <div class="text-lg font-bold text-[#247653] font-mono mt-0.5">5,620 Loans (56.2%)</div>
-          <div class="text-[10px] text-[#526173]">Microfinance / Secured</div>
+          <div class="text-xs text-[#526173]">Microfinance / Secured</div>
         </div>
         <div class="p-3 bg-white border border-[#E1E5E8] rounded-[3px]">
-          <span class="text-[10px] uppercase font-bold text-[#AD741B] font-mono">Estimated RWA Delta</span>
+          <span class="text-xs uppercase font-bold text-[#AD741B] font-mono">Estimated RWA Delta</span>
           <div class="text-lg font-bold text-[#AD741B] font-mono mt-0.5">+₹27.50M INR</div>
-          <div class="text-[10px] text-[#526173]">Capital Buffer Delta</div>
+          <div class="text-xs text-[#526173]">Capital Buffer Delta</div>
         </div>
       </div>
 
@@ -372,7 +372,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Record ID</th>
                 <th class="px-4 py-2.5 font-semibold">Loan Type & Parameters</th>
                 <th class="px-4 py-2.5 font-semibold">Baseline Outcome (v1.0.0)</th>
@@ -390,7 +390,7 @@
                 <td class="px-4 py-3 font-mono font-bold text-[#14263D]">{{ diff.record_id }}</td>
                 <td class="px-4 py-3">
                   <div class="font-semibold text-[#182533]">{{ diff.input_data.loan_type }}</div>
-                  <div class="text-[10px] font-mono text-[#526173]">₹{{ (diff.input_data.amount || 0).toLocaleString() }} · {{ diff.input_data.borrower }}</div>
+                  <div class="text-xs font-mono text-[#526173]">₹{{ (diff.input_data.amount || 0).toLocaleString() }} · {{ diff.input_data.borrower }}</div>
                 </td>
                 <td class="px-4 py-3 font-mono">
                   <span class="text-[#526173]">100% RWA (Standard)</span>
@@ -404,7 +404,7 @@
                     {{ diff.changed ? 'INCREASED RWA' : 'UNCHANGED' }}
                   </AppBadge>
                 </td>
-                <td class="px-4 py-3 text-[11px] text-[#526173] max-w-xs">
+                <td class="px-4 py-3 text-xs text-[#526173] max-w-xs">
                   {{ diff.difference_reason }}
                 </td>
               </tr>
@@ -421,8 +421,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2">
-            <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Sandbox Deployment & Rollback Gate</h2>
-            <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-mono bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/20 font-medium">
+            <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Sandbox Deployment & Rollback Gate</h2>
+            <span class="px-2 py-0.5 rounded-[3px] text-xs font-mono bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/20 font-medium">
               Demo Actions Only
             </span>
           </div>
@@ -448,7 +448,7 @@
             <AppBadge variant="success">SERVING DECISIONS</AppBadge>
           </div>
           <div class="text-lg font-mono font-bold text-[#14263D]">RULE-CR-2026-01 (v1.0.0)</div>
-          <p class="text-[11px] text-[#526173]">Baseline flat 100% risk weight currently evaluating shadow transaction feeds.</p>
+          <p class="text-xs text-[#526173]">Baseline flat 100% risk weight currently evaluating shadow transaction feeds.</p>
         </div>
 
         <div class="p-4 bg-white border border-[#E1E5E8] rounded-[3px] shadow-2xs space-y-2">
@@ -457,7 +457,7 @@
             <AppBadge variant="warning">AWAITING SIGN-OFF</AppBadge>
           </div>
           <div class="text-lg font-mono font-bold text-[#AD741B]">RULE-CR-2026-01 (v1.1.0-draft)</div>
-          <p class="text-[11px] text-[#526173]">Blocked by dual-control policy: Requires sign-off by Vikram Mehta before live activation.</p>
+          <p class="text-xs text-[#526173]">Blocked by dual-control policy: Requires sign-off by Vikram Mehta before live activation.</p>
         </div>
       </div>
 
@@ -466,7 +466,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Deployment ID</th>
                 <th class="px-4 py-2.5 font-semibold">Rule Version</th>
                 <th class="px-4 py-2.5 font-semibold">Environment</th>
@@ -486,7 +486,7 @@
                   </AppBadge>
                 </td>
                 <td class="px-4 py-3 font-mono text-[#526173]">{{ new Date(d.deployed_at).toLocaleDateString() }}</td>
-                <td class="px-4 py-3 text-[11px] text-[#526173]">{{ d.notes }}</td>
+                <td class="px-4 py-3 text-xs text-[#526173]">{{ d.notes }}</td>
               </tr>
             </tbody>
           </table>
@@ -508,12 +508,12 @@
               </button>
             </div>
             <div class="p-4 space-y-3 text-xs">
-              <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-[11px] leading-relaxed">
+              <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-xs leading-relaxed">
                 <span class="text-[#167D83] font-bold">IF</span> loan_type == "UNSECURED_PERSONAL_LOAN" AND borrower_type != "MICROFINANCE_SHG"<br/>
                 <span class="text-[#167D83] font-bold">THEN</span> 125% Enhanced RWA<br/>
                 <span class="text-[#167D83] font-bold">ELSE</span> 100% Standard RWA Carve-Out
               </div>
-              <div class="flex items-center justify-between text-[11px] text-[#526173] font-mono">
+              <div class="flex items-center justify-between text-xs text-[#526173] font-mono">
                 <span>Status: <strong class="text-[#14263D]">Tested & Conforming</strong></span>
                 <span class="text-[#247653] font-semibold">5 of 5 Assertions Passing</span>
               </div>
@@ -537,7 +537,7 @@
                   </AppBadge>
                 </div>
                 <div class="font-semibold text-[#182533] mt-1">{{ t.title }}</div>
-                <div class="text-[10px] text-[#526173] mt-1 font-mono">Due: {{ t.due_date }}</div>
+                <div class="text-xs text-[#526173] mt-1 font-mono">Due: {{ t.due_date }}</div>
               </div>
             </div>
           </AppCard>
@@ -557,7 +557,7 @@
       @confirm="executeModalAction"
       @cancel="confirmModalOpen = false"
     >
-      <p class="text-[11px] text-[#182533] leading-relaxed">
+      <p class="text-xs text-[#182533] leading-relaxed">
         {{ modalMessage }}
       </p>
     </ConfirmModal>
@@ -577,8 +577,8 @@
 
         <div class="grid grid-cols-2 gap-3 text-xs font-mono">
           <div class="p-3 bg-[#B33A42]/5 border border-[#B33A42]/20 rounded-[3px]">
-            <span class="text-[10px] text-[#B33A42] font-bold uppercase block mb-1 font-mono">Baseline v1.0.0</span>
-            <pre class="text-[10px] text-[#182533] overflow-x-auto leading-relaxed">
+            <span class="text-xs text-[#B33A42] font-bold uppercase block mb-1 font-mono">Baseline v1.0.0</span>
+            <pre class="text-xs text-[#182533] overflow-x-auto leading-relaxed">
 risk_weight: 100%
 conditions: [
   loan_type in [
@@ -590,8 +590,8 @@ conditions: [
           </div>
 
           <div class="p-3 bg-[#247653]/5 border border-[#247653]/20 rounded-[3px]">
-            <span class="text-[10px] text-[#247653] font-bold uppercase block mb-1 font-mono">Candidate v1.1.0-draft</span>
-            <pre class="text-[10px] text-[#182533] overflow-x-auto leading-relaxed">
+            <span class="text-xs text-[#247653] font-bold uppercase block mb-1 font-mono">Candidate v1.1.0-draft</span>
+            <pre class="text-xs text-[#182533] overflow-x-auto leading-relaxed">
 + risk_weight: 125%
 + conditions: [
 +   loan_type in [PERSONAL, CARD]

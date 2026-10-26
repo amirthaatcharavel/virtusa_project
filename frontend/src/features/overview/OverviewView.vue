@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173] font-mono">Active Role: {{ authStore.roleLabel }}</span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">
           Regulatory Circular to Live Rule Engine Pipeline
         </h1>
         <p class="text-xs text-[#526173] mt-0.5 max-w-3xl leading-relaxed">
@@ -44,17 +44,17 @@
         >
           <div>
             <div class="flex items-center justify-between text-xs text-[#526173] mb-2 font-mono">
-              <span class="text-[10px] text-[#167D83] font-semibold">0{{ idx + 1 }}</span>
+              <span class="text-xs text-[#167D83] font-semibold">0{{ idx + 1 }}</span>
               <span class="w-2 h-2 rounded-full" :class="stage.dotColor"></span>
             </div>
             <div class="font-semibold text-xs text-[#182533] group-hover:text-[#167D83] transition-colors">
               {{ stage.name }}
             </div>
-            <div class="text-[11px] text-[#526173] mt-1 leading-snug">
+            <div class="text-xs text-[#526173] mt-1 leading-snug">
               {{ stage.desc }}
             </div>
           </div>
-          <div class="mt-3 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#167D83] font-medium font-mono">
+          <div class="mt-3 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-xs text-[#167D83] font-medium font-mono">
             <span>{{ stage.metric }}</span>
             <AppIcon name="chevron-right" :size="12" />
           </div>
@@ -81,7 +81,7 @@
             <div class="text-xs font-medium text-[#182533] line-clamp-1 mb-1">
               {{ c.title }}
             </div>
-            <div class="flex items-center justify-between text-[11px] text-[#526173] pt-2 border-t border-[#E1E5E8]">
+            <div class="flex items-center justify-between text-xs text-[#526173] pt-2 border-t border-[#E1E5E8]">
               <span class="font-mono">{{ c.page_count }} Pages · {{ c.obligations_count }} Obligations</span>
               <router-link :to="`/circulars/${c.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Inspect <AppIcon name="chevron-right" :size="12" />
@@ -106,7 +106,7 @@
             class="p-3 rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0] hover:border-[#167D83]/40 transition-colors"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-mono text-[11px] font-semibold text-[#167D83]">{{ obl.obligation_code }}</span>
+              <span class="font-mono text-xs font-semibold text-[#167D83]">{{ obl.obligation_code }}</span>
               <AppBadge :variant="obl.applicability === 'APPLICABLE' ? 'success' : obl.applicability === 'UNRESOLVED' ? 'warning' : 'neutral'">
                 {{ obl.applicability }}
               </AppBadge>
@@ -114,7 +114,7 @@
             <div class="text-xs font-medium text-[#182533] line-clamp-2 mb-1.5">
               {{ obl.title }}
             </div>
-            <div class="text-[11px] text-[#526173] flex items-center justify-between pt-2 border-t border-[#E1E5E8] font-mono">
+            <div class="text-xs text-[#526173] flex items-center justify-between pt-2 border-t border-[#E1E5E8] font-mono">
               <span>Source: Page {{ obl.source_page }}</span>
               <router-link :to="`/obligations/${obl.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Review <AppIcon name="chevron-right" :size="12" />
@@ -139,7 +139,7 @@
             class="p-3 rounded-[3px] border border-[#E1E5E8] bg-[#F6F5F0] hover:border-[#167D83]/40 transition-colors"
           >
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="font-mono text-[11px] font-semibold text-[#167D83]">{{ r.rule_code }}</span>
+              <span class="font-mono text-xs font-semibold text-[#167D83]">{{ r.rule_code }}</span>
               <AppBadge :variant="r.status === 'APPROVED' || r.status === 'DEPLOYED' ? 'success' : 'teal'" dot>
                 {{ r.status }}
               </AppBadge>
@@ -147,7 +147,7 @@
             <div class="text-xs font-medium text-[#182533] line-clamp-1 mb-1">
               {{ r.name }}
             </div>
-            <div class="text-[11px] text-[#526173] pt-2 border-t border-[#E1E5E8] flex items-center justify-between font-mono">
+            <div class="text-xs text-[#526173] pt-2 border-t border-[#E1E5E8] flex items-center justify-between font-mono">
               <span>Category: {{ r.category }}</span>
               <router-link :to="`/rules/${r.id}`" class="text-[#167D83] font-medium hover:underline flex items-center gap-0.5 font-mono">
                 Studio <AppIcon name="chevron-right" :size="12" />
@@ -161,15 +161,15 @@
               <AppIcon name="simulator" :size="14" class="text-[#167D83]" />
               Verified Regression Evidence
             </div>
-            <p class="text-[11px] text-[#526173] leading-relaxed mb-2">
+            <p class="text-xs text-[#526173] leading-relaxed mb-2">
               Candidate version 1.1.0-draft has 5/5 passing deterministic tests and a complete impact analysis on 100 borrower profiles.
             </p>
             <div class="flex items-center gap-2 font-mono">
-              <router-link to="/simulation" class="text-[#167D83] font-semibold hover:underline text-[11px]">
+              <router-link to="/simulation" class="text-[#167D83] font-semibold hover:underline text-xs">
                 Open Impact Report →
               </router-link>
               <span class="text-[#526173]">·</span>
-              <router-link to="/approvals" class="text-[#167D83] font-semibold hover:underline text-[11px]">
+              <router-link to="/approvals" class="text-[#167D83] font-semibold hover:underline text-xs">
                 Approval Queue →
               </router-link>
             </div>

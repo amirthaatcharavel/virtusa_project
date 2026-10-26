@@ -48,9 +48,9 @@ defineEmits<{
 
 const sizeClasses = computed(() => {
   switch (props.size) {
-    case 'sm': return 'text-[11px] px-2.5 py-1.5 rounded-[3px] gap-1.5 leading-none';
-    case 'lg': return 'text-sm px-4 py-2.5 rounded-[4px] gap-2';
-    default: return 'text-xs px-3 py-2 rounded-[3px] gap-1.5 leading-none';
+    case 'sm': return 'text-xs px-3 py-1.5 rounded-[3px] gap-1.5 font-semibold';
+    case 'lg': return 'text-base px-5 py-2.5 rounded-[4px] gap-2.5 font-bold';
+    default: return 'text-sm px-4 py-2 rounded-[4px] gap-2 font-semibold';
   }
 });
 

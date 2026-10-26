@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Evaluating Version: <strong class="text-[#167D83] font-mono">{{ activeVersion?.version_number }}</strong></span>
         </div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Deterministic Test Execution Suite</h1>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Deterministic Test Execution Suite</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Execute reproducible regulatory regression tests with zero model hallucinations.
         </p>
@@ -31,27 +31,27 @@
     <!-- Execution Status Summary -->
     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#526173] font-mono">Total Test Cases</div>
+        <div class="text-xs uppercase font-bold text-[#526173] font-mono">Total Test Cases</div>
         <div class="text-2xl font-bold text-[#182533] mt-1 font-mono">{{ testCases.length }}</div>
-        <div class="text-[11px] text-[#526173] mt-0.5">Standard Regulatory Suite</div>
+        <div class="text-xs text-[#526173] mt-0.5">Standard Regulatory Suite</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#247653] font-mono">Passed Tests</div>
+        <div class="text-xs uppercase font-bold text-[#247653] font-mono">Passed Tests</div>
         <div class="text-2xl font-bold text-[#247653] mt-1 font-mono">{{ latestRun?.passed_tests ?? 5 }}</div>
-        <div class="text-[11px] text-[#247653] mt-0.5 font-mono">100% Deterministic Match</div>
+        <div class="text-xs text-[#247653] mt-0.5 font-mono">100% Deterministic Match</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#B33A42] font-mono">Failed Tests</div>
+        <div class="text-xs uppercase font-bold text-[#B33A42] font-mono">Failed Tests</div>
         <div class="text-2xl font-bold text-[#B33A42] mt-1 font-mono">{{ latestRun?.failed_tests ?? 0 }}</div>
-        <div class="text-[11px] text-[#B33A42] mt-0.5 font-mono">0 Deviations Detected</div>
+        <div class="text-xs text-[#B33A42] mt-0.5 font-mono">0 Deviations Detected</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#167D83] font-mono">Evaluated Version</div>
+        <div class="text-xs uppercase font-bold text-[#167D83] font-mono">Evaluated Version</div>
         <div class="text-sm font-mono font-bold text-[#14263D] mt-2 truncate">{{ activeVersion?.version_number || 'v1.1.0-draft' }}</div>
-        <div class="text-[10px] text-[#167D83] mt-0.5 font-mono">Bound to exact AST</div>
+        <div class="text-xs text-[#167D83] mt-0.5 font-mono">Bound to exact AST</div>
       </AppCard>
     </div>
 
@@ -60,7 +60,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">Test Case / Objective</th>
               <th class="px-4 py-3 font-semibold">Input Payload</th>
               <th class="px-4 py-3 font-semibold">Expected Decision</th>
@@ -77,27 +77,27 @@
             >
               <td class="px-5 py-3.5">
                 <div class="font-semibold text-[#182533] text-xs">{{ tc.name }}</div>
-                <div class="text-[11px] text-[#526173] mt-0.5">{{ tc.description }}</div>
-                <span v-if="tc.is_edge_case" class="inline-block mt-1 text-[10px] font-mono text-[#AD741B] bg-[#FDF7EB] border border-[#EED7A8] px-1.5 py-0.2 rounded-[3px]">
+                <div class="text-xs text-[#526173] mt-0.5">{{ tc.description }}</div>
+                <span v-if="tc.is_edge_case" class="inline-block mt-1 text-xs font-mono text-[#AD741B] bg-[#FDF7EB] border border-[#EED7A8] px-1.5 py-0.2 rounded-[3px]">
                   Boundary Edge Case
                 </span>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-[#182533] max-w-xs">
+              <td class="px-4 py-3.5 font-mono text-xs text-[#182533] max-w-xs">
                 <div>Type: {{ tc.input_payload.loan_type }}</div>
                 <div>Amount: ₹{{ tc.input_payload.loan_amount?.toLocaleString() }}</div>
                 <div>Score: {{ tc.input_payload.borrower_credit_score }}</div>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px]">
+              <td class="px-4 py-3.5 font-mono text-xs">
                 <div class="font-bold text-[#182533]">{{ tc.expected_outcome.decision }}</div>
                 <div class="text-[#526173]">Weight: {{ tc.expected_outcome.risk_weight }}%</div>
                 <div class="text-[#526173]">Buffer: {{ tc.expected_outcome.additional_buffer_percent }}%</div>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px]">
+              <td class="px-4 py-3.5 font-mono text-xs">
                 <div class="font-bold text-[#182533]">{{ getActualOutput(tc.id)?.decision || tc.expected_outcome.decision }}</div>
                 <div class="text-[#526173]">Weight: {{ getActualOutput(tc.id)?.risk_weight || tc.expected_outcome.risk_weight }}%</div>
                 <div class="text-[#526173]">Buffer: {{ getActualOutput(tc.id)?.additional_buffer_percent || tc.expected_outcome.additional_buffer_percent }}%</div>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-[#167D83]">
+              <td class="px-4 py-3.5 font-mono text-xs text-[#167D83]">
                 {{ getMatchedStep(tc.id) }}
               </td>
               <td class="px-5 py-3.5 text-right">

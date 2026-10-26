@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Administrator: <strong class="text-[#182533]">Elena Rostova</strong></span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">User Account & Role Management</h1>
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">User Account & Role Management</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Configure authenticated identity accounts, assign authorized roles, and enforce security policies.
         </p>
@@ -29,7 +29,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">User Identity</th>
               <th class="px-4 py-3 font-semibold">Username</th>
               <th class="px-4 py-3 font-semibold">Current Role</th>
@@ -41,16 +41,16 @@
             <tr v-for="u in users" :key="u.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
               <td class="px-5 py-3.5">
                 <div class="font-bold text-[#182533] text-xs">{{ u.full_name }}</div>
-                <div class="text-[11px] text-[#526173] font-mono">{{ u.email }}</div>
+                <div class="text-xs text-[#526173] font-mono">{{ u.email }}</div>
               </td>
-              <td class="px-4 py-3.5 font-mono text-[11px] text-[#526173]">
+              <td class="px-4 py-3.5 font-mono text-xs text-[#526173]">
                 {{ u.username }}
               </td>
               <td class="px-4 py-3.5">
                 <AppBadge :variant="u.role === 'PLATFORM_ADMIN' ? 'teal' : u.role === 'COMPLIANCE_APPROVER' ? 'warning' : 'navy'">{{ u.role }}</AppBadge>
               </td>
               <td class="px-4 py-3.5">
-                <span class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#247653] font-mono">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#247653] font-mono">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#247653]"></span>
                   Active
                 </span>

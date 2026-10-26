@@ -12,7 +12,7 @@
         </div>
         <div>
           <div class="font-bold text-xs tracking-wider text-[#182533] uppercase leading-tight">Regulatory Change</div>
-          <div class="text-[10px] text-[#167D83] font-mono tracking-wide">Governance Platform</div>
+          <div class="text-xs text-[#167D83] font-mono tracking-wide">Governance Platform</div>
         </div>
       </router-link>
 
@@ -30,11 +30,11 @@
       <div class="w-full max-w-2xl space-y-5">
         <!-- Gateway Header -->
         <div class="text-center space-y-1.5">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] text-[11px] font-mono font-medium bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/20">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-[2px] text-xs font-mono font-medium bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/20">
             <AppIcon name="shield" :size="12" class="text-[#167D83]" />
             <span>Institutional Access Gateway</span>
           </div>
-          <h1 class="text-xl font-bold text-[#182533] tracking-tight">Enterprise Governance Portal</h1>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Enterprise Governance Portal</h1>
           <p class="text-xs text-[#526173] max-w-lg mx-auto leading-relaxed">
             Select one of the verified institutional roles below to access role-specific regulatory modules and governance tools.
           </p>
@@ -43,7 +43,7 @@
         <!-- Demonstration Notice Banner -->
         <div class="bg-[#FDF7EB] border border-[#EED7A8] rounded-[3px] p-3 text-xs text-[#AD741B] flex items-start gap-2.5">
           <AppIcon name="alert" :size="14" class="text-[#AD741B] flex-shrink-0 mt-0.5" />
-          <div class="text-[11px] leading-relaxed">
+          <div class="text-xs leading-relaxed">
             <strong class="font-semibold text-[#8B5C13]">Frontend Demonstration Sandbox:</strong>
             Role-aware presentation environment with full offline persistence. You can preview all four roles freely.
           </div>
@@ -54,10 +54,10 @@
           <!-- Four Role Selector Grid -->
           <div>
             <div class="flex items-center justify-between mb-2">
-              <label class="block text-[11px] font-bold text-[#182533] uppercase tracking-wider">
+              <label class="block text-xs font-bold text-[#182533] uppercase tracking-wider">
                 Select Institutional Persona
               </label>
-              <span class="text-[10px] text-[#167D83] font-mono">4 Roles Configured</span>
+              <span class="text-xs text-[#167D83] font-mono">4 Roles Configured</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -73,14 +73,14 @@
                 <div class="flex items-start justify-between gap-2">
                   <div class="flex items-center gap-2">
                     <span
-                      class="w-5 h-5 rounded-[2px] flex items-center justify-center text-[10px] font-mono font-bold"
+                      class="w-5 h-5 rounded-[2px] flex items-center justify-center text-xs font-mono font-bold"
                       :class="selectedRole === roleItem.role ? 'bg-[#167D83] text-white' : 'bg-[#F6F5F0] text-[#14263D] border border-[#E1E5E8]'"
                     >
                       {{ roleItem.index }}
                     </span>
                     <div>
                       <div class="font-bold text-xs text-[#182533] leading-tight">{{ roleItem.title }}</div>
-                      <div class="text-[11px] text-[#167D83] font-medium">{{ roleItem.personaName }}</div>
+                      <div class="text-xs text-[#167D83] font-medium">{{ roleItem.personaName }}</div>
                     </div>
                   </div>
                   <span
@@ -91,11 +91,11 @@
                   </span>
                 </div>
 
-                <p class="text-[11px] text-[#526173] mt-2 line-clamp-2 leading-relaxed">
+                <p class="text-xs text-[#526173] mt-2 line-clamp-2 leading-relaxed">
                   {{ roleItem.description }}
                 </p>
 
-                <div class="mt-2.5 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[10px] font-mono">
+                <div class="mt-2.5 pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-xs font-mono">
                   <span class="text-[#526173] truncate max-w-[160px]">{{ roleItem.email }}</span>
                   <span class="text-[#167D83] font-semibold group-hover:underline">
                     {{ roleItem.targetRoute }}
@@ -107,7 +107,7 @@
 
           <div class="relative flex py-1 items-center">
             <div class="flex-grow border-t border-[#E1E5E8]"></div>
-            <span class="flex-shrink mx-3 text-[10px] uppercase font-bold text-[#526173] font-mono tracking-wider">Access Credentials</span>
+            <span class="flex-shrink mx-3 text-xs uppercase font-bold text-[#526173] font-mono tracking-wider">Access Credentials</span>
             <div class="flex-grow border-t border-[#E1E5E8]"></div>
           </div>
 
@@ -126,7 +126,7 @@
           <!-- Form Fields -->
           <form @submit.prevent="handleLogin" class="space-y-3.5">
             <div>
-              <label class="block text-[11px] font-semibold text-[#182533] uppercase tracking-wide mb-1">Institutional Identifier</label>
+              <label class="block text-xs font-semibold text-[#182533] uppercase tracking-wide mb-1">Institutional Identifier</label>
               <input
                 v-model="emailInput"
                 type="email"
@@ -139,8 +139,8 @@
 
             <div>
               <div class="flex items-center justify-between mb-1">
-                <label class="block text-[11px] font-semibold text-[#182533] uppercase tracking-wide">Enterprise Passcode</label>
-                <span class="text-[10px] text-[#526173] font-mono">Sandbox Demo Auth</span>
+                <label class="block text-xs font-semibold text-[#182533] uppercase tracking-wide">Enterprise Passcode</label>
+                <span class="text-xs text-[#526173] font-mono">Sandbox Demo Auth</span>
               </div>
               <input
                 v-model="passwordInput"
@@ -178,7 +178,7 @@
           </form>
 
           <!-- Security Assurance Note -->
-          <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-[11px] text-[#526173] flex items-start gap-2">
+          <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-xs text-[#526173] flex items-start gap-2">
             <AppIcon name="shield" :size="13" class="text-[#167D83] mt-0.5 flex-shrink-0" />
             <div class="leading-relaxed">
               <strong class="text-[#182533]">Dual-Control Governance: </strong>
@@ -190,7 +190,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="h-11 border-t border-[#E1E5E8] bg-white px-6 flex items-center justify-between text-[11px] text-[#526173] font-mono">
+    <footer class="h-11 border-t border-[#E1E5E8] bg-white px-6 flex items-center justify-between text-xs text-[#526173] font-mono">
       <span>Regulatory Change Intelligence Platform · Enterprise Edition</span>
       <span>4 Role Dashboards · Strict Presentation Layer</span>
     </footer>

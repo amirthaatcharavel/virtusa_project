@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Sign-off Reviewer: <strong class="text-[#182533]">Vikram Mehta</strong></span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">Regulatory Evidence & Provenance Inspector</h1>
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">Regulatory Evidence & Provenance Inspector</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Dual-control audit verification linking source circular citations to deterministic test assertions and simulated impact.
         </p>
@@ -29,12 +29,12 @@
         <div class="p-4 bg-[#F6F5F0] rounded-[3px] border border-[#E1E5E8] text-xs space-y-2">
           <div class="flex items-center justify-between font-bold text-[#182533]">
             <span>Reserve Bank of India — Circular Ref: RBI/2026-27/84</span>
-            <span class="font-mono text-[11px] text-[#526173]">SHA-256: e3b0c44298fc1c14...</span>
+            <span class="font-mono text-xs text-[#526173]">SHA-256: e3b0c44298fc1c14...</span>
           </div>
           <p class="text-[#182533] italic font-sans leading-relaxed pl-3 border-l-2 border-[#167D83] bg-white p-2.5 rounded-[3px]">
             "Risk weight on unsecured consumer credit by scheduled commercial banks is hereby enhanced from 100% to 125%... with immediate exemption for microfinance and SHG portfolios."
           </p>
-          <div class="flex items-center justify-between text-[11px] text-[#526173] pt-1 font-mono">
+          <div class="flex items-center justify-between text-xs text-[#526173] pt-1 font-mono">
             <span>Citation: Section 3(a), Paragraph 1, Page 4</span>
             <span class="text-[#167D83] font-semibold">Effective: 2026-11-01</span>
           </div>
@@ -47,15 +47,15 @@
           <div class="p-3.5 bg-[#F6F5F0] rounded-[3px] border border-[#E1E5E8] space-y-1">
             <span class="font-bold text-[#167D83] block font-mono">OBL-CR-001</span>
             <span class="font-semibold text-[#182533] block">Enhanced 125% Risk Weight on Unsecured Credit</span>
-            <span class="text-[11px] text-[#247653] font-semibold block font-mono">Certified APPLICABLE by Maya Sen</span>
-            <p class="text-[11px] text-[#526173] mt-1">Confirmed material impact on Retail Personal Loan capital allocation.</p>
+            <span class="text-xs text-[#247653] font-semibold block font-mono">Certified APPLICABLE by Maya Sen</span>
+            <p class="text-xs text-[#526173] mt-1">Confirmed material impact on Retail Personal Loan capital allocation.</p>
           </div>
 
           <div class="p-3.5 bg-[#F6F5F0] rounded-[3px] border border-[#E1E5E8] space-y-1">
             <span class="font-bold text-[#167D83] block font-mono">POL-CR-01 (v2.4)</span>
             <span class="font-semibold text-[#182533] block">Retail Credit Risk & Capital Adequacy Policy</span>
-            <span class="text-[11px] text-[#247653] font-semibold block font-mono">Exact 96% Match Alignment</span>
-            <p class="text-[11px] text-[#526173] mt-1">Governs risk-weight assignment and Tier-1 capital conservation buffers.</p>
+            <span class="text-xs text-[#247653] font-semibold block font-mono">Exact 96% Match Alignment</span>
+            <p class="text-xs text-[#526173] mt-1">Governs risk-weight assignment and Tier-1 capital conservation buffers.</p>
           </div>
         </div>
       </AppCard>

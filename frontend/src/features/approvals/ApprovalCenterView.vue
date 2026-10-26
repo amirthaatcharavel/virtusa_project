@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">Authorized Role: <strong class="text-[#182533]">Compliance Approver</strong></span>
         </div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Governance & Compliance Approval Center</h1>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Governance & Compliance Approval Center</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Dual-control certification of candidate rule changes based on reproducible test evidence and impact analysis.
         </p>
@@ -42,14 +42,14 @@
             <!-- Provenance & Source Evidence Chain -->
             <div class="grid grid-cols-2 gap-3">
               <div class="p-3 bg-[#F6F5F0] rounded-[3px] border border-[#E1E5E8]">
-                <span class="text-[10px] font-bold text-[#526173] uppercase block font-mono">Regulatory Source</span>
+                <span class="text-xs font-bold text-[#526173] uppercase block font-mono">Regulatory Source</span>
                 <span class="font-semibold text-[#182533] mt-0.5 block">RBI Circular 2026/84</span>
-                <span class="text-[11px] text-[#167D83] font-mono">Obligation: OBL-CR-001 (Page 1)</span>
+                <span class="text-xs text-[#167D83] font-mono">Obligation: OBL-CR-001 (Page 1)</span>
               </div>
               <div class="p-3 bg-[#F6F5F0] rounded-[3px] border border-[#E1E5E8]">
-                <span class="text-[10px] font-bold text-[#526173] uppercase block font-mono">Internal Policy Alignment</span>
+                <span class="text-xs font-bold text-[#526173] uppercase block font-mono">Internal Policy Alignment</span>
                 <span class="font-semibold text-[#182533] mt-0.5 block">POL-CR-01 (Credit Risk Policy)</span>
-                <span class="text-[11px] text-[#247653] font-semibold font-mono">Exact 96% Match Verified</span>
+                <span class="text-xs text-[#247653] font-semibold font-mono">Exact 96% Match Verified</span>
               </div>
             </div>
 
@@ -62,7 +62,7 @@
                 </span>
                 <span class="font-mono text-[#247653]">5 / 5 PASSED (100%)</span>
               </div>
-              <p class="text-[11px] text-[#182533] leading-relaxed">
+              <p class="text-xs text-[#182533] leading-relaxed">
                 Bound to exact version AST. Confirmed correct 125% risk weight on > ₹50,000 unsecured loans, correct 2.5% Tier-1 buffer, and statutory priority sector exemption.
               </p>
             </div>
@@ -76,12 +76,12 @@
                 </span>
                 <span class="font-mono text-[#AD741B]">47% Changed (47 / 100)</span>
               </div>
-              <p class="text-[11px] text-[#182533] leading-relaxed">
+              <p class="text-xs text-[#182533] leading-relaxed">
                 Simulated 100 synthetic profiles: 53 unchanged outcomes (secured/prime below ₹50k); 47 transitioned to 125% risk weight in strict compliance with regulatory directive.
               </p>
             </div>
 
-            <div class="text-[11px] text-[#526173] pt-1 flex items-center justify-between font-mono">
+            <div class="text-xs text-[#526173] pt-1 flex items-center justify-between font-mono">
               <span>Author: Arun Patel (Rule Engineer)</span>
               <span>Rule ID: rule-cr-01</span>
             </div>
@@ -199,9 +199,9 @@
                 <AppBadge :variant="appr.decision === 'APPROVED' ? 'success' : 'error'">
                   {{ appr.decision }}
                 </AppBadge>
-                <span class="text-[10px] text-[#526173] font-mono">{{ new Date(appr.decided_at).toLocaleString() }}</span>
+                <span class="text-xs text-[#526173] font-mono">{{ new Date(appr.decided_at).toLocaleString() }}</span>
               </div>
-              <p class="text-[11px] text-[#526173] line-clamp-2">
+              <p class="text-xs text-[#526173] line-clamp-2">
                 {{ appr.rationale }}
               </p>
             </div>

@@ -26,8 +26,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2">
-            <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Formal Approval Queue</h2>
-            <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-mono bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/20 font-medium">
+            <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: Formal Approval Queue</h2>
+            <span class="px-2 py-0.5 rounded-[3px] text-xs font-mono bg-[#14263D]/10 text-[#14263D] border border-[#14263D]/20 font-medium">
               Dual-Control Enforced
             </span>
           </div>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="font-semibold text-[#182533] mt-1.5">{{ sub.summary }}</div>
-                <div class="text-[11px] text-[#526173] mt-1 flex items-center justify-between">
+                <div class="text-xs text-[#526173] mt-1 flex items-center justify-between">
                   <span>Author: <strong class="text-[#182533]">{{ sub.submitter }}</strong></span>
                   <span class="font-mono">{{ new Date(sub.submitted_date).toLocaleDateString() }}</span>
                 </div>
@@ -92,23 +92,23 @@
                     {{ selectedSubmission.status }}
                   </AppBadge>
                 </div>
-                <div class="text-[11px] text-[#182533] font-medium leading-relaxed">
+                <div class="text-xs text-[#182533] font-medium leading-relaxed">
                   {{ selectedSubmission.summary }}
                 </div>
-                <div class="text-[10px] text-[#526173] pt-1 border-t border-[#E1E5E8] flex items-center justify-between font-mono">
+                <div class="text-xs text-[#526173] pt-1 border-t border-[#E1E5E8] flex items-center justify-between font-mono">
                   <span>Submitter: {{ selectedSubmission.submitter }}</span>
                   <span>Version: {{ selectedSubmission.rule_version }}</span>
                 </div>
               </div>
 
               <!-- Quick Verification Indicators -->
-              <div class="grid grid-cols-2 gap-2 text-[11px]">
+              <div class="grid grid-cols-2 gap-2 text-xs">
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Test Suite Status</span>
+                  <span class="text-xs uppercase font-semibold text-[#526173] font-mono">Test Suite Status</span>
                   <div class="font-bold text-[#247653] mt-0.5 font-mono">5 / 5 Assertions Pass</div>
                 </div>
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Dual Control</span>
+                  <span class="text-xs uppercase font-semibold text-[#526173] font-mono">Dual Control</span>
                   <div class="font-bold text-[#247653] mt-0.5 font-mono">Arun != Vikram (OK)</div>
                 </div>
               </div>
@@ -127,7 +127,7 @@
 
               <!-- Action Controls: Approve, Reject, Request Changes -->
               <div class="pt-2 border-t border-[#E1E5E8] space-y-2">
-                <div class="text-[11px] font-semibold text-[#182533] uppercase font-mono">Record Determination:</div>
+                <div class="text-xs font-semibold text-[#182533] uppercase font-mono">Record Determination:</div>
                 <div class="grid grid-cols-3 gap-2">
                   <AppButton
                     variant="primary"
@@ -154,7 +154,7 @@
                 </div>
               </div>
 
-              <div v-if="actionSuccessMessage" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-[11px] text-[#247653] text-center font-medium">
+              <div v-if="actionSuccessMessage" class="p-2 bg-[#247653]/10 border border-[#247653]/30 rounded-[3px] text-xs text-[#247653] text-center font-medium">
                 {{ actionSuccessMessage }}
               </div>
             </div>
@@ -169,7 +169,7 @@
     <div v-else-if="activeTab === 'module-b'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Evidence & Risk Review Dossier</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: Evidence & Risk Review Dossier</h2>
           <p class="text-xs text-[#526173]">Verify citations against authority source texts and review risk indicators before sign-off.</p>
         </div>
         <router-link to="/circulars/circ-rbi-2026-84" class="text-xs font-semibold text-[#167D83] hover:text-[#14263D] flex items-center gap-1 transition-colors">
@@ -188,16 +188,16 @@
                     <AppIcon name="file-text" :size="13" class="text-[#167D83]" />
                     <span class="font-bold text-[#182533]">{{ ev.circular_ref }}</span>
                   </div>
-                  <span class="px-2 py-0.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-[10px] font-mono text-[#14263D] font-semibold">
+                  <span class="px-2 py-0.5 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-xs font-mono text-[#14263D] font-semibold">
                     PAGE {{ ev.page_number }}
                   </span>
                 </div>
 
-                <blockquote class="text-[11px] text-[#182533] pl-3 border-l-2 border-[#167D83] bg-[#F6F5F0]/60 py-2 rounded-[3px] italic font-sans leading-relaxed">
+                <blockquote class="text-xs text-[#182533] pl-3 border-l-2 border-[#167D83] bg-[#F6F5F0]/60 py-2 rounded-[3px] italic font-sans leading-relaxed">
                   "{{ ev.highlighted_text }}"
                 </blockquote>
 
-                <div class="flex items-center justify-between text-[10px] text-[#526173] pt-1 font-mono">
+                <div class="flex items-center justify-between text-xs text-[#526173] pt-1 font-mono">
                   <span>Confidence: <strong class="text-[#247653]">{{ (ev.confidence * 100).toFixed(0) }}%</strong></span>
                   <span>Hash: {{ ev.hash.substring(0, 16) }}...</span>
                 </div>
@@ -242,7 +242,7 @@
     <div v-else-if="activeTab === 'module-c'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Exact Rule Version & Test Audit</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Exact Rule Version & Test Audit</h2>
           <p class="text-xs text-[#526173]">Inspect immutable AST rule structure, boundary regression run, and portfolio delta.</p>
         </div>
         <span class="text-xs font-mono text-[#526173]">Test Run ID: {{ mockStore.latestTestRun.id }}</span>
@@ -252,13 +252,13 @@
         <div class="lg:col-span-6 space-y-4">
           <AppCard title="Submitted AST Specification" subtitle="RULE-CR-2026-01 (v1.1.0-draft)" noPadding>
             <div class="p-4 space-y-3 text-xs">
-              <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-[11px] leading-relaxed">
+              <div class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] font-mono text-xs leading-relaxed">
                 <span class="text-[#167D83] font-bold">IF</span> loan_type in ["UNSECURED_PERSONAL_LOAN", "CREDIT_CARD_REVOLVING"]<br/>
                 <span class="text-[#167D83] font-bold">AND</span> borrower_type != "MICROFINANCE_SHG"<br/>
                 <span class="text-[#167D83] font-bold">THEN</span> decision: "ENHANCED_RISK_WEIGHT" (125%)<br/>
                 <span class="text-[#167D83] font-bold">FALLBACK</span> decision: "STANDARD_CARVE_OUT" (100%)
               </div>
-              <div class="text-[11px] text-[#526173] flex items-center justify-between font-mono">
+              <div class="text-xs text-[#526173] flex items-center justify-between font-mono">
                 <span>Evaluator: Pure Functional AST</span>
                 <span class="text-[#247653] font-bold">Zero Security Flags</span>
               </div>
@@ -292,7 +292,7 @@
     <div v-else-if="activeTab === 'module-d'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Governance Decision History</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Governance Decision History</h2>
           <p class="text-xs text-[#526173]">Audit ledger of dual-control sign-off actions and rationale statements.</p>
         </div>
       </div>
@@ -315,11 +315,11 @@
               </AppBadge>
             </div>
 
-            <p class="text-[11px] text-[#182533] mt-2 font-sans italic bg-[#F6F5F0]/60 p-2.5 rounded-[3px] border border-[#E1E5E8] leading-relaxed">
+            <p class="text-xs text-[#182533] mt-2 font-sans italic bg-[#F6F5F0]/60 p-2.5 rounded-[3px] border border-[#E1E5E8] leading-relaxed">
               "{{ appr.rationale }}"
             </p>
 
-            <div class="mt-2.5 flex items-center justify-between text-[10px] text-[#526173] font-mono">
+            <div class="mt-2.5 flex items-center justify-between text-xs text-[#526173] font-mono">
               <span>Sign-off Officer: Vikram Mehta</span>
               <span>Decided At: {{ new Date(appr.decided_at).toLocaleString() }}</span>
             </div>
@@ -334,7 +334,7 @@
     <div v-else-if="activeTab === 'module-e'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Evidence & Audit Dossier Reports</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Evidence & Audit Dossier Reports</h2>
           <p class="text-xs text-[#526173]">Download complete evidence packages containing source citations, test results, and impact matrices.</p>
         </div>
         <AppButton variant="primary" size="sm" @click="exportFullDossierJson">
@@ -348,8 +348,8 @@
           <div class="p-3.5 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div class="font-bold text-[#182533] text-sm">RBI 2026/84 Consumer Credit Compliance Dossier</div>
-              <div class="text-[11px] text-[#526173] mt-0.5">Includes citation hash, 5 passing test cases, and 10,000 synthetic account impact delta.</div>
-              <div class="text-[10px] text-[#167D83] font-mono mt-1 font-semibold">Package ID: DOS-RBI-2026-CR-01</div>
+              <div class="text-xs text-[#526173] mt-0.5">Includes citation hash, 5 passing test cases, and 10,000 synthetic account impact delta.</div>
+              <div class="text-xs text-[#167D83] font-mono mt-1 font-semibold">Package ID: DOS-RBI-2026-CR-01</div>
             </div>
             <div class="flex items-center gap-2">
               <AppButton variant="outline" size="sm" @click="previewDossierModal = true">
@@ -366,8 +366,8 @@
           <div class="p-3.5 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div class="font-bold text-[#182533] text-sm">FinCEN Nested Correspondent Wire Audit Dossier</div>
-              <div class="text-[11px] text-[#526173] mt-0.5">Approved rule v2.0.1 with $250k real-time screening certification.</div>
-              <div class="text-[10px] text-[#167D83] font-mono mt-1 font-semibold">Package ID: DOS-FINCEN-2026-AML-03</div>
+              <div class="text-xs text-[#526173] mt-0.5">Approved rule v2.0.1 with $250k real-time screening certification.</div>
+              <div class="text-xs text-[#167D83] font-mono mt-1 font-semibold">Package ID: DOS-FINCEN-2026-AML-03</div>
             </div>
             <div class="flex items-center gap-2">
               <AppButton variant="outline" size="sm" @click="previewDossierModal = true">
@@ -403,11 +403,11 @@
               </p>
               <div class="grid grid-cols-2 gap-3 text-xs">
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Test Suite Evidence</span>
+                  <span class="text-xs uppercase font-semibold text-[#526173] font-mono">Test Suite Evidence</span>
                   <div class="font-mono text-[#247653] font-bold mt-0.5">5 of 5 Assertions Pass</div>
                 </div>
                 <div class="p-2.5 bg-white border border-[#E1E5E8] rounded-[3px]">
-                  <span class="text-[10px] uppercase font-semibold text-[#526173] font-mono">Simulated Loan Impact</span>
+                  <span class="text-xs uppercase font-semibold text-[#526173] font-mono">Simulated Loan Impact</span>
                   <div class="font-mono text-[#167D83] font-bold mt-0.5">4,380 Loans Re-weighted</div>
                 </div>
               </div>
@@ -429,7 +429,7 @@
                   <AppBadge :variant="sub.status === 'APPROVED' ? 'success' : 'warning'">{{ sub.status }}</AppBadge>
                 </div>
                 <div class="font-semibold text-[#182533] mt-1">{{ sub.summary }}</div>
-                <div class="text-[10px] text-[#526173] mt-1 font-mono">Submitter: {{ sub.submitter }}</div>
+                <div class="text-xs text-[#526173] mt-1 font-mono">Submitter: {{ sub.submitter }}</div>
               </div>
             </div>
           </AppCard>

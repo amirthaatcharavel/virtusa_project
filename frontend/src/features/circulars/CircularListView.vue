@@ -3,8 +3,8 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Regulatory Circular Library</h1>
-        <p class="text-xs text-[#526173] mt-1">
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Regulatory Circular Library</h1>
+        <p class="text-sm text-[#526173] mt-1 leading-relaxed">
           Ingest, verify, and track regulatory publications with page-level provenance.
         </p>
       </div>
@@ -18,12 +18,12 @@
     <AppCard noPadding>
       <div class="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#F6F5F0] border-b border-[#E1E5E8]">
         <div class="relative w-full sm:w-80">
-          <AppIcon name="search" :size="14" class="absolute left-3 top-1/2 -translate-y-1/2 text-[#526173]" />
+          <AppIcon name="search" :size="16" class="absolute left-3 top-1/2 -translate-y-1/2 text-[#526173]" />
           <input
             v-model="searchQuery"
             type="text"
             placeholder="Search circulars by title or number..."
-            class="w-full text-xs pl-8 pr-3 py-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
+            class="w-full text-sm pl-9 pr-3.5 py-2 bg-white border border-[#E1E5E8] rounded-[4px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             @input="filterCirculars"
           />
         </div>
@@ -31,7 +31,7 @@
         <div class="flex items-center gap-2 w-full sm:w-auto">
           <select
             v-model="selectedAuthority"
-            class="text-xs bg-white border border-[#E1E5E8] rounded-[3px] px-3 py-2 text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
+            class="text-sm bg-white border border-[#E1E5E8] rounded-[4px] px-3.5 py-2 text-[#182533] font-medium focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             @change="filterCirculars"
           >
             <option value="">All Regulatory Authorities</option>
@@ -44,62 +44,62 @@
 
       <!-- Circulars Table -->
       <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs text-[#182533] border-collapse">
+        <table class="w-full text-left text-sm text-[#182533] border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
-              <th class="px-5 py-3 font-semibold">Document Title / Ref</th>
-              <th class="px-4 py-3 font-semibold">Authority</th>
-              <th class="px-4 py-3 font-semibold">Publication Date</th>
-              <th class="px-4 py-3 font-semibold">Effective Date</th>
-              <th class="px-4 py-3 font-semibold">Pages / Obligations</th>
-              <th class="px-4 py-3 font-semibold">Status</th>
-              <th class="px-5 py-3 font-semibold text-right">Actions</th>
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono font-bold">
+              <th class="px-5 py-3.5 font-bold">Document Title / Ref</th>
+              <th class="px-4 py-3.5 font-bold">Authority</th>
+              <th class="px-4 py-3.5 font-bold">Publication Date</th>
+              <th class="px-4 py-3.5 font-bold">Effective Date</th>
+              <th class="px-4 py-3.5 font-bold">Pages / Obligations</th>
+              <th class="px-4 py-3.5 font-bold">Status</th>
+              <th class="px-5 py-3.5 font-bold text-right">Actions</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-[#E1E5E8]">
             <tr v-if="loading" class="text-center">
-              <td colspan="7" class="py-8 text-[#526173] font-mono">Loading regulatory documents...</td>
+              <td colspan="7" class="py-10 text-sm text-[#526173] font-mono">Loading regulatory documents...</td>
             </tr>
             <tr v-else-if="filteredList.length === 0" class="text-center">
-              <td colspan="7" class="py-8 text-[#526173] font-mono">No circulars matching your criteria.</td>
+              <td colspan="7" class="py-10 text-sm text-[#526173] font-mono">No circulars matching your criteria.</td>
             </tr>
             <tr
               v-for="c in filteredList"
               :key="c.id"
               class="hover:bg-[#F6F5F0]/60 transition-colors"
             >
-              <td class="px-5 py-3.5">
-                <div class="font-medium text-[#182533] text-xs">{{ c.title }}</div>
-                <div class="text-[11px] text-[#526173] font-mono mt-0.5 flex items-center gap-2">
+              <td class="px-5 py-4">
+                <div class="font-semibold text-[#182533] text-sm">{{ c.title }}</div>
+                <div class="text-xs text-[#526173] font-mono mt-1 flex items-center gap-2">
                   <span>{{ c.circular_number || c.filename }}</span>
-                  <span v-if="c.file_hash" class="text-[#526173] font-mono text-[9px]" title="SHA-256 Hash">
+                  <span v-if="c.file_hash" class="text-[#526173] font-mono text-xs font-semibold" title="SHA-256 Hash">
                     SHA: {{ c.file_hash.substring(0, 10) }}...
                   </span>
                 </div>
               </td>
-              <td class="px-4 py-3.5 font-medium text-[#526173]">
+              <td class="px-4 py-4 font-medium text-[#526173] text-sm">
                 {{ c.source_authority }}
               </td>
-              <td class="px-4 py-3.5 text-[#526173] font-mono">
+              <td class="px-4 py-4 text-[#526173] font-mono text-xs sm:text-sm">
                 {{ c.publication_date || 'N/A' }}
               </td>
-              <td class="px-4 py-3.5 text-[#182533] font-mono font-medium">
+              <td class="px-4 py-4 text-[#182533] font-mono font-semibold text-xs sm:text-sm">
                 {{ c.effective_date || 'N/A' }}
               </td>
-              <td class="px-4 py-3.5 text-[#526173]">
-                <span class="font-semibold text-[#182533] font-mono">{{ c.page_count }}</span> pages · 
-                <span class="font-semibold text-[#167D83] font-mono">{{ c.obligations_count }}</span> candidate obligations
+              <td class="px-4 py-4 text-sm text-[#526173]">
+                <span class="font-bold text-[#182533] font-mono">{{ c.page_count }}</span> pages · 
+                <span class="font-bold text-[#167D83] font-mono">{{ c.obligations_count }}</span> candidate obligations
               </td>
-              <td class="px-4 py-3.5">
+              <td class="px-4 py-4">
                 <AppBadge variant="teal" dot>{{ c.status }}</AppBadge>
               </td>
-              <td class="px-5 py-3.5 text-right">
+              <td class="px-5 py-4 text-right">
                 <router-link
                   :to="`/circulars/${c.id}`"
-                  class="inline-flex items-center gap-1 text-xs font-semibold text-[#167D83] hover:text-[#14263D] bg-[#167D83]/10 hover:bg-[#167D83]/20 border border-[#167D83]/30 px-2.5 py-1 rounded-[3px] font-mono"
+                  class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#167D83] hover:text-[#14263D] bg-[#167D83]/10 hover:bg-[#167D83]/20 border border-[#167D83]/30 px-3 py-1.5 rounded-[4px] font-mono"
                 >
                   Inspect Source
-                  <AppIcon name="chevron-right" :size="12" />
+                  <AppIcon name="chevron-right" :size="13" />
                 </router-link>
               </td>
             </tr>
@@ -188,7 +188,7 @@
               @change="onFileChange"
               class="w-full text-xs text-[#526173] file:mr-3 file:py-1.5 file:px-3 file:rounded-[3px] file:border file:border-[#E1E5E8] file:text-xs file:font-semibold file:bg-[#F6F5F0] file:text-[#182533] hover:file:bg-[#E1E5E8] font-mono"
             />
-            <p class="text-[11px] text-[#526173] mt-1 font-mono">Maximum 25MB. PDF text will be extracted page by page.</p>
+            <p class="text-xs text-[#526173] mt-1 font-mono">Maximum 25MB. PDF text will be extracted page by page.</p>
           </div>
 
           <div v-if="uploadError" class="p-3 bg-[#FDF1F2] border border-[#F5C2C6] rounded-[3px] text-xs text-[#B33A42] font-mono">

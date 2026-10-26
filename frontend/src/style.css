@@ -10,7 +10,7 @@
     --color-warm-white: #F6F5F0;
     --color-pure-white: #FFFFFF;
     --color-cool-gray: #E1E5E8;
-    --color-slate-text: #526173;
+    --color-slate-text: #415164;
     --color-primary-text: #182533;
     
     /* Semantic Status Tokens */
@@ -23,24 +23,83 @@
     --color-card: #FFFFFF;
     --color-border: #E1E5E8;
     --color-text-primary: #182533;
-    --color-text-secondary: #526173;
+    --color-text-secondary: #415164;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     background-color: var(--color-surface-bg);
     color: var(--color-text-primary);
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9375rem; /* 15px standard readable baseline */
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
   }
+
+  /* Headings default legibility */
+  h1 {
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  /* Table readability enhancements */
+  th {
+    font-size: 0.8125rem !important; /* 13px uppercase */
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  td {
+    font-size: 0.875rem; /* 14px table cell text */
+  }
+
+  /* Inputs, selects and buttons readability */
+  input, select, textarea {
+    font-size: 0.875rem;
+  }
+}
+
+/* Global typography overrides: elevate legacy micro-text classes to comfortable eye-visible sizes */
+.text-\[8px\],
+.text-\[9px\],
+.text-\[10px\] {
+  font-size: 0.8125rem !important; /* 13px minimum */
+  line-height: 1.25rem !important;
+}
+
+.text-\[11px\] {
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.35rem !important;
+}
+
+.text-\[12px\] {
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.35rem !important;
 }
 
 /* Crisp, restrained scrollbars for dense enterprise data views */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,9 +108,10 @@
 
 ::-webkit-scrollbar-thumb {
   background: #D5DBE0;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #526173;
 }
+

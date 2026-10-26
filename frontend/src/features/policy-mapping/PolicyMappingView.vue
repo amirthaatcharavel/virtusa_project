@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">Policy & Rule Mapping</h1>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">Policy & Rule Mapping</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Map regulatory obligations to internal policy documents and existing operational decision rules.
         </p>
@@ -70,15 +70,15 @@
             >
               <div class="flex items-center justify-between text-xs mb-1">
                 <span class="font-mono font-bold text-[#167D83]">{{ pol.policy_code }}</span>
-                <span class="text-[11px] text-[#526173] font-mono">v{{ pol.version }} · {{ pol.active_rules_count }} Active Rules</span>
+                <span class="text-xs text-[#526173] font-mono">v{{ pol.version }} · {{ pol.active_rules_count }} Active Rules</span>
               </div>
               <div class="text-xs font-semibold text-[#182533] mb-1">
                 {{ pol.title }}
               </div>
-              <p class="text-[11px] text-[#526173] line-clamp-2 leading-relaxed mb-2">
+              <p class="text-xs text-[#526173] line-clamp-2 leading-relaxed mb-2">
                 {{ pol.description }}
               </p>
-              <div class="flex items-center justify-between text-[11px] pt-2 border-t border-[#E1E5E8]">
+              <div class="flex items-center justify-between text-xs pt-2 border-t border-[#E1E5E8]">
                 <span class="text-[#167D83] font-medium font-mono">Category: {{ pol.category }}</span>
                 <span
                   class="font-semibold text-xs font-mono"
@@ -97,7 +97,7 @@
         <AppCard title="Mapping Confirmation" subtitle="Establish explicit policy linkage">
           <div class="space-y-4 text-xs">
             <div>
-              <span class="text-[10px] uppercase font-bold text-[#526173] block mb-1 font-mono">Target Policy</span>
+              <span class="text-xs uppercase font-bold text-[#526173] block mb-1 font-mono">Target Policy</span>
               <div v-if="selectedPolicy" class="p-3 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px]">
                 <div class="font-mono font-bold text-[#167D83] text-xs">{{ selectedPolicy.policy_code }}</div>
                 <div class="font-semibold text-[#182533] mt-0.5">{{ selectedPolicy.title }}</div>

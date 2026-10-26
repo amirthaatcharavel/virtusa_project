@@ -10,7 +10,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs font-mono text-[#526173]">{{ obligation?.obligation_code || 'OBLIGATION' }}</span>
         </div>
-        <h1 class="text-lg font-bold text-[#182533] tracking-tight">
+        <h1 class="text-2xl font-extrabold text-[#182533] tracking-tight">
           {{ obligation?.title || 'Obligation Review & Applicability Determination' }}
         </h1>
         <p class="text-xs text-[#526173] mt-0.5">
@@ -56,7 +56,7 @@
             </div>
             <div v-if="obligation?.reviewed_at" class="flex items-center justify-between">
               <span>Review Timestamp:</span>
-              <span class="font-mono text-[11px] text-[#526173]">{{ new Date(obligation.reviewed_at).toLocaleString() }}</span>
+              <span class="font-mono text-xs text-[#526173]">{{ new Date(obligation.reviewed_at).toLocaleString() }}</span>
             </div>
           </div>
         </AppCard>
@@ -181,7 +181,7 @@
             </div>
 
             <div class="flex items-center justify-between pt-3 border-t border-[#E1E5E8]">
-              <span class="text-[11px] text-[#526173] font-mono">Changes recorded with actor ID: {{ authStore.currentUser.full_name }}</span>
+              <span class="text-xs text-[#526173] font-mono">Changes recorded with actor ID: {{ authStore.currentUser.full_name }}</span>
               <AppButton type="submit" variant="primary" size="md" :loading="saving">
                 Save Review Determination
               </AppButton>

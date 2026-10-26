@@ -26,8 +26,8 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <div class="flex items-center gap-2">
-            <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: System Operations Telemetry</h2>
-            <span class="px-2 py-0.5 rounded-[3px] text-[10px] font-mono bg-[#247653]/10 text-[#247653] border border-[#247653]/30 font-medium">
+            <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module A: System Operations Telemetry</h2>
+            <span class="px-2 py-0.5 rounded-[3px] text-xs font-mono bg-[#247653]/10 text-[#247653] border border-[#247653]/30 font-medium">
               Demo Metrics
             </span>
           </div>
@@ -43,38 +43,38 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
         <div class="p-3.5 bg-white border border-[#E1E5E8] rounded-[3px] shadow-2xs space-y-1">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-[#526173] uppercase font-mono">FastAPI API Gateway</span>
+            <span class="text-xs font-bold text-[#526173] uppercase font-mono">FastAPI API Gateway</span>
             <span class="w-2 h-2 rounded-full bg-[#247653]"></span>
           </div>
           <div class="text-lg font-mono font-bold text-[#247653]">14 ms</div>
-          <div class="text-[10px] text-[#526173]">P99 Latency · 0 Errors</div>
+          <div class="text-xs text-[#526173]">P99 Latency · 0 Errors</div>
         </div>
 
         <div class="p-3.5 bg-white border border-[#E1E5E8] rounded-[3px] shadow-2xs space-y-1">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-[#526173] uppercase font-mono">SQLite Audit Ledger</span>
+            <span class="text-xs font-bold text-[#526173] uppercase font-mono">SQLite Audit Ledger</span>
             <span class="w-2 h-2 rounded-full bg-[#247653]"></span>
           </div>
           <div class="text-lg font-mono font-bold text-[#14263D]">278 KB</div>
-          <div class="text-[10px] text-[#526173]">WAL Mode Active · 100% Integrity</div>
+          <div class="text-xs text-[#526173]">WAL Mode Active · 100% Integrity</div>
         </div>
 
         <div class="p-3.5 bg-white border border-[#E1E5E8] rounded-[3px] shadow-2xs space-y-1">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-[#526173] uppercase font-mono">AST Rule Compiler</span>
+            <span class="text-xs font-bold text-[#526173] uppercase font-mono">AST Rule Compiler</span>
             <span class="w-2 h-2 rounded-full bg-[#247653]"></span>
           </div>
           <div class="text-lg font-mono font-bold text-[#167D83]">Sandbox OK</div>
-          <div class="text-[10px] text-[#526173]">Deterministic Evaluator Active</div>
+          <div class="text-xs text-[#526173]">Deterministic Evaluator Active</div>
         </div>
 
         <div class="p-3.5 bg-white border border-[#E1E5E8] rounded-[3px] shadow-2xs space-y-1">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-[#526173] uppercase font-mono">Dual-Control Guard</span>
+            <span class="text-xs font-bold text-[#526173] uppercase font-mono">Dual-Control Guard</span>
             <span class="w-2 h-2 rounded-full bg-[#247653]"></span>
           </div>
           <div class="text-lg font-mono font-bold text-[#247653]">Strict RBAC</div>
-          <div class="text-[10px] text-[#526173]">Admin Barred from Sign-off</div>
+          <div class="text-xs text-[#526173]">Admin Barred from Sign-off</div>
         </div>
       </div>
 
@@ -85,7 +85,7 @@
             <AppIcon name="lock" :size="13" class="text-[#167D83]" />
             <span>Administrative Scope Boundary</span>
           </div>
-          <p class="text-[11px] text-[#526173] leading-relaxed">
+          <p class="text-xs text-[#526173] leading-relaxed">
             In accordance with dual-control governance standards, users with the <code class="font-mono bg-white px-1 py-0.5 border border-[#E1E5E8] rounded-[3px]">PLATFORM_ADMIN</code> role are strictly prevented from issuing compliance sign-offs or authoring regulatory rule logic. Compliance approvals require independent review by authorized officers holding the <code class="font-mono bg-white px-1 py-0.5 border border-[#E1E5E8] rounded-[3px]">COMPLIANCE_APPROVER</code> role.
           </p>
         </div>
@@ -98,7 +98,7 @@
     <div v-else-if="activeTab === 'module-b'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: User & Permission Management</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module B: User & Permission Management</h2>
           <p class="text-xs text-[#526173]">Manage institutional user profiles, assign enterprise roles, and toggle account activation states.</p>
         </div>
         <AppButton variant="primary" size="sm" @click="openAddUserModal">
@@ -136,7 +136,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">User / Persona</th>
                 <th class="px-4 py-2.5 font-semibold">Assigned Role</th>
                 <th class="px-4 py-2.5 font-semibold">Status</th>
@@ -147,7 +147,7 @@
               <tr v-for="u in filteredUsers" :key="u.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
                 <td class="px-4 py-3">
                   <div class="font-semibold text-[#182533]">{{ u.full_name }}</div>
-                  <div class="text-[11px] text-[#526173] font-mono">{{ u.email }}</div>
+                  <div class="text-xs text-[#526173] font-mono">{{ u.email }}</div>
                 </td>
                 <td class="px-4 py-3">
                   <AppBadge :variant="u.role === 'PLATFORM_ADMIN' ? 'navy' : u.role === 'COMPLIANCE_APPROVER' ? 'warning' : u.role === 'RULE_ENGINEER' ? 'teal' : 'neutral'">
@@ -156,7 +156,7 @@
                 </td>
                 <td class="px-4 py-3">
                   <span
-                    class="inline-flex items-center gap-1.5 text-[11px] font-semibold font-mono"
+                    class="inline-flex items-center gap-1.5 text-xs font-semibold font-mono"
                     :class="u.is_active ? 'text-[#247653]' : 'text-[#B33A42]'"
                   >
                     <span class="w-1.5 h-1.5 rounded-full" :class="u.is_active ? 'bg-[#247653]' : 'bg-[#B33A42]'"></span>
@@ -191,7 +191,7 @@
     <div v-else-if="activeTab === 'module-c'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Integrations & Processing Pipeline</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module C: Integrations & Processing Pipeline</h2>
           <p class="text-xs text-[#526173]">Monitor regulatory publishing scrapers, event streaming pipelines, and execution jobs.</p>
         </div>
       </div>
@@ -209,8 +209,8 @@
               {{ int.status }}
             </AppBadge>
           </div>
-          <p class="text-[11px] text-[#526173] leading-relaxed">{{ int.details }}</p>
-          <div class="pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-[10px] font-mono text-[#526173]">
+          <p class="text-xs text-[#526173] leading-relaxed">{{ int.details }}</p>
+          <div class="pt-2 border-t border-[#E1E5E8] flex items-center justify-between text-xs font-mono text-[#526173]">
             <span>Latency: <strong class="text-[#182533]">{{ int.latency_ms }}ms</strong></span>
             <span>Uptime: <strong class="text-[#247653]">{{ int.uptime_pct }}%</strong></span>
           </div>
@@ -222,7 +222,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Job ID</th>
                 <th class="px-4 py-2.5 font-semibold">Pipeline Name</th>
                 <th class="px-4 py-2.5 font-semibold">Target Entity</th>
@@ -235,7 +235,7 @@
               <tr v-for="job in mockStore.pipelineJobs" :key="job.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
                 <td class="px-4 py-3 font-mono font-bold text-[#14263D]">{{ job.id }}</td>
                 <td class="px-4 py-3 font-semibold text-[#182533]">{{ job.pipeline_name }}</td>
-                <td class="px-4 py-3 font-mono text-[11px] text-[#526173]">{{ job.target_entity }}</td>
+                <td class="px-4 py-3 font-mono text-xs text-[#526173]">{{ job.target_entity }}</td>
                 <td class="px-4 py-3">
                   <AppBadge :variant="job.status === 'SUCCESS' ? 'success' : 'warning'">
                     {{ job.status }}
@@ -256,7 +256,7 @@
     <div v-else-if="activeTab === 'module-d'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Security & Access Audit Ledger</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module D: Security & Access Audit Ledger</h2>
           <p class="text-xs text-[#526173]">Tamper-evident record of all platform interactions, approvals, role switches, and AST changes.</p>
         </div>
       </div>
@@ -280,7 +280,7 @@
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
-              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+              <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
                 <th class="px-4 py-2.5 font-semibold">Event Type</th>
                 <th class="px-4 py-2.5 font-semibold">Actor</th>
                 <th class="px-4 py-2.5 font-semibold">Action Description</th>
@@ -291,11 +291,11 @@
             </thead>
             <tbody class="divide-y divide-[#E1E5E8]">
               <tr v-for="ev in filteredAuditEvents" :key="ev.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
-                <td class="px-4 py-3 font-mono text-[#14263D] font-bold text-[11px]">{{ ev.event_type }}</td>
+                <td class="px-4 py-3 font-mono text-[#14263D] font-bold text-xs">{{ ev.event_type }}</td>
                 <td class="px-4 py-3 font-medium text-[#182533]">{{ ev.actor_name }}</td>
                 <td class="px-4 py-3 text-[#182533]">{{ ev.action }}</td>
-                <td class="px-4 py-3 font-mono text-[11px] text-[#526173]">{{ ev.entity_id }}</td>
-                <td class="px-4 py-3 font-mono text-[10px] text-[#526173]">{{ new Date(ev.timestamp).toLocaleTimeString() }}</td>
+                <td class="px-4 py-3 font-mono text-xs text-[#526173]">{{ ev.entity_id }}</td>
+                <td class="px-4 py-3 font-mono text-xs text-[#526173]">{{ new Date(ev.timestamp).toLocaleTimeString() }}</td>
                 <td class="px-4 py-3 text-right">
                   <AppButton variant="outline" size="sm" @click="selectedAuditEvent = ev">
                     <AppIcon name="eye" :size="12" />
@@ -315,7 +315,7 @@
     <div v-else-if="activeTab === 'module-e'" class="space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xs font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Platform System Preferences</h2>
+          <h2 class="text-base font-bold text-[#14263D] uppercase tracking-wider font-mono">Module E: Platform System Preferences</h2>
           <p class="text-xs text-[#526173]">Adjust simulated operational preferences, audit ledger retention periods, and alert thresholds.</p>
         </div>
         <div class="flex items-center gap-2">
@@ -338,7 +338,7 @@
               type="number"
               class="w-full p-2 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-[#182533] font-mono focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             />
-            <span class="text-[10px] text-[#526173]">Default 2,555 days (7-year statutory banking compliance rule).</span>
+            <span class="text-xs text-[#526173]">Default 2,555 days (7-year statutory banking compliance rule).</span>
           </div>
 
           <div>
@@ -348,7 +348,7 @@
               type="number"
               class="w-full p-2 bg-[#F6F5F0] border border-[#E1E5E8] rounded-[3px] text-[#182533] font-mono focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]"
             />
-            <span class="text-[10px] text-[#526173]">Enforces 100% deterministic test coverage before approver queue entry.</span>
+            <span class="text-xs text-[#526173]">Enforces 100% deterministic test coverage before approver queue entry.</span>
           </div>
 
           <div>
@@ -396,11 +396,11 @@
               <div v-for="u in mockStore.users.slice(0, 4)" :key="u.id" class="p-3.5 flex items-center justify-between text-xs">
                 <div>
                   <div class="font-semibold text-[#182533]">{{ u.full_name }}</div>
-                  <div class="text-[11px] text-[#526173] font-mono">{{ u.email }}</div>
+                  <div class="text-xs text-[#526173] font-mono">{{ u.email }}</div>
                 </div>
                 <div class="flex items-center gap-2">
                   <AppBadge :variant="u.role === 'PLATFORM_ADMIN' ? 'navy' : u.role === 'COMPLIANCE_APPROVER' ? 'warning' : 'teal'">{{ u.role }}</AppBadge>
-                  <button @click="activeTab = 'module-b'" class="text-[#167D83] hover:text-[#14263D] text-[11px] font-medium transition-colors">Configure →</button>
+                  <button @click="activeTab = 'module-b'" class="text-[#167D83] hover:text-[#14263D] text-xs font-medium transition-colors">Configure →</button>
                 </div>
               </div>
             </div>
@@ -412,8 +412,8 @@
             <div class="divide-y divide-[#E1E5E8] text-xs">
               <div v-for="ev in mockStore.auditEvents.slice(0, 4)" :key="ev.id" class="p-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-[#14263D] font-bold text-[11px]">{{ ev.event_type }}</span>
-                  <span class="text-[10px] text-[#526173] font-mono">{{ new Date(ev.timestamp).toLocaleTimeString() }}</span>
+                  <span class="font-mono text-[#14263D] font-bold text-xs">{{ ev.event_type }}</span>
+                  <span class="text-xs text-[#526173] font-mono">{{ new Date(ev.timestamp).toLocaleTimeString() }}</span>
                 </div>
                 <div class="text-[#182533] text-xs mt-0.5">{{ ev.action }}</div>
               </div>
@@ -435,17 +435,17 @@
 
         <form @submit.prevent="saveUserModal" class="space-y-3.5 text-xs">
           <div>
-            <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Full Name</label>
+            <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Full Name</label>
             <input v-model="userForm.full_name" type="text" required class="w-full p-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]" />
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Institutional Email</label>
+            <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Institutional Email</label>
             <input v-model="userForm.email" type="email" required class="w-full p-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]" />
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-[#182533] uppercase mb-1 font-mono">Assigned Role</label>
+            <label class="block text-xs font-semibold text-[#182533] uppercase mb-1 font-mono">Assigned Role</label>
             <select v-model="userForm.role" class="w-full p-2 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] focus:border-[#167D83]">
               <option value="COMPLIANCE_ANALYST">Compliance Analyst</option>
               <option value="RULE_ENGINEER">Rule Engineer / IT Operator</option>
@@ -467,7 +467,7 @@
       <div class="bg-white rounded-[4px] border border-[#E1E5E8] shadow-xl max-w-lg w-full p-5 space-y-4 text-left">
         <div class="flex items-start justify-between">
           <div>
-            <span class="text-[10px] font-mono text-[#167D83] font-bold uppercase">{{ selectedAuditEvent.event_type }}</span>
+            <span class="text-xs font-mono text-[#167D83] font-bold uppercase">{{ selectedAuditEvent.event_type }}</span>
             <h3 class="text-sm font-bold text-[#14263D]">{{ selectedAuditEvent.action }}</h3>
           </div>
           <button @click="selectedAuditEvent = null" class="text-[#526173] hover:text-[#14263D]">
@@ -479,8 +479,8 @@
           <div>Actor: {{ selectedAuditEvent.actor_name }} ({{ selectedAuditEvent.actor_role }})</div>
           <div>Entity: {{ selectedAuditEvent.entity_type }} ({{ selectedAuditEvent.entity_id }})</div>
           <div>Timestamp: {{ selectedAuditEvent.timestamp }}</div>
-          <div class="pt-2 text-[11px] text-[#526173]">Metadata Payload:</div>
-          <pre class="text-[10px] text-[#182533] leading-relaxed">{{ JSON.stringify(selectedAuditEvent.details, null, 2) }}</pre>
+          <div class="pt-2 text-xs text-[#526173]">Metadata Payload:</div>
+          <pre class="text-xs text-[#182533] leading-relaxed">{{ JSON.stringify(selectedAuditEvent.details, null, 2) }}</pre>
         </div>
 
         <div class="pt-2 flex justify-end">

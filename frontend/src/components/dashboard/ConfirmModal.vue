@@ -5,52 +5,52 @@
       <div class="flex items-start justify-between gap-3">
         <div class="flex items-center gap-3">
           <div
-            class="w-9 h-9 rounded-[3px] flex items-center justify-center flex-shrink-0"
+            class="w-10 h-10 rounded-[4px] flex items-center justify-center flex-shrink-0"
             :class="variant === 'danger' ? 'bg-[#FDF1F2] text-[#B33A42] border border-[#F5C2C6]' : 'bg-[#167D83]/10 text-[#167D83] border border-[#167D83]/25'"
           >
-            <AppIcon :name="icon || (variant === 'danger' ? 'alert' : 'check')" :size="18" />
+            <AppIcon :name="icon || (variant === 'danger' ? 'alert' : 'check')" :size="20" />
           </div>
           <div>
-            <h3 class="text-xs font-bold text-[#182533] uppercase tracking-wide">{{ title }}</h3>
-            <p v-if="subtitle" class="text-[11px] text-[#526173] mt-0.5">{{ subtitle }}</p>
+            <h3 class="text-base font-bold text-[#182533] tracking-wide">{{ title }}</h3>
+            <p v-if="subtitle" class="text-xs text-[#526173] mt-0.5">{{ subtitle }}</p>
           </div>
         </div>
         <button
           @click="$emit('cancel')"
-          class="text-[#526173] hover:text-[#182533] p-1 rounded-[2px] hover:bg-[#F6F5F0]"
+          class="text-[#526173] hover:text-[#182533] p-1.5 rounded-[3px] hover:bg-[#F6F5F0]"
         >
-          <AppIcon name="close" :size="15" />
+          <AppIcon name="close" :size="18" />
         </button>
       </div>
 
       <!-- Modal Body -->
-      <div class="text-xs text-[#182533] leading-relaxed space-y-3">
+      <div class="text-sm text-[#182533] leading-relaxed space-y-3">
         <slot />
 
         <!-- Optional Comment / Reasoning Field -->
         <div v-if="requireComment" class="space-y-1.5 pt-1">
-          <label class="block text-[11px] font-semibold text-[#182533] uppercase tracking-wide">
+          <label class="block text-xs font-bold text-[#182533] uppercase tracking-wide">
             {{ commentLabel || 'Reason / Rationale (Mandatory)' }} <span class="text-[#B33A42]">*</span>
           </label>
           <textarea
             :value="comment"
             @input="$emit('update:comment', ($event.target as HTMLTextAreaElement).value)"
             rows="3"
-            class="w-full text-xs p-2.5 bg-white border border-[#E1E5E8] rounded-[3px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] placeholder-[#526173]/60"
+            class="w-full text-sm p-3 bg-white border border-[#E1E5E8] rounded-[4px] text-[#182533] focus:outline-none focus:ring-1 focus:ring-[#167D83] placeholder-[#526173]/60 leading-normal"
             :placeholder="commentPlaceholder || 'Provide detailed justification for compliance audit recording...'"
           ></textarea>
-          <p v-if="commentError" class="text-[11px] text-[#B33A42] font-medium">{{ commentError }}</p>
+          <p v-if="commentError" class="text-xs text-[#B33A42] font-semibold">{{ commentError }}</p>
         </div>
       </div>
 
       <!-- Modal Actions -->
-      <div class="pt-3 flex items-center justify-end gap-2 border-t border-[#E1E5E8]">
-        <AppButton variant="outline" size="sm" @click="$emit('cancel')">
+      <div class="pt-3.5 flex items-center justify-end gap-2.5 border-t border-[#E1E5E8]">
+        <AppButton variant="outline" size="md" @click="$emit('cancel')">
           {{ cancelText || 'Cancel' }}
         </AppButton>
         <AppButton
           :variant="variant === 'danger' ? 'danger' : 'primary'"
-          size="sm"
+          size="md"
           :loading="loading"
           @click="$emit('confirm')"
         >

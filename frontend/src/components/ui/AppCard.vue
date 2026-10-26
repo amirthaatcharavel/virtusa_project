@@ -10,8 +10,8 @@
       <div class="flex items-center gap-2.5">
         <slot name="header-icon" />
         <div>
-          <h3 v-if="title" class="text-xs font-bold text-[#182533] uppercase tracking-wide">{{ title }}</h3>
-          <p v-if="subtitle" class="text-[11px] text-[#526173] mt-0.5">{{ subtitle }}</p>
+          <h3 v-if="title" class="text-sm font-bold text-[#182533] uppercase tracking-wide">{{ title }}</h3>
+          <p v-if="subtitle" class="text-xs text-[#526173] mt-0.5">{{ subtitle }}</p>
         </div>
       </div>
       <div class="flex items-center gap-2">
@@ -23,7 +23,7 @@
       <slot />
     </div>
 
-    <div v-if="$slots.footer" class="px-5 py-3 bg-[#F6F5F0] border-t border-[#E1E5E8] flex items-center justify-between text-[11px] text-[#526173]">
+    <div v-if="$slots.footer" class="px-5 py-3.5 bg-[#F6F5F0] border-t border-[#E1E5E8] flex items-center justify-between text-xs text-[#526173]">
       <slot name="footer" />
     </div>
   </div>

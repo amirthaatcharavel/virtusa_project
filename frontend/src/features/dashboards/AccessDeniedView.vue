@@ -13,9 +13,9 @@
       </div>
 
       <div class="p-3 bg-[#F1F6FA] rounded-lg border border-[#D8E3EC] text-left text-xs space-y-1">
-        <div class="text-[11px] text-[#647789] font-mono">Attempted Route: <span class="font-bold text-[#172B3A]">{{ attemptedRoute }}</span></div>
-        <div class="text-[11px] text-[#647789]">Active User: <span class="font-semibold text-[#172B3A]">{{ authStore.currentUser.full_name }}</span></div>
-        <div class="text-[11px] text-[#B7791F] font-medium">To access this resource, please authenticate with the required role.</div>
+        <div class="text-xs text-[#647789] font-mono">Attempted Route: <span class="font-bold text-[#172B3A]">{{ attemptedRoute }}</span></div>
+        <div class="text-xs text-[#647789]">Active User: <span class="font-semibold text-[#172B3A]">{{ authStore.currentUser.full_name }}</span></div>
+        <div class="text-xs text-[#B7791F] font-medium">To access this resource, please authenticate with the required role.</div>
       </div>
 
       <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2">

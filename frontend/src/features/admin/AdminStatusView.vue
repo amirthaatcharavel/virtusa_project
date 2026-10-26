@@ -8,7 +8,7 @@
           <span class="text-[#E1E5E8]">|</span>
           <span class="text-xs text-[#526173]">System Observability & Configuration</span>
         </div>
-        <h1 class="text-xl font-bold text-[#182533] tracking-tight">System Health & Operational Status</h1>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-[#182533] tracking-tight">System Health & Operational Status</h1>
         <p class="text-xs text-[#526173] mt-0.5">
           Real-time service health, database connectivity, and transparent AI provider adapter configuration.
         </p>
@@ -25,39 +25,39 @@
     <!-- Health Overview Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#526173] font-mono">Core Backend API</div>
+        <div class="text-xs uppercase font-bold text-[#526173] font-mono">Core Backend API</div>
         <div class="text-sm font-semibold text-[#247653] mt-1 flex items-center gap-1.5 font-mono">
           <span class="w-2 h-2 rounded-full bg-[#247653] animate-pulse"></span>
           Operational (FastAPI)
         </div>
-        <div class="text-[10px] text-[#526173] mt-0.5 font-mono">Port 8000 · Python 3.11</div>
+        <div class="text-xs text-[#526173] mt-0.5 font-mono">Port 8000 · Python 3.11</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#526173] font-mono">Database Engine</div>
+        <div class="text-xs uppercase font-bold text-[#526173] font-mono">Database Engine</div>
         <div class="text-sm font-semibold text-[#167D83] mt-1 flex items-center gap-1.5 font-mono">
           <span class="w-2 h-2 rounded-full bg-[#167D83]"></span>
           SQLAlchemy 2.0 (Active)
         </div>
-        <div class="text-[10px] text-[#526173] mt-0.5 font-mono">SQLite (Zero-setup Dev)</div>
+        <div class="text-xs text-[#526173] mt-0.5 font-mono">SQLite (Zero-setup Dev)</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#526173] font-mono">AI Provider Mode</div>
+        <div class="text-xs uppercase font-bold text-[#526173] font-mono">AI Provider Mode</div>
         <div class="text-sm font-semibold text-[#AD741B] mt-1 flex items-center gap-1.5 font-mono">
           <span class="w-2 h-2 rounded-full bg-[#AD741B]"></span>
           Deterministic Fallback
         </div>
-        <div class="text-[10px] text-[#AD741B] mt-0.5 font-mono">Transparent Offline Extraction</div>
+        <div class="text-xs text-[#AD741B] mt-0.5 font-mono">Transparent Offline Extraction</div>
       </AppCard>
 
       <AppCard compact>
-        <div class="text-[11px] uppercase font-bold text-[#526173] font-mono">Deterministic Rule Engine</div>
+        <div class="text-xs uppercase font-bold text-[#526173] font-mono">Deterministic Rule Engine</div>
         <div class="text-sm font-semibold text-[#247653] mt-1 flex items-center gap-1.5 font-mono">
           <span class="w-2 h-2 rounded-full bg-[#247653]"></span>
           Safe JSON AST Evaluator
         </div>
-        <div class="text-[10px] text-[#247653] mt-0.5 font-mono">Zero eval/exec · Tested</div>
+        <div class="text-xs text-[#247653] mt-0.5 font-mono">Zero eval/exec · Tested</div>
       </AppCard>
     </div>
 
@@ -66,7 +66,7 @@
       <div class="overflow-x-auto">
         <table class="w-full text-left text-xs border-collapse">
           <thead>
-            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-[10px] font-mono">
+            <tr class="bg-[#F6F5F0] text-[#526173] border-b border-[#E1E5E8] uppercase tracking-wider text-xs font-mono">
               <th class="px-5 py-3 font-semibold">User</th>
               <th class="px-4 py-3 font-semibold">Assigned Role</th>
               <th class="px-4 py-3 font-semibold">Permitted Responsibilities</th>
@@ -78,15 +78,15 @@
             <tr v-for="u in users" :key="u.id" class="hover:bg-[#F6F5F0]/60 transition-colors">
               <td class="px-5 py-3.5">
                 <div class="font-bold text-[#182533]">{{ u.full_name }}</div>
-                <div class="text-[11px] text-[#526173] font-mono">{{ u.email }}</div>
+                <div class="text-xs text-[#526173] font-mono">{{ u.email }}</div>
               </td>
               <td class="px-4 py-3.5">
                 <AppBadge variant="teal">{{ u.role }}</AppBadge>
               </td>
-              <td class="px-4 py-3.5 text-[#526173] text-[11px] max-w-xs">
+              <td class="px-4 py-3.5 text-[#526173] text-xs max-w-xs">
                 {{ getRoleResponsibilities(u.role) }}
               </td>
-              <td class="px-4 py-3.5 text-[#B33A42] text-[11px] max-w-xs font-mono font-medium">
+              <td class="px-4 py-3.5 text-[#B33A42] text-xs max-w-xs font-mono font-medium">
                 {{ getRoleRestrictions(u.role) }}
               </td>
               <td class="px-5 py-3.5 text-right">
